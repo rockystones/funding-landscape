@@ -533,7 +533,16 @@ def staleness_worklist(records: list[dict], today: dt.date) -> dict:
             })
     items.sort(key=lambda i: -i["score"])
 
-    unknown_status = [r for r in records if r.get("status") == "unknown"]
+    # A `guidance` row describes a class of funding -- startup packages, sponsored
+    # research agreements -- not a named programme with a funder page to check.
+    # "Does it still exist" is not the same question there, so those rows are
+    # counted apart instead of inflating the re-check debt forever.
+    unknown_status = [r for r in records
+                      if r.get("status") == "unknown"
+                      and r.get("coverage_type") != "guidance"]
+    guidance_no_status = [r for r in records
+                          if r.get("status") == "unknown"
+                          and r.get("coverage_type") == "guidance"]
     return {
         "generated": today.isoformat(),
         "stale_after_days": STALE_AFTER_DAYS,
@@ -541,6 +550,7 @@ def staleness_worklist(records: list[dict], today: dt.date) -> dict:
         "never_checked": never[:40],
         "overdue_count": sum(1 for i in items if i["overdue"]),
         "unknown_status_count": len(unknown_status),
+        "guidance_no_status_count": len(guidance_no_status),
         "unknown_status_volatile": sum(
             1 for r in unknown_status if r["funder_category"] in VOLATILE_CATEGORIES),
         "top": items[:60],
@@ -581,6 +591,7 @@ def build(check_only: bool = False) -> int:
     work = staleness_worklist(records, today)
     stats["overdue_fields"] = work["overdue_count"]
     stats["unknown_status"] = work["unknown_status_count"]
+    stats["guidance_no_status"] = work["guidance_no_status_count"]
     stats["with_duration"] = sum(1 for r in records if r.get("duration"))
     stats["max_staleness_days"] = max(
         (r["staleness_days"] for r in records if r["staleness_days"] is not None),
@@ -593,8 +604,9 @@ def build(check_only: bool = False) -> int:
     print(f"staleness       up to {stats['max_staleness_days']} days")
     print(f"status          " + ", ".join(f"{k}={v}" for k, v in
                                           sorted(stats["by_status"].items())))
-    print(f"re-check debt   {work['unknown_status_count']} rows of unknown status "
-          f"({work['unknown_status_volatile']} in volatile categories), "
+    print(f"re-check debt   {work['unknown_status_count']} enumerated rows of unknown "
+          f"status ({work['unknown_status_volatile']} volatile), "
+          f"{work['guidance_no_status_count']} guidance rows n/a, "
           f"{work['overdue_count']} fields past {STALE_AFTER_DAYS}d, "
           f"{work['never_checked_count']} never checked")
     print(f"errors          {len(errors)}")

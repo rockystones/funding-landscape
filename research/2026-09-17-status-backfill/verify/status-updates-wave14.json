@@ -1,0 +1,25 @@
+{
+  "session": "2026-09-17-status-backfill",
+  "checked": "2026-09-18",
+  "note": "Wave 14 — the last two enumerated unknowns. Both turned out to be resolvable, and both were masked by a stale source: AARF had been renamed AARFA, and NJCSCR's cited guide was two cycles old. Every enumerated row in the corpus now carries a sourced status.",
+  "updates": [
+    {
+      "program_name": "Alzheimer's Association Research Fellowship (AARF)",
+      "status": "active",
+      "status_evidence": "The fellowship now runs as the Alzheimer's Association Research Fellowship Program for All (AARFA): letters of intent due 14 August 2026, full applications 14 October 2026, notifications by 30 January 2027.",
+      "status_source": "https://www.alz.org/research/for_researchers/grants/types-of-grants/aarfa",
+      "source_url": "https://www.alz.org/research/for_researchers/grants/types-of-grants/aarfa",
+      "award_checked": "2026-09-18",
+      "eligibility_checked": "2026-09-18",
+      "notes_append": "RENAME 2026-09-18, and the reason the old page read “This grant is currently closed” with a February 2025 deadline and no next cycle: AARF has been superseded by the Research Fellowship Program for All (AARFA). source_url repointed. Award terms on the new page match the recorded figures (total not exceeding $200,000, research budget up to $180,000, two to three years). Eligibility now reads: doctoral degree, within 10 years of the terminal degree at LOI, not holding an independent faculty position, open to US and international researchers. program_name should follow the rename on the next editorial pass."
+    },
+    {
+      "program_name": "NJ Commission on Spinal Cord Research (NJCSCR) Individual Research Grant",
+      "status": "active",
+      "status_evidence": "NJCSCR published FY2027 Research Program Guidelines (dated December 2025); the 2027 cycle opened on SAGE on 16 February 2026 with a 1 May 2026 submission deadline and notifications expected 30 November 2026.",
+      "status_source": "https://www.nj.gov/health/spinalcord/grant-information/",
+      "source_url": "https://www.nj.gov/health/spinalcord/grant-information/",
+      "notes_append": "SOURCE REPOINTED 2026-09-18: the row cited the NJCSCR-1/2023 programme guide for the 2024 cycle. The stable grant-information page is used instead of a cycle-specific PDF, so the row does not go stale each year."
+    }
+  ]
+}

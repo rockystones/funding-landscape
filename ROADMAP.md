@@ -16,7 +16,7 @@ unparsed; holdout accuracy 14/16.
 
 ---
 
-## P1 — Durability layer  ◐ in progress (schema done, backfill started)
+## P1 — Durability layer  ✅ complete 2026-09-18
 
 The dataset cannot currently say a programme has ended, and 48% of it is federal.
 
@@ -35,15 +35,23 @@ a staleness worklist.
 **Failure mode:** `status` becomes a guess. A `terminated` claim needs a source
 the same way an amount does — an absent web page is not evidence of termination.
 
-**Done 2026-09-17:** steps 1, 2 and 4 complete. Schema 0.3.0 migrated (D-008),
-build gates refuse an unsourced status (D-010), worklist shipping in
-`dist/corpus.json`. Ford and NYSTEM re-admitted as `terminated`; Hertz added as a
-plain omission the brief's own anchor list had named. 16 rows carry a sourced
-status. Wave 2 added eight federal flagships (R01, GRFP, K99/R00, MIRA, LRP,
-Pioneer, CSGF, ARPA-H) — **24 rows carry a sourced status**.
-**Remaining:** step 3 — **169 rows still `unknown`, 81 of them federal.** That is
-the bulk of the phase and it is per-row web verification. The worklist ranks it;
-work down `dist/corpus.json` → `worklist.top`.
+**Result:** all four steps done across fourteen verification waves.
+**Every one of the 177 enumerated rows carries a sourced status** — 172 active,
+3 paused, 2 terminated — and the 16 guidance rows are exempt by D-012. Three
+genuine pauses found (NSF SPRF, NIST/NRC associateships, Microsoft Research
+Fellowship, the last suspended since 2023); Ford and NYSTEM re-admitted as
+terminated; Hertz added. Eleven rows cited documents that could no longer
+establish anything and nine had `source_url` repointed — none of them turned out
+to be a dead programme.
+
+**Exit criteria met:** every federal row has a sourced status · no drift-sensitive
+field older than 90 days · the build emits a ranked worklist · no status written
+without evidence (gate-enforced, plus a negative control on the ambiguity guard).
+
+**Carried forward** (see `research/2026-09-17-status-backfill/FINDINGS.md`): the
+PECASE row's `source_url` is still a 2012 news release, two recorded renames are
+unapplied because they change the dedup key, and Fulbright-Hays DDRA rests on the
+weakest evidence in the corpus.
 
 ---
 

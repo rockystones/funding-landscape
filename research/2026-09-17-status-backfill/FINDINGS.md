@@ -166,12 +166,131 @@ rather than treat them as errors.
 
 ---
 
+# Waves 3-14 — the rest of the corpus
+
+Fourteen waves, 2026-09-17 to 2026-09-18. **All 177 enumerated rows now carry a
+sourced status: 172 active, 3 paused, 2 terminated.** The 16 guidance rows are
+handled by policy rather than verification (F-015).
+
+## F-009 — Three programmes are genuinely paused, and they look nothing alike
+
+| Row | The funder's own words | Since |
+|---|---|---|
+| NSF SPRF | "Program 23-500 is currently waiting for a new publication." | awaiting republication |
+| NIST/NRC Postdoctoral Associateships | "we are waiting for more guidance before notifying selected applicants" | no reopening date given |
+| Microsoft Research Fellowship | "Microsoft Research has paused our call for proposals/nominations for the 2023 calendar year" | the 2023 cycle |
+
+Microsoft's is the longest-standing: three years, with applicants redirected to
+an AI & Society Fellows programme that is not yet a row here. Under the v0.1
+schema all three were indistinguishable from thriving programmes.
+
+## F-010 — Source rot was the dominant defect, and it is fixable
+
+Eleven rows cited a document that could no longer establish anything: archived
+NSF solicitations (MRI, GOALI), a ROSES-2022 NASA call, an expired NIH notice, a
+2012 ONR news release, a 404 at the Florida Department of Health, a 2024-cycle
+NJCSCR guide, a 2023 AFOSR PDF, a superseded ed.gov page, and a renamed
+Alzheimer's programme.
+
+**Every one was resolvable.** Nine had `source_url` repointed and all eleven now
+carry a sourced status. Not one turned out to be a terminated programme — the
+rot was in the citation, not the funding.
+
+That is the general lesson of the backfill. The thing this corpus most needed
+protection against was not programmes quietly ending; it was **links quietly
+going stale while the programme carried on**. A reader following an archived NSF
+solicitation would reasonably conclude the programme was dead.
+
+## F-011 — NSF skipped the entire FY2026 MRI competition
+
+The single most consequential fact found. On 1 July 2025 NSF announced it would
+not accept Major Research Instrumentation proposals in the scheduled FY2026
+window (15 Oct – 14 Nov 2025), returning any submitted **without review**, to
+fund more of the FY2025 cohort. The next window is 15 October – 16 November 2026.
+
+The programme is `active` — a skipped cycle with an announced next window — but
+anyone planning an instrumentation purchase around MRI needed to know, and no
+field in v0.1 could have told them. NSF's own pages label solicitation 23-519
+both "Active funding opportunity" and "Status: Archived" depending on the view,
+which is why this row needed the announcement rather than a page label.
+
+## F-012 — Absence from a summarised index is not evidence
+
+Two independent reads of NIH's activity-code index reported UG3/UH2/UH3 as
+absent, while every other code in the corpus was listed. The direct activity-code
+page exists and describes UG3 as current. The index summary was incomplete.
+
+Held at `unknown` for four waves rather than drifting toward `terminated`, which
+is exactly what D-009 is for. **A summarised absence must never move a row toward
+terminated on its own.**
+
+## F-013 — Two programmes have been renamed under the corpus's feet
+
+- **AARF → "Alzheimer's Association Research Fellowship Program for All (AARFA)".**
+  This is why the old page read "This grant is currently closed" with a February
+  2025 deadline and no successor. The new programme's terms match the recorded
+  amounts, so only the name and URL were stale.
+- **APS "Future of Physics Days travel grants" → "Doc Brown Future of Physics
+  Days Travel Grants"**, now tied to the APS Global Physics Summit rather than
+  the March/April meetings.
+
+Both are recorded; neither `program_name` was changed, because renaming a row
+changes the dedup key and is an editorial call.
+
+## F-014 — Half the web refuses a plain text fetch
+
+Roughly a third of sources returned HTTP 403, 404, 418 or an empty body to the
+fetch tool while being perfectly readable in a rendering browser: ARPA-E (client
+-rendered), basicresearch.defense.gov, transportation.gov, ahrq.gov, sloan.org,
+beckman-foundation.org, komen.org, als.org, cff.org (behind a cookie banner),
+agu.org, eds.ieee.org, ncbiotech.org, cprit.texas.gov, qualcomm.com.
+
+Three refused everything — acs.org, neh.gov and the old seagrant URL — and those
+rows say in their notes that they were read through a search index rather than
+fetched, which is weaker evidence and is marked as such.
+
+**Method note for the next jurisdiction:** budget for a rendering browser from
+the start, and treat a fetch failure as a tooling fact, never a finding.
+
+## F-015 — "Does it still exist" is not a question guidance rows can answer
+
+16 rows carry `coverage_type = guidance`: they describe a *class* of funding —
+faculty startup packages, internal bridge funding, industry sponsored-research
+agreements, core-facility vouchers — not a named programme with a funder page.
+Asking whether a practice has been terminated is a category error, and leaving
+them `unknown` would have kept the re-check debt permanently non-zero.
+
+They are now counted apart in the build (`guidance_no_status_count`) rather than
+inflating the debt. See D-012.
+
+## F-016 — Amounts hold up under spot-checking
+
+Across the backfill, 15 award figures were quotable from funder pages and
+compared against the vault. **All 15 matched**: NSF GRFP, NIH LRP, DOE CSGF, NIH
+K99/R00, NIH Pioneer, Sloan, NCBiotech Flash, ALS Safenowitz, MJFF Safra, CFF
+Pilot & Feasibility, IEEE EDS, AARFA, Hertz, ACS PRF DNI and AFOSR YIP.
+
+These are the better-documented programmes, so this is not a uniform sample. But
+15/15 is a meaningful independent check on v0.1's amounts, and it is a different
+question from whether the *parser* reads them correctly (D-006).
+
+---
+
 ## What this leaves open
 
-- **169 rows remain `status = unknown`, 81 of them in the volatile federal /
-  defense / mission categories.** Two waves covered 24. The worklist ranks the rest.
-- `source_url` rot is unmeasured across the corpus (F-007). One archived
-  solicitation and one stale redirect turned up in eleven rows checked.
+- **Nothing in the enumerated set.** All 177 enumerated rows carry a sourced
+  status. The 16 guidance rows are `unknown` by policy (F-015, D-012).
+- **The PECASE row's `source_url` is still a 2012 ONR news release.** Its status
+  is sourced elsewhere, but picking a replacement is an editorial call: PECASE is
+  conferred across 14 agencies and this row is filed under the DoD stream.
+- **Two renames are recorded but not applied** (F-013), because changing
+  `program_name` changes the dedup key.
+- **Fulbright-Hays DDRA is `active` on the weakest evidence in the corpus** — ED's
+  IRIS registry presents it as current, but no competition newer than FY2025 was
+  found and the main ed.gov page 404s. First row to re-check.
+- **Several rows rest on pages last dated 2023-2025** rather than a live deadline:
+  NATO SPS (2023 page), NIJ GRF and W.E.B. Du Bois (2024), DHS COE (2025). Each
+  says so in its notes.
 - F-004's four rows need the full application guidance read, not the landing page.
 - `review_criteria_checked` is blank on the three added rows: that field was not
   verified for them, and blank honestly says "never checked" rather than

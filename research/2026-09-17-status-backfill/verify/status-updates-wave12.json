@@ -1,0 +1,60 @@
+{
+  "session": "2026-09-17-status-backfill",
+  "checked": "2026-09-18",
+  "note": "Wave 12 — the eight enumerated industry rows (the three guidance rows in this category are handled by policy, not by verification). Seven active, one paused: the Microsoft Research PhD Fellowship has been suspended since the 2023 cycle. Several of these corporate pages carry no cycle dates at all, which is itself a difference from the federal and foundation rows.",
+  "updates": [
+    {
+      "program_name": "Google PhD Fellowship Program",
+      "status": "active",
+      "status_evidence": "“Applications open March 5, 2026” and “Applications close April 30, 2026”, with notification by 31 August 2026. Between cycles, no discontinuation notice.",
+      "status_source": "https://research.google/programs-and-events/phd-fellowship/"
+    },
+    {
+      "program_name": "NVIDIA Graduate Fellowship Program",
+      "status": "active",
+      "status_evidence": "“Submissions are now CLOSED” for the 2026 cycle (deadline 15 September 2025), with decisions expected by the end of November. No discontinuation notice.",
+      "status_source": "https://research.nvidia.com/graduate-fellowships"
+    },
+    {
+      "program_name": "IBM PhD Fellowship Awards",
+      "status": "active",
+      "status_evidence": "“The 2025 IBM PhD Fellowship covers the Fall 2025 and Spring 2026 semesters”; application procedures and recent awardees posted.",
+      "status_source": "https://research.ibm.com/university/awards/fellowships.html"
+    },
+    {
+      "program_name": "Amazon Research Awards (ARA)",
+      "status": "active",
+      "status_evidence": "Programme rules dated 26 March 2025 with a live Call for Proposals page. No suspension notice.",
+      "status_source": "https://www.amazon.science/research-awards/program-rules",
+      "notes_append": "Status verified 2026-09-18 from the rules page, which names no current cycle deadline; the call-for-proposals page would give cadence."
+    },
+    {
+      "program_name": "Apple Scholars in AI/ML",
+      "status": "active",
+      "status_evidence": "“Now in its seventh year, the fellowship program has supported more than 120 emerging leaders in computer science and engineering”; the 2026 cohort has been announced.",
+      "status_source": "https://machinelearning.apple.com/updates/apple-scholars-aiml-2026"
+    },
+    {
+      "program_name": "Qualcomm Innovation Fellowship (QIF) - North America",
+      "status": "active",
+      "status_evidence": "Qualcomm presents QIF as ongoing: “380+ Submissions each year”, “45+ Funded student fellows annually”, “$20mil+ Awarded since 2009”.",
+      "status_source": "https://www.qualcomm.com/research/university-relations/innovation-fellowship",
+      "notes_append": "Resolved 2026-09-18 with a rendering browser; qualcomm.com serves no body until its cookie preference centre is dismissed (non-essential tracking declined)."
+    },
+    {
+      "program_name": "Pharmaceutical Investigator-Sponsored / Investigator-Initiated Studies (ISS/IIS) programs",
+      "status": "active",
+      "status_evidence": "“Pfizer supports Investigator Sponsored Research (ISR) projects that advance medical and scientific knowledge about our therapies”. Pfizer adds that it “has implemented application windows for unsolicited requests” and that the review-cycle schedule “will be reposted soon” — a cadence change, not a suspension.",
+      "status_source": "https://www.pfizer.com/about/programs-policies/grants/investigator-sponsored-research"
+    },
+    {
+      "program_name": "Microsoft Research Fellowship (formerly Microsoft Research PhD Fellowship)",
+      "match": "startswith",
+      "status": "paused",
+      "status_valid_to": "2022-12-31",
+      "status_evidence": "“Microsoft Research has paused our call for proposals/nominations for the 2023 calendar year”, with Microsoft “exploring new avenues to invest in our academic partnerships” and directing prospective applicants to its AI & Society Fellows programme instead. No termination statement, and the pause has not been lifted on the page.",
+      "status_source": "https://www.microsoft.com/en-us/research/academic-program/phd-fellowship/",
+      "notes_append": "PAUSED as of 2026-09-18, and paused since the 2023 cycle — the longest-standing suspension found in the corpus. status_valid_to is set to the end of the last year the fellowship ran (2022). Microsoft points applicants at the AI & Society Fellows programme, which is not currently a row here and is a candidate for P2."
+    }
+  ]
+}

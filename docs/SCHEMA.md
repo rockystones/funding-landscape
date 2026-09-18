@@ -135,6 +135,10 @@ eligible for. For this corpus that is the point, not a nicety.
   Enforced at build: any non-`unknown` status requires `status_evidence`,
   `status_source` and `status_checked`; `status_valid_to` is only legal on
   `terminated` or `paused`. See D-009 and D-010.
+
+  **Guidance rows are exempt.** A `coverage_type = guidance` row describes a class
+  of funding, not a programme, so it has no status to verify; those rows stay
+  `unknown` and the build counts them apart from the re-check debt (D-012).
 - **Field-level provenance (added 0.3.0).** `award_checked`,
   `eligibility_checked`, `identity_checked` and `review_criteria_checked` split
   the single row-level `checked_date` across the four fields that drift, so a

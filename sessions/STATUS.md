@@ -1,42 +1,49 @@
 # Status
 
-**Last session:** 2026-09-17 — P0 scaffold + baseline audit, then P1 durability layer.
-**Phase:** P1 ◐ schema done, backfill started. **Next:** P1 step 3, the bulk backfill.
+**Last session:** 2026-09-17/18 — P0 scaffold + baseline audit, then P1 complete.
+**Phase:** P0 ✅ · P1 ✅. **Next:** P2 coverage (see `ROADMAP.md`).
 
 ## Where things stand
 
-- Repo initialised from the four delivered files; house P0 layout adopted (D-002).
-  Commit authorship is the `noreply` identity; `backup/pre-rewrite` holds the old
-  chain locally and must never be pushed.
+- Repo follows the house P0 layout (D-002). Commit authorship is the `noreply`
+  identity; `backup/pre-rewrite` holds the old chain locally and is never pushed.
 - **Schema 0.3.0** (D-008): `status`, `status_valid_to`, `status_evidence`,
-  `status_source`, `status_checked`, plus per-field `award_/eligibility_/identity_/
-  review_criteria_checked`. Migration is idempotent (`scripts/migrate_0_3_0.py`).
-- **Build gates a status claim** (D-010): non-`unknown` status requires evidence,
-  source and date; `scripts/apply_status.py` refuses to write one without them.
-  `--check` is green: **0 errors, 0 warnings on 193 rows**.
-- **Backfill waves 1-2 done:** 13 identity-gated rows + 8 federal flagships
-  verified against funder pages, 3 rows added. Status now active=21, paused=1,
-  terminated=2, **unknown=169** (81 federal).
-- Findings in `research/2026-09-17-status-backfill/FINDINGS.md` — eight. Sharpest:
-  F-003 (a wrong hard identity gate, corrected), F-004 (four rows whose URM coding
-  looks stale, deliberately **not** changed), F-006 (five v0.1 award figures
-  independently re-checked, all five matched) and F-007 (a row citing an archived
-  solicitation — `source_url` rot is an undetected failure mode).
-- Explorer republished with the durability layer visible:
-  https://claude.ai/artifact/Qq9sngHh7tdhQUnERzMMvD
+  `status_source`, `status_checked` plus per-field `*_checked` dates.
+- **`--check` is green: 0 errors, 0 warnings on 193 rows.**
+- **P1 backfill complete.** All 177 enumerated rows carry a sourced status:
+  **172 active, 3 paused, 2 terminated.** The 16 guidance rows are exempt (D-012).
+  Fourteen verification waves, every claim carrying the quote that justifies it in
+  `research/2026-09-17-status-backfill/verify/status-updates-wave*.json`.
+- Sixteen findings in that session's `FINDINGS.md`. The headline ones: source rot
+  was the real problem rather than programmes ending (11 rows, all live, 9
+  repointed); NSF skipped the entire FY2026 MRI competition; three genuine pauses;
+  two silent renames; 15 of 15 spot-checked amounts matched the vault.
+- Explorer published: https://claude.ai/artifact/Qq9sngHh7tdhQUnERzMMvD
+
+## Tooling added this session
+
+| Script | What it does |
+|---|---|
+| `scripts/build.py` | validate → derive → emit `dist/corpus.json` + worklist |
+| `scripts/migrate_0_3_0.py` | idempotent schema migration |
+| `scripts/apply_status.py` | applies an evidence-carrying updates file; refuses unsourced or ambiguous writes |
+| `scripts/next_batch.py` | stateless: prints the next slice of unverified rows |
+| `scripts/pdf_text.py` | stdlib PDF text extraction, for the rows that cite PDFs |
+| `scripts/make_viz.py` | inlines the payload into the explorer |
 
 ## Gated on the user
 
 - Nothing is blocked.
-- **F-004 wants a decision**: four rows (HHMI Hanna Gray / Gilliam / Freeman
-  Hrabowski, NSF PRFB) are coded `underrepresented_minorities` + `prioritizes`,
-  but their current pages carry only general "all backgrounds" language. Resolving
-  it needs the full application guidance read, not the landing page.
+- **Two editorial calls wait on a decision**, both recorded rather than made:
+  1. F-004 — four rows (HHMI Hanna Gray / Gilliam / Freeman Hrabowski, NSF PRFB)
+     are coded `underrepresented_minorities` + `prioritizes`, but their pages now
+     carry only general "all backgrounds" language.
+  2. F-013 — two programmes have been renamed (AARF → AARFA; APS FPD → Doc Brown
+     Future of Physics Days). Renaming a row changes the dedup key.
 
 ## Next session opens with
 
 1. `python scripts/build.py --check` (expect 0 errors, 193 rows).
-2. P1 step 3: work down `dist/corpus.json` → `worklist.top`, highest score first.
-   169 rows are `unknown`, 81 of them federal. Same loop as waves 1-2: fetch the
-   row's `source_url`, apply D-009's existence test, write the result into a new
-   `research/<date>-status-backfill/verify/status-updates.json`, apply, rebuild.
+2. `ROADMAP.md` P2: humanities/arts/social sciences (~25–35 rows), then catalogue
+   depth for the single-programme funders. Budget a rendering browser from the
+   start — a third of sources refuse a plain text fetch (D-014).

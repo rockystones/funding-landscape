@@ -67,15 +67,21 @@ exists".
 **This is the highest-value change available** and it is cheap: one `status`
 enum, one `valid_to`, one `status_source`.
 
-> **Update 2026-09-17 — addressed in schema 0.3.0.** The columns exist and are
-> build-enforced: a status without evidence and a source now fails the gate. The
-> backfill has started rather than finished — 16 of 193 rows carry a sourced
-> status (13 `active`, 1 `paused`, 2 `terminated`), and **177 remain `unknown`,
-> 89 of them federal**. Ford and NYSTEM are back in the corpus as `terminated`
-> rows instead of silent omissions. NSF SPRF is the first programme the schema
-> can correctly describe as suspended: *"Program 23-500 is currently waiting for
-> a new publication."* Details in
-> `research/2026-09-17-status-backfill/FINDINGS.md`.
+> **Update 2026-09-18 — resolved.** Schema 0.3.0 added the columns and the build
+> gates them: a status without evidence and a source fails. The backfill then ran
+> to completion — **all 177 enumerated rows carry a sourced status** (172 active,
+> 3 paused, 2 terminated), with the 16 guidance rows exempt by D-012. Ford and
+> NYSTEM are back as `terminated` rows instead of silent omissions, and three
+> genuine pauses surfaced that the old schema could not have expressed, including
+> a Microsoft fellowship suspended since 2023.
+>
+> The backfill also inverted the expected finding. Almost nothing had ended; what
+> had rotted were the **citations**. Eleven rows pointed at archived
+> solicitations, expired notices, 404s or a renamed programme, and all eleven
+> turned out to describe live funding. The most consequential single fact found
+> was not a termination either: NSF skipped the **entire FY2026 MRI competition**,
+> returning proposals without review, with the next window opening 15 October 2026.
+> Details in `research/2026-09-17-status-backfill/FINDINGS.md`.
 
 ### 3.2 Provenance is row-level, but the fields drift at different speeds
 
@@ -158,6 +164,10 @@ was achieved, depth was not.
   Values include "unspecified" (32), "no" (22), "none.", "not applicable",
   "varies by mechanism". It cannot be filtered, which defeats its purpose — the
   brief built this field specifically to answer "does my R21 disqualify me?".
+- **`source_url` rot, now measured.** 11 of 177 enumerated rows (6%) cited a
+  document that could no longer establish current status. All eleven described
+  live funding; nine have been repointed (D-013). Nothing in the schema detects
+  this, and it is a distinct failure mode from a programme ending.
 - **The companion guide was never produced.** `docs/BRIEF.md` §9 lists it as
   artifact 2 of 2, with 5–7 worked personas. It remains deferred.
 

@@ -84,3 +84,30 @@ correct. *Rules out* carrying forward the v0.1 coding for this row. Four further
 rows whose URM language has thinned were **not** changed — absence of language on
 a landing page is weaker evidence than a direct contradiction (see
 `research/2026-09-17-status-backfill/FINDINGS.md` F-004).
+
+**D-012 — `status` does not apply to guidance rows.** (2026-09-18)
+The 16 `coverage_type = guidance` rows describe a class of funding (startup
+packages, bridge funding, sponsored research agreements, core-facility vouchers),
+not a named programme with a funder page. "Has it been terminated?" is a category
+error there, so they stay `unknown` and the build counts them separately
+(`guidance_no_status_count`) instead of holding the re-check debt permanently
+above zero. *Rules out* fabricating a status for a practice, and *rules out*
+reading a non-zero unknown count as unfinished work when those rows are the cause.
+
+**D-013 — A stale `source_url` is corrected in place, with the old one named.** (2026-09-18)
+Nine rows had `source_url` repointed during the P1 backfill because the cited
+document could no longer establish anything: archived NSF solicitations, a
+ROSES-2022 call, an expired NIH notice, a 404, a two-cycle-old state guide, a
+renamed programme. Each carries a `SOURCE REPOINTED` note naming what it used to
+cite and why. Where a stable programme page exists it is preferred over a
+cycle-specific PDF, so the row does not go stale every year. *Rules out* silently
+swapping a citation, and *rules out* keeping a dead link because "it was the
+original source".
+
+**D-014 — A fetch failure is a tooling fact, not a finding.** (2026-09-18)
+Roughly a third of sources refuse a plain text fetch (403, 404, 418, or an empty
+client-rendered body) while being readable in a rendering browser. Three refuse
+everything; those rows record that they were read through a search index, which
+is weaker evidence, and say so in their notes. *Rules out* letting HTTP status
+influence programme status in any way (see D-009), and *requires* that the method
+used be recorded when it was not a direct read of the funder's page.

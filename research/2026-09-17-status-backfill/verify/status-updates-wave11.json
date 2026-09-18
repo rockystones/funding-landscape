@@ -1,0 +1,81 @@
+{
+  "session": "2026-09-17-status-backfill",
+  "checked": "2026-09-17",
+  "note": "Wave 11 — international_mobility. Eleven of twelve resolved active, several with 2027 cycles already open. Fulbright-Hays DDRA stays unknown: its ed.gov page 404s and the newest confirmable competition is FY2025. Two rows carry currency caveats — NATO SPS rests on a 2023 page and DAAD names no deadline.",
+  "updates": [
+    {
+      "program_name": "EMBO Postdoctoral Fellowships",
+      "status": "active",
+      "status_evidence": "“Applications accepted throughout the year (next cutoff date – hard deadline: Friday 22 January 2027, 14:00 CET)”.",
+      "status_source": "https://www.embo.org/funding/fellowships-grants-and-awards/postdoctoral-fellowships/",
+      "eligibility_checked": "2026-09-17",
+      "notes_append": "ELIGIBILITY CHANGE seen 2026-09-17: from the Autumn 2027 selection round applicants may submit only one proposal, and re-applications will no longer be permitted. Worth folding into eligibility_notes on the next pass."
+    },
+    {
+      "program_name": "EMBO Young Investigator Programme (YIP)",
+      "status": "active",
+      "status_evidence": "“Application deadline: 1 April”; current eligibility criteria and application resources posted, with no suspension notice.",
+      "status_source": "https://www.embo.org/funding/fellowships-grants-and-career-support/young-investigator-programme/eligibility/"
+    },
+    {
+      "program_name": "Fulbright U.S. Scholar Program",
+      "status": "active",
+      "status_evidence": "“The 2027-2028 Fulbright U.S. Scholar competition is now open”.",
+      "status_source": "https://fulbrightscholars.org/us-scholar-awards"
+    },
+    {
+      "program_name": "Fulbright U.S. Student Program",
+      "status": "active",
+      "status_evidence": "“The 2027-2028 Competition is now open. The National Deadline is October 6, 2026 at 5pm Eastern Time”.",
+      "status_source": "https://us.fulbrightonline.org/about/fulbright-us-student-program"
+    },
+    {
+      "program_name": "DAAD Research Grants (for U.S./Canadian applicants)",
+      "status": "active",
+      "status_evidence": "“DAAD research grants offers doctoral students and postdocs the opportunity to pursue short- or long-term research projects in Germany”; presented as a current offering with no suspension notice.",
+      "status_source": "https://www.daad.org/en/find-funding/graduate-opportunities/research-grants/",
+      "notes_append": "Status verified at programme level 2026-09-17; the page names no specific deadline, so cadence was not re-confirmed."
+    },
+    {
+      "program_name": "HFSP Cross-Disciplinary Fellowship (CDF)",
+      "status": "active",
+      "status_evidence": "“The ProposalCentral application portal will OPEN on March 12, 2026” for the 2027 cycle, with Letters of Intent due 12 May 2026.",
+      "status_source": "https://www.hfsp.org/funding/hfsp-funding/postdoctoral-fellowships"
+    },
+    {
+      "program_name": "HFSP Long-Term Fellowship (LTF)",
+      "status": "active",
+      "status_evidence": "“The ProposalCentral application portal will OPEN on March 12, 2026” for the 2027 cycle, with Letters of Intent due 12 May 2026.",
+      "status_source": "https://www.hfsp.org/funding/hfsp-funding/postdoctoral-fellowships"
+    },
+    {
+      "program_name": "HFSP Research Grant - Early Career",
+      "status": "active",
+      "status_evidence": "“Compulsory initiation of a letter of Intent by obtaining an LOI ID number (1XXXXXX) by 17 March 2026”, with full proposals due around mid-September 2026.",
+      "status_source": "https://www.hfsp.org/funding/hfsp-funding/research-grants"
+    },
+    {
+      "program_name": "HFSP Research Grant - Program",
+      "status": "active",
+      "status_evidence": "“Compulsory initiation of a letter of Intent by obtaining an LOI ID number (1XXXXXX) by 17 March 2026”, with full proposals due around mid-September 2026.",
+      "status_source": "https://www.hfsp.org/funding/hfsp-funding/research-grants"
+    },
+    {
+      "program_name": "NATO Science for Peace and Security (SPS) Programme - Multi-Year Projects",
+      "status": "active",
+      "status_evidence": "“Over the past five years, the Programme has initiated more than 200 collaborative activities among NATO member states and partner countries”; grant mechanisms and application processes described as current.",
+      "status_source": "https://www.nato.int/en/about-us/organization/nato-structure/science-for-peace-and-security-hub/science-for-peace-and-security-programme",
+      "notes_append": "Status evidence 2026-09-17 comes from a page dated 17 April 2023, which is the weakest currency of any row verified in this wave. No open call was confirmed."
+    },
+    {
+      "program_name": "Schmidt Science Fellows",
+      "status": "active",
+      "status_evidence": "The 2027 cycle is described with eligibility keyed to PhD conferral “between May 1, 2026 and June 30, 2027”.",
+      "status_source": "https://schmidtsciencefellows.org/selection/who-can-apply/"
+    },
+    {
+      "program_name": "Fulbright-Hays Doctoral Dissertation Research Abroad (DDRA)",
+      "notes_append": "UNRESOLVED 2026-09-17: the row's ed.gov URL now returns HTTP 404, and the most recent competition that could be confirmed is FY2025 (Federal Register notice of 30 October 2024, applications due 15 January 2025, an estimated $3,000,000 subject to congressional action). No FY2026 or FY2027 competition was found. A 404 is not evidence of termination (D-009), so status stays unknown — but this is the row most worth resolving next, because a dead departmental page plus no newer competition is exactly the pattern a reader would misread. Try iris.ed.gov/programs/ddra and the Federal Register."
+    }
+  ]
+}
