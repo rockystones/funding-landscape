@@ -69,12 +69,14 @@ counts published.
 **Failure mode:** breadth-padding. Low-confidence stubs with no verifiable source
 are not rows; watch the confidence distribution, not the row count.
 
-**Done 2026-09-18 (step 1, two waves, 21 rows):** social_sciences 15 → 31,
-humanities 4 → 14, arts 1 → 5. Funders added: Spencer (4 rows), W.T. Grant (3),
-Russell Sage (4), Guggenheim, ACLS (5, with Mellon and Luce as co-funders), Getty
-(2, both paused for 2027-28), NEH (2 more).
-**Remaining in step 1:** arts is still below the floor of 10 — NEA's other lines,
-Creative Capital, United States Artists, Doris Duke. ACLS publishes 19
+**Done 2026-09-18 (step 1, three waves, 26 rows): the domain floor is met.**
+social_sciences 15 → 31, humanities 4 → **16**, arts 1 → **10**. 219 rows, 108
+funders, confidence 140 high / 74 medium / 5 low. Funders added: Spencer (4 rows),
+W.T. Grant (3), Russell Sage (4), Guggenheim, ACLS (5, with Mellon and Luce as
+co-funders), Getty (2, both paused for 2027-28), NEH (2 more), Creative Capital
+(2), United States Artists, NEA Creative Writing, NYFA/NYSCA.
+**Remaining in step 1:** arts sits exactly at the floor — Doris Duke, Mellon's
+arts programmes, regional arts organisations beyond NYFA. ACLS publishes 19
 competitions against 5 rows. Mellon has no direct rows (its grantmaking is largely
 institutional, so decide deliberately whether it is `guidance`). RWJF, Luce direct,
 MacArthur, Keck, Kavli and Templeton remain absent.

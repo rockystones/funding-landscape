@@ -1,6 +1,6 @@
 # P2 wave 1–2 — the humanities and social-science gap
 
-**Session:** 2026-09-18 · **Phase:** P2 step 1 · **Rows added:** 21
+**Session:** 2026-09-18 · **Phase:** P2 step 1 · **Rows added:** 26
 **Target:** `ASSESSMENT.md` §3.4, which found the corpus contradicting the brief's
 own "all research domains" scope — humanities 4 rows, arts 1, social sciences 15.
 
@@ -9,16 +9,17 @@ own "all research domains" scope — humanities 4 rows, arts 1, social sciences 
 | Domain | Before | After |
 |---|---:|---:|
 | social_sciences | 15 | **31** |
-| humanities | 4 | **14** |
-| arts | 1 | **5** |
+| humanities | 4 | **16** |
+| arts | 1 | **10** |
 
-214 rows, 105 funders. Funders added: Spencer Foundation, William T. Grant
+219 rows, 108 funders. Funders added: Spencer Foundation, William T. Grant
 Foundation, Russell Sage Foundation, Guggenheim, ACLS (with Mellon and Luce as
-co-funders), Getty Research Institute, plus two more NEH programmes.
+co-funders), Getty Research Institute, two more NEH programmes, Creative Capital,
+United States Artists, NEA Creative Writing and NYFA/NYSCA.
 
-**The roadmap's exit criterion — no domain below 10 rows — is met for humanities
-and social sciences but not for arts (5).** Named as unfinished rather than
-rounded up.
+**The roadmap's exit criterion for step 1 — no domain below 10 rows — is now
+met.** Arts sits exactly at the floor, which is a floor and not a finish line.
+Confidence across the corpus: 140 high · 74 medium · 5 low.
 
 ## P2-001 — The gap was real and the funders were where the assessment said
 
@@ -75,11 +76,46 @@ This is worth stating plainly: **two federal humanities programmes are in this
 corpus on weaker evidence than any federal science programme**, purely because of
 how their site treats automated clients.
 
+## P2-005 — The arts rows needed a different vocabulary than the schema has
+
+Five arts rows (wave 3) strained the controlled vocabularies in ways the
+biomedical corpus never did:
+
+- **`by_invitation` finally earns its place.** The USA Fellowship cannot be
+  applied for: a rotating, anonymous group of arts professionals nominates
+  candidates. It is one of only a handful of `by_invitation` rows.
+- **`application_cadence` cannot express a rotation.** The NYSCA/NYFA Fellowship
+  covers fifteen disciplines over three years, five a year — so any given artist's
+  category opens one year in three. `annual` is recorded with the rotation in
+  `eligibility_notes`, which is a workaround, not a fit.
+- **`research_stage` is meaningless for an unrestricted artist grant.** Four of
+  five arts rows are `unspecified`, correctly: an award funding "an artist's
+  vision or voice" has no research stage.
+- **`typical_duration = n/a (one-off prize)`** appears for the first time. Prizes
+  and unrestricted grants have no period.
+
+None of this is wrong, but it is the first sign that a vocabulary designed around
+project-based research funding fits artist support only loosely. Worth a
+deliberate look if the arts section grows.
+
+## P2-006 — One row is deliberately marked low confidence
+
+The Creative Capital State of the Art Prize is named only in passing alongside
+the main award; its cadence, eligibility and selection route were not established.
+It is kept as a row because the amount and funder are attributable, and it is
+flagged in its own notes as **the weakest row in the corpus**, to re-verify or
+remove. The corpus now carries 5 `low`-confidence rows out of 219 (2%), well
+inside the build's 25% gate.
+
+Recording this rather than quietly dropping it is the point: the brief's rule is
+that a stub with no verifiable source is not a row, and this one sits right at
+that line.
+
 ## What this leaves open
 
-- **Arts is still at 5 rows**, below the roadmap's floor of 10. Candidates not yet
-  researched: NEA's other grant lines, Creative Capital, United States Artists,
-  Doris Duke, Mellon's arts programmes.
+- **Arts is at exactly 10 rows** — the floor, not a finish. Not yet researched:
+  NEA's other grant lines, Doris Duke, Mellon's arts programmes, regional arts
+  organisations beyond NYFA.
 - **ACLS has 19 competitions and 5 rows.** The Robert H. N. Ho Family Foundation
   Buddhist Studies suite alone is five more.
 - **Mellon Foundation has no rows of its own** — it appears only as a co-funder of
