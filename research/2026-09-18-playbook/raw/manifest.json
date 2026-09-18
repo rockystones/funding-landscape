@@ -1,7 +1,7 @@
 {
  "journal": "journal.jsonl",
  "agents_started": 284,
- "agents_with_results": 271,
+ "agents_with_results": 272,
  "agents_failed": 1,
  "empty_results": 0,
  "phases": {
@@ -11,9 +11,9 @@
    "kb": 3283
   },
   "Paths": {
-   "agents": 2,
+   "agents": 3,
    "file": "paths.json",
-   "kb": 105
+   "kb": 168
   },
   "Systems": {
    "agents": 23,
