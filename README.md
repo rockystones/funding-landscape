@@ -47,3 +47,9 @@ Standard library only — no pandas, no openpyxl.
 - `selectivity` is "unspecified" on 81% of rows. That is honest, not missing.
 - Two categories (`institutional`, `industry`) are deliberately **guidance rows**,
   not enumerations — see the availability-bias note in `docs/BRIEF.md` §2.4.
+
+## License
+
+Apache-2.0. The dataset rows are facts compiled from funders' own published pages,
+each row carrying its `source_url`; short quotations from those pages appear in
+`status_evidence` and `notes` for provenance.
