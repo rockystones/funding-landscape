@@ -5,8 +5,15 @@
 
 ## Where things stand
 
+- **PUBLISHED 2026-09-18** to `github.com/rockystones/funding-landscape` (PUBLIC),
+  branch `main`, head `03c2cf6`, 15 commits. Apache-2.0 carried forward from the
+  repo's initial commit byte-identically (blob `261eeb9`). The placeholder commit
+  `adf2ecc` was replaced with `--force-with-lease=main:adf2ecc5…`.
+  **Two local-only tags must never be pushed** — `backup/pre-rewrite` (pre-noreply
+  chain) and `pre-neutralize-backup` (pre-redaction chain). Neither is reachable
+  from `main`; the remote carries 0 tags.
 - Repo follows the house P0 layout (D-002). Commit authorship is the `noreply`
-  identity; `backup/pre-rewrite` holds the old chain locally and is never pushed.
+  identity throughout.
 - **Schema 0.3.0** (D-008): `status`, `status_valid_to`, `status_evidence`,
   `status_source`, `status_checked` plus per-field `*_checked` dates.
 - **`--check` is green: 0 errors, 0 warnings on 193 rows.**
@@ -38,6 +45,20 @@
 | `scripts/next_batch.py` | stateless: prints the next slice of unverified rows |
 | `scripts/pdf_text.py` | stdlib PDF text extraction, for the rows that cite PDFs |
 | `scripts/make_viz.py` | inlines the payload into the explorer |
+
+## Pre-push review (2026-09-18)
+
+Every blob reachable from `main` (88) plus all commit metadata and messages were
+scanned. Clean on: personal email, real name, hostname, Windows/user paths,
+session directories, credentials, IP addresses. One finding, fixed before the
+push: **28 references to non-public sibling projects** (`loom/docs/knowledge-schema/
+NEW-PROJECT-P0.md` and `echemlab`) across all 14 commits in `DECISIONS.md` and
+`docs/SCHEMA.md`. Because they were in multiple blob versions, HEAD-only editing
+would have left them in public history, so history was rewritten with
+`filter-branch` to describe those things generically instead. `ai-good-practice`
+was deliberately retained — it is a public repo, so the reference is a citation a
+reader can follow. The delivered `.xlsx` was checked separately: its embedded
+`docProps` carry `creator: openpyxl` and an empty `lastModifiedBy`, no personal data.
 
 ## Gated on the user
 
