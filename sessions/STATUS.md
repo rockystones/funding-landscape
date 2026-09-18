@@ -14,11 +14,14 @@
 - **Build gates a status claim** (D-010): non-`unknown` status requires evidence,
   source and date; `scripts/apply_status.py` refuses to write one without them.
   `--check` is green: **0 errors, 0 warnings on 193 rows**.
-- **Backfill wave 1 done:** 13 identity-gated rows verified against funder pages,
-  3 rows added. Status now active=13, paused=1, terminated=2, **unknown=177**.
-- Findings in `research/2026-09-17-status-backfill/FINDINGS.md` — five, the
-  sharpest being F-003 (a wrong hard identity gate, corrected) and F-004 (four
-  rows whose URM coding looks stale, deliberately **not** changed).
+- **Backfill waves 1-2 done:** 13 identity-gated rows + 8 federal flagships
+  verified against funder pages, 3 rows added. Status now active=21, paused=1,
+  terminated=2, **unknown=169** (81 federal).
+- Findings in `research/2026-09-17-status-backfill/FINDINGS.md` — eight. Sharpest:
+  F-003 (a wrong hard identity gate, corrected), F-004 (four rows whose URM coding
+  looks stale, deliberately **not** changed), F-006 (five v0.1 award figures
+  independently re-checked, all five matched) and F-007 (a row citing an archived
+  solicitation — `source_url` rot is an undetected failure mode).
 - Explorer republished with the durability layer visible:
   https://claude.ai/artifact/Qq9sngHh7tdhQUnERzMMvD
 
@@ -34,6 +37,6 @@
 
 1. `python scripts/build.py --check` (expect 0 errors, 193 rows).
 2. P1 step 3: work down `dist/corpus.json` → `worklist.top`, highest score first.
-   177 rows are `unknown`, 89 of them federal. Same loop as wave 1: fetch the
+   169 rows are `unknown`, 81 of them federal. Same loop as waves 1-2: fetch the
    row's `source_url`, apply D-009's existence test, write the result into a new
    `research/<date>-status-backfill/verify/status-updates.json`, apply, rebuild.

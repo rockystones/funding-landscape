@@ -110,10 +110,68 @@ a funder-page citation.
 
 ---
 
+# Wave 2 — federal flagships
+
+Eleven of the highest-consequence federal rows. Eight resolved to `active`;
+three could not be resolved and stayed `unknown`, which is the point of having
+the value.
+
+## F-006 — Five v0.1 award figures checked against the funder, five matched
+
+Not the goal of the wave, but the pages carried amounts, so they were compared:
+
+| Row | Funder's current wording | Vault |
+|---|---|---|
+| NSF GRFP | "$37,000 stipend and a $16,000 Cost of Education allowance" | matches |
+| NIH LRP | "up to $50,000 annually" | matches |
+| DOE CSGF | "$45,000 annual stipend ... renewable up to four years" | matches |
+| NIH K99/R00 | K99 "may not exceed $125,000"; R00 "may not exceed $249,000 per year" | matches |
+| NIH Pioneer (DP1) | "$700,000 in direct costs per year for up to 5 years" | matches |
+
+Five is a small sample and these are the best-documented programmes in the
+corpus, so this is not a licence to trust every amount. But it is an independent
+check that came back clean, and it says the v0.1 amounts were read carefully
+rather than approximated. It says nothing about the *parser* that turns them into
+numbers — that error rate is measured separately (D-006).
+
+## F-007 — A row cites an archived solicitation
+
+`Major Research Instrumentation (MRI) Program` has `source_url` pointing at NSF
+23-519, which NSF now labels:
+
+> "Archived funding opportunity — This solicitation is archived."
+
+The programme itself looks alive (a 15 Oct – 16 Nov 2026 window is listed), but
+the row's evidence is a superseded document. Status stays `unknown` and the row
+is flagged: an archived document is not evidence in either direction. The general
+lesson is that `source_url` rot is its own failure mode, separate from programme
+termination, and nothing in the schema currently detects it. Candidate for a
+build check: fetch every `source_url` and flag archive labels and redirects.
+
+## F-008 — Three rows unresolved, and none of them is a termination
+
+| Row | What happened | Resolution |
+|---|---|---|
+| ARPA-E OPEN | page returned no readable content (client-rendered) | `unknown` |
+| NDSEG | DNS failure reaching onr.navy.mil | `unknown` |
+| NSF MRI | cited solicitation archived (F-007) | `unknown` |
+
+Each of these would have been silently miscoded as "gone" by a checker that
+treats a failed fetch as a signal. They are the reason D-009 forbids it.
+
+Worth noting for the next wave: `lrp.nih.gov` now 301-redirects to
+`grants.nih.gov/funding/funding-categories/lrp`. The redirect resolved fine, but
+the stored URL is stale and a batch checker should follow and record redirects
+rather than treat them as errors.
+
+---
+
 ## What this leaves open
 
-- 177 rows remain `status = unknown`, 91 of them in the volatile federal /
-  defense / mission categories. The worklist ranks them.
+- **169 rows remain `status = unknown`, 81 of them in the volatile federal /
+  defense / mission categories.** Two waves covered 24. The worklist ranks the rest.
+- `source_url` rot is unmeasured across the corpus (F-007). One archived
+  solicitation and one stale redirect turned up in eleven rows checked.
 - F-004's four rows need the full application guidance read, not the landing page.
 - `review_criteria_checked` is blank on the three added rows: that field was not
   verified for them, and blank honestly says "never checked" rather than

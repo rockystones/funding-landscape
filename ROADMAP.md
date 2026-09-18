@@ -39,8 +39,9 @@ the same way an amount does — an absent web page is not evidence of terminatio
 build gates refuse an unsourced status (D-010), worklist shipping in
 `dist/corpus.json`. Ford and NYSTEM re-admitted as `terminated`; Hertz added as a
 plain omission the brief's own anchor list had named. 16 rows carry a sourced
-status.
-**Remaining:** step 3 — **177 rows still `unknown`, 89 of them federal.** That is
+status. Wave 2 added eight federal flagships (R01, GRFP, K99/R00, MIRA, LRP,
+Pioneer, CSGF, ARPA-H) — **24 rows carry a sourced status**.
+**Remaining:** step 3 — **169 rows still `unknown`, 81 of them federal.** That is
 the bulk of the phase and it is per-row web verification. The worklist ranks it;
 work down `dist/corpus.json` → `worklist.top`.
 
@@ -115,5 +116,11 @@ supranational pass first (ERC / MSCA / EIC), then a scoped national pass.
 - **Guidance rows are not comparable to enumerated ones.** 19 rows describe
   typical ranges rather than a specific programme. Any aggregate that mixes them
   with enumerated rows is measuring two different things.
-- **Post-SFFA identity coding** is current as of 2026-07-18 only. Re-verify
-  before any use that depends on it.
+- **Post-SFFA identity coding** is current as of 2026-07-18 only, except the 13
+  identity-gated rows re-verified 2026-09-17. Re-verify before any use that
+  depends on it, and see F-004 for four rows whose coding is under question.
+- **`source_url` rot is unmeasured.** Eleven rows checked in wave 2 turned up one
+  archived solicitation (NSF MRI) and one stale redirect (lrp.nih.gov). This is a
+  separate failure mode from termination and nothing detects it. Candidate build
+  check: fetch every `source_url`, flag archive labels, redirects and 404s —
+  without ever letting a fetch failure imply a status.

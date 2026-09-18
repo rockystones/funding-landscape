@@ -1,0 +1,78 @@
+{
+  "session": "2026-09-17-status-backfill",
+  "checked": "2026-09-17",
+  "note": "Wave 2 — federal flagships, chosen as the rows most people would rely on. Three targets could not be resolved and stay `unknown`: ARPA-E OPEN (page did not render), NDSEG (DNS failure) and NSF MRI (cited solicitation is archived). None of those is evidence of termination; see D-009.",
+
+  "updates": [
+    {
+      "program_name": "NSF Graduate Research Fellowship Program (GRFP)",
+      "status": "active",
+      "status_evidence": "Deadlines 19-23 October 2026 by field; page carries 'Last updated: August 25, 2026'. No archive or suspension notice.",
+      "status_source": "https://www.nsf.gov/funding/opportunities/grfp-nsf-graduate-research-fellowship-program",
+      "award_checked": "2026-09-17",
+      "eligibility_checked": "2026-09-17",
+      "notes_append": "Award re-verified 2026-09-17: 'For each of the three years of support, NSF provides a $37,000 stipend and a $16,000 Cost of Education allowance provided to the institution' — matches the recorded figures."
+    },
+    {
+      "program_name": "NIH Research Project Grant (Parent R01)",
+      "status": "active",
+      "status_evidence": "'The Research Project (R01) is NIH's most commonly used grant program for independent research projects.' No retirement, archive or supersession notice on the activity-code page.",
+      "status_source": "https://grants.nih.gov/funding/activity-codes/R01",
+      "eligibility_checked": "2026-09-17",
+      "notes_append": "Re-verified 2026-09-17: 'Applications are generally awarded for 1-5 budget periods, each normally 12 months in duration'; budgets 'generally not limited but need to reflect the actual needs of the proposed project'."
+    },
+    {
+      "program_name": "NIH Pathway to Independence Award (K99/R00)",
+      "status": "active",
+      "status_evidence": "Active parent announcement PA-24-194 (NIH Pathway to Independence Award, Parent K99/R00). No suspension notice.",
+      "status_source": "https://nigms.nih.gov/training/careerdev/Pages/PathwayIndependence",
+      "award_checked": "2026-09-17",
+      "eligibility_checked": "2026-09-17",
+      "notes_append": "Award re-verified 2026-09-17: K99 'total cost per year for the initial mentored phase may not exceed $125,000'; R00 'may not exceed $249,000 per year' — matches. Eligibility: 'no more than 4 years of postdoctoral research experience', with exceptions for childbirth, medical leave or a change of field."
+    },
+    {
+      "program_name": "NIGMS Maximizing Investigators' Research Award (MIRA, R35)",
+      "status": "active",
+      "status_evidence": "PAR-26-121 — applications accepted 2026-2028 (established/new investigators); PAR-27-032 — accepted through 6 February 2029 (early-stage investigators).",
+      "status_source": "https://www.nigms.nih.gov/Research/mechanisms/MIRA/Pages/default",
+      "eligibility_checked": "2026-09-17",
+      "notes_append": "Re-verified 2026-09-17: 'MIRA grants will generally be for 5 years, for both established investigators/new investigators and early stage investigators.' The page states duration but no dollar figures, so the recorded amounts were not confirmed this run."
+    },
+    {
+      "program_name": "NIH Loan Repayment Programs (Extramural LRP)",
+      "status": "active",
+      "status_evidence": "'We are accepting Extramural LRP applications through November 19, 2026.' Cycle opened 1 September 2026; awards start 1 July 2027.",
+      "status_source": "https://grants.nih.gov/funding/funding-categories/lrp",
+      "award_checked": "2026-09-17",
+      "eligibility_checked": "2026-09-17",
+      "notes_append": "Award re-verified 2026-09-17: 'repaying up to $50,000 annually of a researcher's qualified educational debt' — matches. Note lrp.nih.gov now 301-redirects to grants.nih.gov/funding/funding-categories/lrp."
+    },
+    {
+      "program_name": "NIH Director's Pioneer Award (DP1)",
+      "status": "active",
+      "status_evidence": "'No open funding announcements. Check the funding opportunities page for past announcements and information about future announcements.' Between cycles, with no termination notice — active under D-009.",
+      "status_source": "https://commonfund.nih.gov/pioneer",
+      "award_checked": "2026-09-17",
+      "notes_append": "Award re-verified 2026-09-17: '$700,000 in direct costs per year for up to 5 years' — matches."
+    },
+    {
+      "program_name": "Computational Science Graduate Fellowship (CSGF)",
+      "status": "active",
+      "status_evidence": "'Department of Energy Selects 36th Class of Computational Science Graduate Fellows' (17 June 2026). No suspension or termination notice.",
+      "status_source": "https://www.krellinst.org/csgf/",
+      "award_checked": "2026-09-17",
+      "notes_append": "Award re-verified 2026-09-17: '$45,000 annual stipend; payment of full tuition and fees', 'Renewable up to four years' — matches."
+    },
+    {
+      "program_name": "ARPA-H mission programs (cooperative agreements / other transactions)",
+      "status": "active",
+      "status_evidence": "Open Funding Opportunities page live; 'Apply to an open funding opportunity.' No suspension, wind-down or restructuring notice.",
+      "status_source": "https://arpa-h.gov/research-and-funding",
+      "notes_append": "Status verified 2026-09-17. Award figures are not stated at this level and remain unconfirmed; the agency directs applicants to individual solicitations."
+    },
+    {
+      "program_name": "Major Research Instrumentation (MRI) Program",
+      "notes_append": "SOURCE DEFECT found 2026-09-17: source_url points at NSF 23-519, which NSF marks 'Archived funding opportunity — This solicitation is archived'. The programme itself appears to continue (a 15 October - 16 November 2026 window is listed), but status stays `unknown` until the row is re-pointed at the current solicitation and re-checked. An archived document is not evidence either way."
+    }
+  ]
+}
