@@ -111,3 +111,23 @@ everything; those rows record that they were read through a search index, which
 is weaker evidence, and say so in their notes. *Rules out* letting HTTP status
 influence programme status in any way (see D-009), and *requires* that the method
 used be recorded when it was not a direct read of the funder's page.
+
+**D-015 — Schema 0.4.0: what a submission consists of.** (2026-09-18)
+Adds `submission_requirements`, `resubmission_allowed`
+(`yes`/`no`/`limited`/`unspecified`), `resubmission_policy` and
+`submission_checked`. Prompted by `docs/SCOPE.md`, which measured the gap against
+the project's actual goal: one row in 219 mentioned page limits and one mentioned
+resubmission, because no column existed to hold either. `resubmission_allowed`
+starts at `unspecified` everywhere for the same reason `status` started at
+`unknown` — nobody had asked, and `no` is a claim about the funder. Build-enforced:
+a non-`unspecified` value requires a `submission_checked` date. *Rules out*
+inferring a resubmission policy from silence.
+
+**D-016 — Source PDFs are kept on disk and not committed.** (2026-09-18)
+Funder documents that no automated client can reach live in `research/sources/`
+with their provenance in `SOURCES.md`, and the binaries are gitignored. The repo
+should not carry redistributable copies of other organisations' publications, and
+the *facts* belong in the vault with the document named in `notes` anyway. They
+are not put in `data/`, which invariant 1 reserves for the vault. *Rules out*
+treating a hand-saved PDF as a committed artifact, and *rules out* citing one
+without naming it in the row.

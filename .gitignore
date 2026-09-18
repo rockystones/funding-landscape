@@ -14,3 +14,6 @@ __pycache__/
 venv/
 .DS_Store
 Thumbs.db
+
+# Source PDFs: kept on disk, not redistributed. See research/sources/SOURCES.md
+research/sources/*.pdf

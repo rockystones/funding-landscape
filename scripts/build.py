@@ -26,7 +26,7 @@ ROOT = Path(__file__).resolve().parent.parent
 VAULT = ROOT / "data" / "mechanisms.csv"
 OUT = ROOT / "dist" / "corpus.json"
 
-SCHEMA_VERSION = "0.3.0"
+SCHEMA_VERSION = "0.4.0"
 
 # How fast each field goes stale, and therefore how hard the worklist pushes to
 # re-check it. Drawn from the brief's own observations: identity gates are the
@@ -100,12 +100,13 @@ VOCAB = {
     "coverage_type": {"enumerated", "guidance"},
     "confidence": {"high", "medium", "low"},
     "status": {"active", "paused", "terminated", "unknown"},
+    "resubmission_allowed": {"yes", "no", "limited", "unspecified"},
 }
 
 # Every date column, so a malformed stamp is caught wherever it appears.
 DATE_FIELDS = ["checked_date", "status_checked", "status_valid_to",
                "award_checked", "eligibility_checked", "identity_checked",
-               "review_criteria_checked"]
+               "review_criteria_checked", "submission_checked"]
 
 REQUIRED = ["program_name", "funder", "funder_category", "source_url",
             "confidence", "checked_date"]
@@ -431,6 +432,10 @@ def validate(rows: list[dict]) -> tuple[list[str], list[str], dict]:
                 errors.append(f"{tag}: identity_gate_type=restricted_to but "
                               f"identity_targeting is none/blank")
 
+        ra = (r.get("resubmission_allowed") or "").strip()
+        if ra and ra != "unspecified" and not (r.get("submission_checked") or "").strip():
+            errors.append(f"{tag}: resubmission_allowed='{ra}' without a submission_checked date")
+
         ysd = (r.get("years_since_degree_max") or "").strip()
         if ysd and not re.fullmatch(r"\d+(\.\d+)?", ysd):
             warnings.append(f"{tag}: years_since_degree_max '{ysd}' is not numeric")
@@ -575,6 +580,10 @@ def build(check_only: bool = False) -> int:
         for f in MULTI:
             rec[f] = split_multi(r.get(f, ""))
         rec["topic_restricted"] = (r.get("topic_restricted") or "").strip().lower() == "true"
+        ra = (r.get("resubmission_allowed") or "").strip()
+        if ra and ra != "unspecified" and not (r.get("submission_checked") or "").strip():
+            errors.append(f"{tag}: resubmission_allowed='{ra}' without a submission_checked date")
+
         ysd = (r.get("years_since_degree_max") or "").strip()
         rec["years_since_degree_max"] = float(ysd) if re.fullmatch(r"\d+(\.\d+)?", ysd) else None
         rec.update(derive_award(r))
@@ -654,7 +663,8 @@ VIZ_FIELDS = [
     "award_raw", "award_parse", "award_flags", "annual_min_usd",
     "annual_max_usd", "total_min_usd", "total_max_usd", "staleness_days",
     "status", "status_valid_to", "status_evidence", "status_source",
-    "status_checked",
+    "status_checked", "submission_requirements", "resubmission_allowed",
+    "resubmission_policy", "submission_checked",
 ]
 
 
