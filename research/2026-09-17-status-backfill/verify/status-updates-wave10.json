@@ -1,0 +1,96 @@
+{
+  "session": "2026-09-17-status-backfill",
+  "checked": "2026-09-17",
+  "note": "Wave 10 — professional_society, all thirteen resolved active. Five needed a rendering browser; acs.org blocks both the fetcher and the browser, so its three rows were read through the search index and say so. Two findings beyond status: only one of AHA's five awards was on the open-RFP list that day (the rest have live 2027 pages), and the APS travel grant has been renamed.",
+  "updates": [
+    {
+      "program_name": "Career Development Award",
+      "funder": "American Heart Association",
+      "status": "active",
+      "status_evidence": "Listed under AHA's “Open Requests for Proposals” with “Proposal deadline: Tuesday, December 1, 2026”.",
+      "status_source": "https://professional.heart.org/en/research-programs/aha-funding-opportunities"
+    },
+    {
+      "program_name": "Postdoctoral Fellowship",
+      "funder": "American Heart Association",
+      "status": "active",
+      "status_evidence": "The award page is headed “2027 Postdoctoral Fellowship” and states proposals are “due by Wednesday, August 5, 2026 at 3 p.m. CT”.",
+      "status_source": "https://professional.heart.org/en/research-programs/aha-funding-opportunities/postdoctoral-fellowship"
+    },
+    {
+      "program_name": "Predoctoral Fellowship",
+      "funder": "American Heart Association",
+      "status": "active",
+      "status_evidence": "The award page is headed “2027 Predoctoral Fellowship” with current application instructions posted.",
+      "status_source": "https://professional.heart.org/en/research-programs/aha-funding-opportunities/predoctoral-fellowship"
+    },
+    {
+      "program_name": "Established Investigator Award",
+      "status": "active",
+      "status_evidence": "Award page live with “Next proposal deadline to be announced” and current application instructions. Between cycles, no termination notice.",
+      "status_source": "https://professional.heart.org/en/research-programs/aha-funding-opportunities/established-investigator-award"
+    },
+    {
+      "program_name": "Transformational Project Award",
+      "status": "active",
+      "status_evidence": "Award page live with “Next proposal deadline to be announced” and current application instructions. Between cycles, no termination notice.",
+      "status_source": "https://professional.heart.org/en/research-programs/aha-funding-opportunities/transformational-project-award",
+      "notes_append": "Checked 2026-09-17: of AHA's five rows here, only the Career Development Award sat on the open-RFP list that day; the other four have live award pages with a 2027 cycle or a deadline to be announced. AHA states “Additional programs for funding to begin in 2027 will be announced”."
+    },
+    {
+      "program_name": "ACS Petroleum Research Fund Doctoral New Investigator (DNI) Grants",
+      "status": "active",
+      "status_evidence": "The ACS PRF autumn 2026 submission window runs 14 September to 9 October 2026 for consideration at the May 2027 PRF Committee meeting, covering the ND, DNI, UR and UNI programmes.",
+      "status_source": "https://www.acs.org/funding/grants/petroleum-research-fund/programs.html",
+      "notes_append": "PROVENANCE NOTE 2026-09-17: acs.org returns HTTP 403 to a text fetch and to a rendering browser, so this status was read through the search index rather than fetched directly — weaker than a direct read, and worth re-checking from inside a normal browser session. Award seen in the same source: $110,000 over two years."
+    },
+    {
+      "program_name": "ACS Petroleum Research Fund New Directions (ND) Grants",
+      "status": "active",
+      "status_evidence": "The ACS PRF autumn 2026 submission window runs 14 September to 9 October 2026 for consideration at the May 2027 PRF Committee meeting, covering the ND, DNI, UR and UNI programmes.",
+      "status_source": "https://www.acs.org/funding/grants/petroleum-research-fund/programs.html",
+      "notes_append": "PROVENANCE NOTE 2026-09-17: acs.org returns HTTP 403 to a text fetch and to a rendering browser, so this status was read through the search index rather than fetched directly — weaker than a direct read, and worth re-checking from inside a normal browser session."
+    },
+    {
+      "program_name": "ACS Petroleum Research Fund Undergraduate New Investigator (UNI) Grants",
+      "status": "active",
+      "status_evidence": "The ACS PRF autumn 2026 submission window runs 14 September to 9 October 2026 for consideration at the May 2027 PRF Committee meeting, covering the ND, DNI, UR and UNI programmes.",
+      "status_source": "https://www.acs.org/funding/grants/petroleum-research-fund/programs.html",
+      "notes_append": "PROVENANCE NOTE 2026-09-17: acs.org returns HTTP 403 to a text fetch and to a rendering browser, so this status was read through the search index rather than fetched directly — weaker than a direct read, and worth re-checking from inside a normal browser session."
+    },
+    {
+      "program_name": "Horton (Hydrology) Research Grant",
+      "status": "active",
+      "status_evidence": "“SUBMISSION WINDOW 5 January - 13 March”; AGU awards it “to up to three Ph.D. students studying hydrology, water resources, or a closely related field each year”.",
+      "status_source": "https://www.agu.org/honors/horton-grant",
+      "notes_append": "Resolved 2026-09-17 with a rendering browser (agu.org returns HTTP 403 to a text fetch)."
+    },
+    {
+      "program_name": "ASM Student and Postdoctoral Travel Award",
+      "status": "active",
+      "status_evidence": "“Deadline Extended—Travel Awards applications will be open from Wednesday, Oct. 15-Monday, Dec. 8”, for ASM Microbe 2026.",
+      "status_source": "https://asm.org/travel-award/asm-student-and-postdoctoral-travel-award"
+    },
+    {
+      "program_name": "IEEE Electron Devices Society (EDS) PhD Student Fellowship",
+      "status": "active",
+      "status_evidence": "“One-year fellowships are awarded to promote, recognize, and support PhD level study and research”; three are expected annually across the Americas, EMEA and Asia-Pacific regions.",
+      "status_source": "https://eds.ieee.org/education/student-fellowships/phd-student-fellowship",
+      "award_checked": "2026-09-17",
+      "notes_append": "Resolved 2026-09-17 with a rendering browser (eds.ieee.org returned HTTP 418 to a text fetch). Award re-verified: “US $5,000 to the student” plus travel/accommodation to IEDM where necessary — matches."
+    },
+    {
+      "program_name": "Future of Physics Days (FPD) Meeting/Travel Grants",
+      "status": "active",
+      "status_evidence": "“Travel grants are closed and will re-open after the abstract submission deadline for the APS Global Physics Summit 2027” — an explicit statement of reopening.",
+      "status_source": "https://www.aps.org/meetings/events/futurephysics/travelgrants.cfm",
+      "notes_append": "RENAME 2026-09-17: APS now presents this as the “Doc Brown Future of Physics Days Travel Grants”, and the meeting is the APS Global Physics Summit rather than the March/April meetings. Worth reflecting in program_name on the next pass."
+    },
+    {
+      "program_name": "Neuroscience Scholars Program (NSP)",
+      "status": "active",
+      "status_evidence": "“The NSP's next application cycle will open January 2027”.",
+      "status_source": "https://www.sfn.org/initiatives/community/neuroscience-scholars-program"
+    }
+  ]
+}

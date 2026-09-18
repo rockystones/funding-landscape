@@ -1,0 +1,106 @@
+{
+  "session": "2026-09-17-status-backfill",
+  "checked": "2026-09-17",
+  "note": "Wave 9 — disease_advocacy. Fourteen of fifteen resolved active; AARF is genuinely inconclusive and stays unknown. Four rows needed a rendering browser, and cff.org needed its cookie banner declined before the content was readable. Four amounts were re-verified against funders (ALS $150k/2yr, MJFF Safra $180k/2yr, CFF P&F $50k/yr) and all match. This is the wave that surfaced the (funder, program_name) collision now guarded in apply_status.py.",
+  "updates": [
+    {
+      "program_name": "Milton Safenowitz Postdoctoral Fellowship Program",
+      "status": "active",
+      "status_evidence": "“For over two decades, this program has played a pivotal role in supporting budding scientists”; the ALS Association describes it in the present tense with no discontinuation notice.",
+      "status_source": "https://www.als.org/research/research-we-fund/fellowships/milton-safenowitz-postdoc-fellowship-program",
+      "award_checked": "2026-09-17",
+      "notes_append": "Resolved 2026-09-17 with a rendering browser (als.org returns HTTP 403 to a text fetch). Award re-verified: “Safenowitz Fellows receive up to $150,000 over two years” — matches."
+    },
+    {
+      "program_name": "Research Scholar Grant (RSG)",
+      "status": "active",
+      "status_evidence": "American Cancer Society lists standing application deadlines of “June 1 and December 1”. No suspension notice.",
+      "status_source": "https://www.cancer.org/research/we-fund-cancer-research/apply-research-grant/grant-types/research-scholar-grants.html"
+    },
+    {
+      "program_name": "Pathway to Stop Diabetes - Initiator Award (INI)",
+      "status": "active",
+      "status_evidence": "“Application Submission Deadline: Tuesday, May 19, 2026 at 5:00 p.m., ET”. The ADA additionally states that “no programs, events, or initiatives...have been stalled, suspended, or stopped”.",
+      "status_source": "https://professional.diabetes.org/research-grants/current-funding-opportunities-pathway-stop-diabetes"
+    },
+    {
+      "program_name": "Harry Shwachman Clinical Investigator Award",
+      "status": "active",
+      "status_evidence": "Listed on the Cystic Fibrosis Foundation's current academic funding page, which opens “Below is a list of current and upcoming funding opportunities”.",
+      "status_source": "https://www.cff.org/researchers/academic-funding-opportunities"
+    },
+    {
+      "program_name": "Pilot and Feasibility Award",
+      "status": "active",
+      "status_evidence": "Listed on the Cystic Fibrosis Foundation's current academic funding page, which opens “Below is a list of current and upcoming funding opportunities”. Terms shown: $50,000/year plus 12% indirect costs over 2 years, deadlines in May and December.",
+      "status_source": "https://www.cff.org/researchers/academic-funding-opportunities",
+      "award_checked": "2026-09-17"
+    },
+    {
+      "program_name": "Postdoctoral Research Fellowship Award",
+      "status": "active",
+      "status_evidence": "Listed on the Cystic Fibrosis Foundation's current academic funding page, which opens “Below is a list of current and upcoming funding opportunities”.",
+      "status_source": "https://www.cff.org/researchers/academic-funding-opportunities"
+    },
+    {
+      "program_name": "Research Grant",
+      "funder": "Cystic Fibrosis",
+      "status": "active",
+      "status_evidence": "Listed on the Cystic Fibrosis Foundation's current academic funding page, which opens “Below is a list of current and upcoming funding opportunities”.",
+      "status_source": "https://www.cff.org/researchers/academic-funding-opportunities"
+    },
+    {
+      "program_name": "Career Development Award",
+      "funder": "Breakthrough T1D",
+      "status": "active",
+      "status_evidence": "“FY27 Training Awards — Full Proposals due 2 July 2026”, covering both the Postdoctoral Fellowship and Career Development Award categories.",
+      "status_source": "https://www.breakthrought1d.org/explore-research/funding-opportunities/"
+    },
+    {
+      "program_name": "Postdoctoral Fellowship",
+      "funder": "Breakthrough T1D",
+      "status": "active",
+      "status_evidence": "“FY27 Training Awards — Full Proposals due 2 July 2026”, covering both the Postdoctoral Fellowship and Career Development Award categories.",
+      "status_source": "https://www.breakthrought1d.org/explore-research/funding-opportunities/"
+    },
+    {
+      "program_name": "Career Development Program - Fellow",
+      "status": "active",
+      "status_evidence": "“The submission period for CDP is now closed”; the page describes the current award categories and announces new minimum stipends, so the programme is between cycles rather than wound down.",
+      "status_source": "https://bloodcancerunited.org/resources/newsroom/career-development-program-cdp",
+      "notes_append": "Award update seen 2026-09-17: “New Fellows will receive a minimum stipend/salary of $65,000/year and new Special Fellows will receive a minimum stipend/salary of $70,000/year”, plus “A childcare stipend of up to $3,600/year for Fellows/Special Fellows”. Worth folding into typical_award_size on the next amount pass."
+    },
+    {
+      "program_name": "Career Development Program - Scholar",
+      "status": "active",
+      "status_evidence": "“The submission period for CDP is now closed”; the page describes the current award categories and announces new minimum stipends, so the programme is between cycles rather than wound down.",
+      "status_source": "https://bloodcancerunited.org/resources/newsroom/career-development-program-cdp"
+    },
+    {
+      "program_name": "Career Development Program - Special Fellow",
+      "status": "active",
+      "status_evidence": "“The submission period for CDP is now closed”; the page describes the current award categories and announces new minimum stipends, so the programme is between cycles rather than wound down.",
+      "status_source": "https://bloodcancerunited.org/resources/newsroom/career-development-program-cdp",
+      "notes_append": "Award update seen 2026-09-17: “New Fellows will receive a minimum stipend/salary of $65,000/year and new Special Fellows will receive a minimum stipend/salary of $70,000/year”, plus “A childcare stipend of up to $3,600/year for Fellows/Special Fellows”. Worth folding into typical_award_size on the next amount pass."
+    },
+    {
+      "program_name": "Edmond J. Safra Fellowship in Movement Disorders",
+      "status": "active",
+      "status_evidence": "Listed among the Michael J. Fox Foundation's open programmes: “Award Amount: $180,000 total to be used during the two-year fellowship. Due Date: December 3, 2026”.",
+      "status_source": "https://www.michaeljfox.org/funding-opportunities",
+      "award_checked": "2026-09-17",
+      "notes_append": "Award re-verified 2026-09-17 at $180,000 over two years — matches."
+    },
+    {
+      "program_name": "Career Catalyst Research (CCR) Grant",
+      "status": "active",
+      "status_evidence": "“Career Catalyst Research (CCR)” appears as a current grant mechanism on Komen's Scientific Research Grants page.",
+      "status_source": "https://www.komen.org/breast-cancer-research/grants/programs/",
+      "notes_append": "Resolved 2026-09-17 with a rendering browser (komen.org returns HTTP 403 to a text fetch). Komen cautions that “the scientific focus areas of our grant mechanisms can vary from year to year”, so the mechanism exists but its topic scope is cycle-dependent. Note the row's sibling link komen.org/.../grants/current-funding-opportunities/ is a 404; the live path is /breast-cancer-research/grants/opportunities/."
+    },
+    {
+      "program_name": "Alzheimer's Association Research Fellowship (AARF)",
+      "notes_append": "INCONCLUSIVE 2026-09-17: the page states “This grant is currently closed” and the most recent deadline shown is a Letter of Intent date of 27 February 2025, with no next cycle announced. That is neither a stated suspension (paused) nor a live offering (active), so status stays unknown under D-009. This is the one row in disease_advocacy where the evidence does not settle the question — check the Alzheimer's Association grants portal directly."
+    }
+  ]
+}
