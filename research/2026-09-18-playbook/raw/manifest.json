@@ -1,0 +1,24 @@
+{
+ "journal": "journal.jsonl",
+ "agents_started": 284,
+ "agents_with_results": 269,
+ "agents_failed": 1,
+ "empty_results": 0,
+ "phases": {
+  "Mechanisms": {
+   "agents": 123,
+   "file": "mechanisms.json",
+   "kb": 3283
+  },
+  "Systems": {
+   "agents": 23,
+   "file": "systems.json",
+   "kb": 901
+  },
+  "Verify": {
+   "agents": 123,
+   "file": "verify.json",
+   "kb": 1412
+  }
+ }
+}
