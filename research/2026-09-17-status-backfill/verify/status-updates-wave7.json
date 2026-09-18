@@ -1,0 +1,87 @@
+{
+  "session": "2026-09-17-status-backfill",
+  "checked": "2026-09-17",
+  "note": "Wave 7 — state_regional. Two rows left unknown for source defects: Bankhead-Coley's link is a 404 and the NJCSCR row cites a 2024-cycle programme guide. Adds scripts/pdf_text.py, since several state RFAs are PDFs the fetch tool returns as bytes.",
+  "updates": [
+    {
+      "program_name": "CIRM Research Awards (Discovery / Translational / Clinical stage programs)",
+      "status": "active",
+      "status_evidence": "“we are launching new funding programs that will support the next generation of scientific discoveries”; CIRM states its “continued funding of groundbreaking research in regenerative medicine”. No suspension notice.",
+      "status_source": "https://www.cirm.ca.gov/researchers/funding-opportunities/",
+      "notes_append": "Status verified at programme level 2026-09-17; the page names no specific open RFA or deadline, so cadence was not re-confirmed."
+    },
+    {
+      "program_name": "CIRM Research Training / Scholars Program (Bridges, COMPASS, SPARK, CIRM Scholars)",
+      "status": "active",
+      "status_evidence": "“Four CIRM-funded internship and training programs—SPARK, Bridges, COMPASS, and Scholars—support the next generation of regenerative medicine scientists”. All four named programmes still run.",
+      "status_source": "https://www.cirm.ca.gov/programs/education-and-training/"
+    },
+    {
+      "program_name": "CPRIT Individual Investigator Research Award (IIRA)",
+      "status": "active",
+      "status_evidence": "CPRIT is running FY27 cycles: “Academic Research and Prevention RFAs FY27 Cycle 2: Apply through the new CPRIT GMP when the application opens on September 16”, with FY27 Cycle 1 recruitment RFAs open in the current system. The row cites RFA R-27-1, i.e. the FY27 Cycle 1 IIRA.",
+      "status_source": "https://cprit.texas.gov/funding-opportunities"
+    },
+    {
+      "program_name": "CPRIT Recruitment of First-Time, Tenure-Track Faculty (RFT) [with Rising Stars (RRS) and Established Investigators (REI) variants]",
+      "status": "active",
+      "status_evidence": "“For Academic Research Recruitment (CPRIT Scholar) RFAs for FY27 Cycle 1: Apply through the current online application receipt system”.",
+      "status_source": "https://cprit.texas.gov/funding-opportunities",
+      "notes_append": "CPRIT is migrating to a new grant management platform during FY27; recruitment applications move to it in November. A route change, not a status change."
+    },
+    {
+      "program_name": "James & Esther King Biomedical Research Program",
+      "status": "active",
+      "status_evidence": "A FY 2026-27 Funding Opportunity Announcement is posted. No suspension notice.",
+      "status_source": "https://www.floridahealth.gov/funding-grants/james-and-esther-king-biomedical-research-program/"
+    },
+    {
+      "program_name": "MSCRF Post-Doctoral Fellowship",
+      "status": "active",
+      "status_evidence": "The fellowship is listed among MSCRF's programmes and “RFAs for the next funding cycle are expected to be released in late October or early November 2026”; it runs a mid-January cycle. Between cycles, not wound down.",
+      "status_source": "https://www.mscrf.org/funding-opportunities"
+    },
+    {
+      "program_name": "MLSC Life Sciences Research & Collaboration Grants (Neuroscience Consortium, Women's Health Initiative/Collaboration, ARC, Bits to Bytes, Frontiers)",
+      "status": "active",
+      "status_evidence": "“Accepting Applications” on the Accelerating Research through Collaboration (ARC) Awards with “Application Deadline: November 6, 2026”; Research Infrastructure shares that deadline.",
+      "status_source": "https://www.masslifesciences.com/funding-programs/"
+    },
+    {
+      "program_name": "NJCCR Postdoctoral Fellowship (PRF)",
+      "status": "active",
+      "status_evidence": "“Request for Applications (RFA) 2027” covering Postdoctoral Fellowship Grants (PRF); RFA released 7 November 2025, applications due 4 March 2026, project start 1 July 2026.",
+      "status_source": "https://www.nj.gov/health/ces/documents/njccr/njccr-rfa-2027.pdf",
+      "notes_append": "Read 2026-09-17 with scripts/pdf_text.py; the fetch tool returns this RFA as raw bytes."
+    },
+    {
+      "program_name": "NCBiotech University Research Grants (Flash Grant, Innovation Impact Grant, Translational Research Grant)",
+      "status": "active",
+      "status_evidence": "“FY27 Deadlines: Cycle 1 Wednesday, July 15, 2026 (noon); Cycle 2 Wednesday, October 21, 2026 (noon); Cycle 3 Wednesday, March 10, 2027 (noon)” for the Flash Grant.",
+      "status_source": "https://www.ncbiotech.org/funding/grants",
+      "award_checked": "2026-09-17",
+      "notes_append": "Resolved 2026-09-17 with a rendering browser (ncbiotech.org returns HTTP 403 to a text fetch). Award re-verified: Flash Grant maximum $37,500 with an intern supplement for non-R1 universities, $30,000 without for R1 — matches the recorded figures."
+    },
+    {
+      "program_name": "Pennsylvania CURE (Commonwealth Universal Research Enhancement) Health Research Grants - Formula & Nonformula",
+      "status": "active",
+      "status_evidence": "“Health Research Priorities - review identified health research priorities by fiscal year and current non-formula Request for Application”; current contact information and 2025 FAQ materials posted.",
+      "status_source": "https://www.pa.gov/agencies/health/research/research/cure"
+    },
+    {
+      "program_name": "TRDRP Postdoctoral Award",
+      "status": "active",
+      "status_evidence": "The Postdoctoral Award remains listed among TRDRP's award mechanisms: “Support postdoctoral research training under a designated mentor to conduct high impact research within one or more stated research priorities”.",
+      "status_source": "https://www.trdrp.org/what-we-fund/award-mechanisms/",
+      "notes_append": "CONTEXT 2026-09-17: TRDRP states that “the Research Award, Pilot Award, New Investigator Award and Tobacco Policy Research Centers will not be offered during the 2027 funding cycle”. Those mechanisms are not rows in this corpus, but if they are ever added they should be logged as paused for 2027, not active."
+    },
+    {
+      "program_name": "William G. \"Bill\" Bankhead Jr. & David Coley Cancer Research Program",
+      "notes_append": "SOURCE DEFECT 2026-09-17: source_url returns HTTP 404. A dead link is not evidence that the programme ended (D-009), so status stays unknown. Re-point at the current Florida Department of Health page for the Bankhead-Coley programme and re-check."
+    },
+    {
+      "program_name": "NJ Commission on Spinal Cord Research (NJCSCR) Individual Research Grant",
+      "notes_append": "SOURCE DEFECT 2026-09-17: the cited programme guide is “RESEARCH PROGRAM GUIDELINES NJCSCR-1/2023, 2024 Grant Cycle”, two cycles out of date, so it cannot establish current status. Status stays unknown; re-point at the current NJCSCR cycle guidance. (Read with scripts/pdf_text.py.)"
+    }
+  ]
+}

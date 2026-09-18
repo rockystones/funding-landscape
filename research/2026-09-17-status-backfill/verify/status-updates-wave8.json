@@ -1,0 +1,109 @@
+{
+  "session": "2026-09-17-status-backfill",
+  "checked": "2026-09-17",
+  "note": "Wave 8 — private_foundation, all sixteen rows resolved and all sixteen active. Two needed a rendering browser (sloan.org, beckman-foundation.org return HTTP 403 to a text fetch). Several funders label a between-cycles state as 'Not Open to Applications', which D-009 reads as active; each of those carries its next deadline as evidence.",
+  "updates": [
+    {
+      "program_name": "Sloan Research Fellowships",
+      "status": "active",
+      "status_evidence": "“The two-year $75,000 fellowships are awarded annually to early-career researchers”. No suspension notice.",
+      "status_source": "https://sloan.org/fellowships/",
+      "award_checked": "2026-09-17",
+      "notes_append": "Resolved 2026-09-17 with a rendering browser (sloan.org returns HTTP 403 to a text fetch). Award re-verified at $75,000 over two years — matches."
+    },
+    {
+      "program_name": "Beckman Young Investigator (BYI) Program",
+      "status": "active",
+      "status_evidence": "“2027 BYI Application Webinar: June 3”; 2027 Letter of Intent instructions and FAQ posted.",
+      "status_source": "https://www.beckman-foundation.org/programs/beckman-young-investigator/",
+      "notes_append": "Resolved 2026-09-17 with a rendering browser (403 to a text fetch)."
+    },
+    {
+      "program_name": "Career Award at the Scientific Interface (CASI)",
+      "status": "active",
+      "status_evidence": "Status label reads “Not Open to Applications”, but the next Letter of Intent deadline is 14 August 2026 and the published award timeline runs to June 2032. Between cycles, not wound down.",
+      "status_source": "https://www.bwfund.org/funding-opportunities/career-awards-at-the-scientific-interface/"
+    },
+    {
+      "program_name": "Career Awards for Medical Scientists (CAMS)",
+      "status": "active",
+      "status_evidence": "“Now Accepting Applications” with an application deadline of “Sep 30, 2026”.",
+      "status_source": "https://www.bwfund.org/grants/biomedical-sciences/career-awards-for-medical-scientists/"
+    },
+    {
+      "program_name": "Investigators in the Pathogenesis of Infectious Disease (PATH)",
+      "status": "active",
+      "status_evidence": "Status label “Invited Applicants Only” with “Application Deadline: Nov 12, 2026”; 2026 awardees listed.",
+      "status_source": "https://www.bwfund.org/grants/infectious-diseases/investigators-in-the-pathogenesis-of-infectious-disease/",
+      "notes_append": "Submission route 2026-09-17 is invitation-only for the current cycle, which the row records as individual_direct. Worth re-checking on the next eligibility pass."
+    },
+    {
+      "program_name": "Damon Runyon Fellowship Award",
+      "status": "active",
+      "status_evidence": "“Applications are due by 4:00 pm Eastern Time on August 14, 2026”.",
+      "status_source": "https://www.damonrunyon.org/for-scientists/application-guidelines/fellowship"
+    },
+    {
+      "program_name": "Damon Runyon Clinical Investigator Award",
+      "status": "active",
+      "status_evidence": "“Applications are due by 4:00 pm Eastern Time on January 19, 2027”.",
+      "status_source": "https://www.damonrunyon.org/for-scientists/application-guidelines/clinical-investigator",
+      "notes_append": "The page also states “Institutional nominations have been reinstated”, implying they had lapsed. A submission-route change worth reflecting in submission_path on the next eligibility pass."
+    },
+    {
+      "program_name": "Packard Fellowships for Science and Engineering",
+      "status": "active",
+      "status_evidence": "Current cycle guidance posted as 2026-Packard-Fellowship-Guidelines.pdf. No suspension notice.",
+      "status_source": "https://www.packard.org/approach/fellowships-for-science-engineering/eligibility/"
+    },
+    {
+      "program_name": "Klingenstein Fellowship Awards in the Neurosciences (formerly Klingenstein-Simons)",
+      "status": "active",
+      "status_evidence": "“Application portal opens annually on September 15 and closes on February 1”.",
+      "status_source": "https://klingenstein.org/esther-a-joseph-klingenstein-fund/neuroscience/applying/"
+    },
+    {
+      "program_name": "HHMI Investigator Program",
+      "status": "active",
+      "status_evidence": "“Competition: Every 5 years. Applications open: September 28, 2027. Applications close: March 7, 2028”.",
+      "status_source": "https://www.hhmi.org/programs/investigators",
+      "notes_append": "A five-year competition cycle means long gaps between open calls are normal for this row and are not evidence of a pause."
+    },
+    {
+      "program_name": "Searle Scholars Program",
+      "status": "active",
+      "status_evidence": "“Nomination for the 2027 competition will be open to participating institutions on June 1, 2026”.",
+      "status_source": "https://searlescholars.org/application-information/award-information/process-and-eligibility/"
+    },
+    {
+      "program_name": "McKnight Scholar Award",
+      "status": "active",
+      "status_evidence": "“up to ten McKnight Scholars will be selected to receive three years of support, beginning June 1, 2027”.",
+      "status_source": "https://www.mcknight.org/programs/the-mcknight-endowment-fund-for-neuroscience/scholar-awards/"
+    },
+    {
+      "program_name": "Cottrell Scholar Award",
+      "status": "active",
+      "status_evidence": "“The application process for 2027 Cottrell Scholar Awards is closed”; the next deadline is 1 July 2026. Between cycles, no termination notice.",
+      "status_source": "https://rescorp.org/cottrell-scholars/cottrell-scholar-award/"
+    },
+    {
+      "program_name": "Junior Fellows of the Simons Society of Fellows",
+      "status": "active",
+      "status_evidence": "“Nomination Deadline: 12 p.m. (noon) Eastern time, September 10, 2026”.",
+      "status_source": "https://www.simonsfoundation.org/grant/simons-society-of-fellows-nominations/"
+    },
+    {
+      "program_name": "Pew Scholars Program in the Biomedical Sciences",
+      "status": "active",
+      "status_evidence": "Pew presents the programme in the present tense and features a 2026 class of scholars. No suspension notice.",
+      "status_source": "https://www.pew.org/en/projects/pew-biomedical-scholars"
+    },
+    {
+      "program_name": "Pew Latin American Fellows Program in the Biomedical Sciences",
+      "status": "active",
+      "status_evidence": "Pew references “the 2027 class of awards” alongside the 2026 class. No suspension notice.",
+      "status_source": "https://www.pew.org/en/projects/pew-latin-american-fellows"
+    }
+  ]
+}
