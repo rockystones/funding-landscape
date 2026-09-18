@@ -46,3 +46,41 @@ per-claim ULIDs (rows have a natural key), a validation/attestation ledger (no
 personal-trust layer), `valid_from`/`valid_to` on individual claims (deferred to
 the row-level `status` field in ROADMAP P1), and the gatherer/verifier research
 contract (v0.1 already ran one; re-adopt it for P2 coverage work).
+
+**D-008 — Schema 0.3.0: the durability layer.** (2026-09-17)
+Nine columns added: `status`, `status_valid_to`, `status_evidence`,
+`status_source`, `status_checked`, plus `award_checked`, `eligibility_checked`,
+`identity_checked`, `review_criteria_checked`. The four field-level dates inherit
+`checked_date` (the v0.1 run did verify those fields then); `status` starts
+`unknown` on every row, because that question was never asked. Approver: Stone.
+*Rules out* reading a blank `status` as "fine" — unknown is now explicit and
+counted in the build output.
+
+**D-009 — `status` records existence, not whether applications are open.** (2026-09-17)
+`active` = the funder presents the programme as a current offering; `paused` =
+the funder states it is suspended with no next cycle; `terminated` = the funder
+states it has ended; `unknown` = not assessed or evidence inconclusive. A closed
+application cycle is not evidence of anything — nine of the first thirteen rows
+checked showed only past deadlines simply because they run annually. Whether a
+programme is open right now is `application_cadence`'s job. *Rules out* marking
+a programme paused because its page was fetched between cycles, and *rules out*
+inferring `terminated` from a dead link: an absent page is not evidence.
+
+**D-010 — Every status claim is sourced, enforced at build.** (2026-09-17)
+A non-`unknown` status requires `status_evidence`, `status_source` and
+`status_checked`, and `scripts/apply_status.py` refuses to write one without
+them. Backfills are driven by a JSON file under `research/<session>/verify/`
+that carries the justifying quote next to the change, so the vault diff and its
+evidence are reviewed together. *Rules out* hand-editing a status into the CSV.
+
+**D-011 — Correction: Blewett Fellowship is not identity-restricted.** (2026-09-17)
+`M. Hildred Blewett Fellowship` moved from `identity_gate_type = restricted_to`
+to `prioritizes`. APS states the fellowship "is designed for assisting women, but
+is open to any physicist making a transition back into a professional career",
+and its eligibility list names citizenship, a completed PhD and institutional
+proof — not gender. This was one of only two `restricted_to` rows in the corpus;
+the other (AAUW, "Applicants must identify as a woman") was re-verified and is
+correct. *Rules out* carrying forward the v0.1 coding for this row. Four further
+rows whose URM language has thinned were **not** changed — absence of language on
+a landing page is weaker evidence than a direct contradiction (see
+`research/2026-09-17-status-backfill/FINDINGS.md` F-004).

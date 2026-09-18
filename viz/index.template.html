@@ -91,6 +91,20 @@
   .verdict b{font-family:var(--mono); font-size:19px; font-weight:500; color:var(--accent)}
   .verdict .muted{color:var(--ink-soft)}
 
+  .durability{display:flex; flex-wrap:wrap; gap:8px; align-items:center;
+    border-top:1px solid var(--rule); padding-top:13px}
+  .durability .lede{font-size:11.5px; text-transform:uppercase; letter-spacing:.09em;
+    color:var(--ink-faint); font-weight:500; margin-right:4px}
+  .st-btn{font-family:var(--sans); font-size:12.5px; padding:4px 11px; cursor:pointer;
+    background:var(--paper); border:1px solid var(--rule); border-radius:2px;
+    color:var(--ink-soft); display:flex; gap:7px; align-items:center}
+  .st-btn:hover{border-color:var(--ink-soft)}
+  .st-btn:focus-visible{outline:2px solid var(--accent); outline-offset:1px}
+  .st-btn[aria-pressed="true"]{border-color:var(--ink); color:var(--ink);
+    border-width:2px; padding:3px 10px}
+  .st-btn b{font-family:var(--mono); font-weight:500; font-variant-numeric:tabular-nums}
+  .st-btn[disabled]{opacity:.4; cursor:default}
+
   /* ---------------------------------------------------------- section */
   section{display:flex; flex-direction:column; gap:14px}
   .sec-head{display:flex; flex-direction:column; gap:5px;
@@ -172,6 +186,16 @@
   .tag.cat{color:var(--paper); border-color:transparent; font-weight:500}
   .tag.guid{border-style:dashed; border-color:var(--amber); color:var(--amber)}
   .tag.gate{border-color:var(--amber); color:var(--amber)}
+  .tag.st-terminated{background:var(--ink); color:var(--paper); border-color:var(--ink);
+    font-weight:600}
+  .tag.st-paused{border-color:var(--amber); background:var(--amber-soft);
+    color:var(--amber); font-weight:600}
+  .tag.st-active{border-color:var(--accent); color:var(--accent)}
+  .tag.st-unknown{border-style:dotted; color:var(--ink-faint)}
+  .mech.ended .mech-name{text-decoration:line-through;
+    text-decoration-color:var(--ink-faint); text-decoration-thickness:1px}
+  .status-evidence{font-size:12px; color:var(--ink-soft); font-style:italic;
+    border-left:2px solid var(--rule); padding-left:9px; max-width:72ch}
   .mech-money{text-align:right; display:flex; flex-direction:column; gap:3px;
     min-width:150px}
   .money-val{font-family:var(--mono); font-size:16px; font-weight:500;
@@ -212,17 +236,20 @@
       one row per durable programme, not per dated solicitation. Set a profile to see
       what you could pursue, and what you are shut out of.</p>
     <div class="facts">
-      <div class="fact"><b class="num">190</b><span>mechanisms</span></div>
-      <div class="fact"><b class="num">92</b><span>funders</span></div>
+      <div class="fact"><b class="num" id="f-rows">193</b><span>mechanisms</span></div>
+      <div class="fact"><b class="num" id="f-funders">95</b><span>funders</span></div>
       <div class="fact"><b class="num">10</b><span>categories</span></div>
+      <div class="fact"><b class="num" id="f-verified">16</b><span>status verified</span></div>
       <div class="fact"><b class="num" id="f-stale">61</b><span>days since check</span></div>
     </div>
     <div class="caveat">
       <span>⚠</span>
-      <div><b>Snapshot of 2026-07-18.</b> Amounts, eligibility windows and review
-        criteria drift; identity gates drift fastest. The schema cannot yet record
-        that a programme has ended, and 48% of these rows are federal — verify on the
-        funder's own page before relying on any of it.</div>
+      <div><b>Snapshot of 2026-07-18, status backfill in progress.</b> Only
+        <span class="num" id="c-verified">16</span> mechanisms have had their status
+        checked against the funder's page. The other
+        <span class="num" id="c-unknown">177</span> are marked <em>status unknown</em>
+        — that is an unanswered question, not a clean bill of health. Amounts and
+        eligibility windows drift; identity gates drift fastest.</div>
     </div>
   </header>
 
@@ -245,6 +272,7 @@
     </div>
     <button class="reset" id="c-reset" type="button">Clear profile</button>
     <p class="verdict" id="verdict"></p>
+    <div class="durability" id="durability"></div>
   </div>
 
   <section>
@@ -340,7 +368,11 @@
   const catMeta = new Map(CATS.map(c => [c[0], {label:c[1], varName:c[2]}]));
   const colorOf = c => `var(${(catMeta.get(c)||{varName:"--ink-soft"}).varName})`;
 
-  const state = {stage:"", domain:"", cit:"any", inst:"any", cell:null, limit:40};
+  const state = {stage:"", domain:"", cit:"any", inst:"any", cell:null,
+                 status:"", limit:40};
+  const STATUSES = [
+    ["active","Verified active"], ["paused","Paused"],
+    ["terminated","Ended"], ["unknown","Status unknown"]];
 
   // ------------------------------------------------------------ eligibility
   function eligible(r){
@@ -368,9 +400,17 @@
     }
     return true;
   }
+  const stillRunning = r => r.status !== "terminated";
+  // Scope: the status chip narrows what the page is about. Navigation, not a
+  // judgement about the reader -- so it removes rather than dims.
+  const inScope = r => !state.status || (r.status || "unknown") === state.status;
   const inCell = r => !state.cell ||
     (r.funder_category === state.cell.cat &&
      (r.career_stage || []).includes(state.cell.stage));
+  // Open to you. An ended programme is open to nobody -- unless you asked to see
+  // ended programmes, in which case dimming every one of them says nothing.
+  const open = r => eligible(r) && inCell(r) &&
+    (stillRunning(r) || state.status === "terminated");
 
   const fmtUSD = v => v == null ? "—"
     : v >= 1e6 ? "$" + (v/1e6).toFixed(v >= 1e7 ? 0 : 1) + "M"
@@ -393,7 +433,8 @@
   selCit.onchange = e => { state.cit = e.target.value; state.limit = 40; render(); };
   selInst.onchange = e => { state.inst = e.target.value; state.limit = 40; render(); };
   document.getElementById("c-reset").onclick = () => {
-    Object.assign(state, {stage:"", domain:"", cit:"any", inst:"any", cell:null, limit:40});
+    Object.assign(state, {stage:"", domain:"", cit:"any", inst:"any", cell:null,
+                          status:"", limit:40});
     selStage.value = ""; selDomain.value = ""; selCit.value = "any"; selInst.value = "any";
     render();
   };
@@ -430,9 +471,9 @@
     let max = 1;
     const counts = new Map();
     CATS.forEach(([cv]) => STAGES.forEach(([sv]) => {
-      const all = ROWS.filter(r => r.funder_category === cv &&
+      const all = ROWS.filter(r => inScope(r) && r.funder_category === cv &&
                                    (r.career_stage||[]).includes(sv));
-      const ok = all.filter(eligible);
+      const ok = all.filter(open);
       counts.set(cv+"|"+sv, [ok.length, all.length]);
       if(all.length > max) max = all.length;
     }));
@@ -455,8 +496,8 @@
 
     matrixEl.querySelectorAll(".cell[data-total]").forEach(el => {
       const cv = el.dataset.total;
-      const all = ROWS.filter(r => r.funder_category === cv);
-      const ok = all.filter(eligible).length;
+      const all = ROWS.filter(r => inScope(r) && r.funder_category === cv);
+      const ok = all.filter(open).length;
       el.style.background = "transparent";
       el.style.color = "var(--ink-soft)";
       el.innerHTML = ok === all.length ? `<b>${ok}</b>`
@@ -472,7 +513,7 @@
   // ------------------------------------------------------------ value strip
   function paintStrip(){
     const svg = document.getElementById("strip");
-    const priced = ROWS.filter(r => r.total_max_usd > 0);
+    const priced = ROWS.filter(r => inScope(r) && r.total_max_usd > 0);
     const W = 1000, PAD_L = 8, PAD_R = 8, PAD_B = 34, PAD_T = 10;
     const LO = 3, HI = 8;                       // $1K .. $100M
     const x = v => PAD_L + (Math.log10(v) - LO)/(HI - LO) * (W - PAD_L - PAD_R);
@@ -499,7 +540,7 @@
       list.sort((a,b) => a.total_max_usd - b.total_max_usd).forEach((r, i) => {
         const cx = x(r.total_max_usd);
         const y = base - (i+1)*(S+GAP);
-        const on = eligible(r) && inCell(r);
+        const on = open(r);
         const heur = r.award_parse === "heuristic";
         marks += `<rect class="m c-${r.funder_category}${heur ? " heur" : ""}" `
           + `x="${(cx - S/2).toFixed(1)}" y="${y.toFixed(1)}" `
@@ -521,9 +562,9 @@
       });
     svg.innerHTML = axis + marks;
 
-    const shown = priced.filter(r => eligible(r) && inCell(r)).length;
-    const unpriced = ROWS.filter(r => !(r.total_max_usd > 0))
-                         .filter(r => eligible(r) && inCell(r)).length;
+    const shown = priced.filter(open).length;
+    const unpriced = ROWS.filter(r => inScope(r) && !(r.total_max_usd > 0))
+                         .filter(open).length;
     document.getElementById("excluded").innerHTML =
       `<span class="num">${shown}</span> mechanisms plotted. `
       + `<span class="num">${unpriced}</span> more match your profile but have no `
@@ -535,15 +576,18 @@
 
   // ------------------------------------------------------------ results
   function paintResults(){
-    const scored = ROWS.map(r => ({r, ok: eligible(r) && inCell(r)}));
+    const scored = ROWS.filter(inScope).map(r => ({
+      r, ok: open(r), ended: !stillRunning(r)}));
     scored.sort((a,b) =>
-      (b.ok - a.ok) || ((b.r.total_max_usd||0) - (a.r.total_max_usd||0)));
+      (a.ended - b.ended) || (b.ok - a.ok) ||
+      ((b.r.total_max_usd||0) - (a.r.total_max_usd||0)));
 
     const okCount = scored.filter(s => s.ok).length;
+    const poolSize = scored.length;
     const visible = scored.slice(0, state.limit);
     let html = "", dividerDone = false;
 
-    visible.forEach(({r, ok}) => {
+    visible.forEach(({r, ok, ended}) => {
       if(!ok && !dividerDone){
         dividerDone = true;
         html += `<div class="divider">Not eligible under this profile — shown, not hidden</div>`;
@@ -561,15 +605,22 @@
       if(r.submission_path === "institutional_nomination_limited") gates.push("limited submission");
       if(r.topic_restricted && r.specific_topic) gates.push(r.specific_topic.slice(0,42));
 
-      html += `<article class="mech${ok ? "" : " out"}">
+      const st = r.status || "unknown";
+      const stLabel = st === "terminated"
+        ? `ended${r.status_valid_to ? " " + r.status_valid_to.slice(0,4) : ""}`
+        : st === "paused" ? "paused" : st === "active" ? "active" : "status unknown";
+      html += `<article class="mech${ok ? "" : " out"}${ended ? " ended" : ""}">
         <div class="mech-main">
           <div class="mech-name">${r.source_url
             ? `<a href="${esc(r.source_url)}" target="_blank" rel="noopener">${esc(r.program_name)}</a>`
             : esc(r.program_name)}</div>
           <div class="mech-funder">${esc(r.funder)}</div>
           ${r.stated_purpose ? `<div class="mech-purpose">${esc(r.stated_purpose)}</div>` : ""}
+          ${st !== "active" && st !== "unknown" && r.status_evidence
+            ? `<div class="status-evidence">${esc(r.status_evidence.slice(0,200))}</div>` : ""}
           <div class="tags">
             <span class="tag cat" style="background:${colorOf(r.funder_category)}">${cat.label}</span>
+            <span class="tag st-${st}">${stLabel}</span>
             ${r.coverage_type === "guidance" ? `<span class="tag guid">guidance, not a named programme</span>` : ""}
             ${(r.mechanism_type ? `<span class="tag">${r.mechanism_type.replace(/_/g," ")}</span>` : "")}
             ${r.typical_duration ? `<span class="tag">${esc(r.typical_duration.slice(0,28))}</span>` : ""}
@@ -585,37 +636,78 @@
     });
 
     document.getElementById("results").innerHTML = html;
-    document.getElementById("results-title").textContent =
-      okCount === ROWS.length ? `All ${ROWS.length} mechanisms`
+    // With no profile set the count still falls short of the total, because
+    // ended programmes are open to nobody. Say that rather than implying a filter.
+    const endedCount = ROWS.filter(r => !stillRunning(r)).length;
+    const noFilter = !state.stage && !state.domain && state.cit === "any"
+                     && state.inst === "any" && !state.cell && !state.status;
+    const scopeLabel = state.status
+      ? (STATUSES.find(x => x[0] === state.status) || [])[1].toLowerCase() : "";
+    document.getElementById("results-title").textContent = noFilter
+      ? `All ${ROWS.length} mechanisms — ${endedCount} no longer running`
+      : state.status
+        ? `${poolSize} mechanism${poolSize === 1 ? "" : "s"} marked ${scopeLabel}`
         : `${okCount} of ${ROWS.length} mechanisms match your profile`;
     const more = document.getElementById("more");
-    more.hidden = state.limit >= ROWS.length;
-    more.textContent = `Show more — ${ROWS.length - state.limit} remaining`;
+    more.hidden = state.limit >= poolSize;
+    more.textContent = `Show more — ${poolSize - state.limit} remaining`;
   }
 
   function paintVerdict(){
-    const ok = ROWS.filter(r => eligible(r)).length;
+    const ok = ROWS.filter(r => inScope(r) && open(r)).length;
     const pct = Math.round(100*ok/ROWS.length);
     const bits = [];
     if(state.stage) bits.push((STAGES.find(s => s[0] === state.stage)||[])[1]);
     if(state.domain) bits.push((DOMAINS.find(d => d[0] === state.domain)||[])[1]);
     if(state.cit !== "any") bits.push((CITS.find(c => c[0] === state.cit)||[])[1]);
     if(state.inst !== "any") bits.push((INSTS.find(i => i[0] === state.inst)||[])[1]);
+    const stNote = state.status
+      ? ` <span class="muted">Showing only rows marked ${
+          (STATUSES.find(x => x[0] === state.status)||[])[1].toLowerCase()
+          }. Click the chip again to clear.</span>` : "";
     const cellNote = state.cell
       ? ` <span class="muted">Filtered to one cell: ${
           catMeta.get(state.cell.cat).label} × ${
           (STAGES.find(s => s[0] === state.cell.stage)||[])[1]}. Click it again to clear.</span>`
       : "";
     document.getElementById("verdict").innerHTML = bits.length === 0
-      ? `<b>${ROWS.length}</b> mechanisms, no profile set — the whole landscape.${cellNote}`
+      ? `<b>${ROWS.length}</b> mechanisms, no profile set — the whole landscape.${cellNote}${stNote}`
       : `<b>${ok}</b> of ${ROWS.length} mechanisms (${pct}%) are open to you as `
-        + `<span class="muted">${bits.join(" · ")}</span>.${cellNote}`;
+        + `<span class="muted">${bits.join(" · ")}</span>.${cellNote}${stNote}`;
   }
 
-  function render(){ paintMatrix(); paintStrip(); paintResults(); paintVerdict(); }
+  function paintDurability(){
+    const counts = new Map(STATUSES.map(([k]) =>
+      [k, ROWS.filter(r => (r.status || "unknown") === k).length]));
+    document.getElementById("durability").innerHTML =
+      `<span class="lede">Durability</span>` + STATUSES.map(([k,label]) => {
+        const n = counts.get(k);
+        return `<button class="st-btn" type="button" data-status="${k}"
+          aria-pressed="${state.status === k}" ${n ? "" : "disabled"}>
+          <b>${n}</b> ${label}</button>`;
+      }).join("");
+    document.querySelectorAll(".st-btn[data-status]").forEach(b => {
+      b.onclick = () => {
+        state.status = state.status === b.dataset.status ? "" : b.dataset.status;
+        state.limit = 40; render();
+      };
+    });
+  }
+
+  function render(){
+    paintMatrix(); paintStrip(); paintResults(); paintVerdict(); paintDurability();
+  }
 
   const stale = DATA.stats && DATA.stats.max_staleness_days;
   if(stale) document.getElementById("f-stale").textContent = stale;
+  const verified = ROWS.filter(r => r.status && r.status !== "unknown").length;
+  const unknown = ROWS.length - verified;
+  document.getElementById("f-rows").textContent = ROWS.length;
+  document.getElementById("f-funders").textContent =
+    new Set(ROWS.map(r => r.funder)).size;
+  document.getElementById("f-verified").textContent = verified;
+  document.getElementById("c-verified").textContent = verified;
+  document.getElementById("c-unknown").textContent = unknown;
 
   buildMatrix();
   render();

@@ -67,7 +67,22 @@ exists".
 **This is the highest-value change available** and it is cheap: one `status`
 enum, one `valid_to`, one `status_source`.
 
+> **Update 2026-09-17 — addressed in schema 0.3.0.** The columns exist and are
+> build-enforced: a status without evidence and a source now fails the gate. The
+> backfill has started rather than finished — 16 of 193 rows carry a sourced
+> status (13 `active`, 1 `paused`, 2 `terminated`), and **177 remain `unknown`,
+> 89 of them federal**. Ford and NYSTEM are back in the corpus as `terminated`
+> rows instead of silent omissions. NSF SPRF is the first programme the schema
+> can correctly describe as suspended: *"Program 23-500 is currently waiting for
+> a new publication."* Details in
+> `research/2026-09-17-status-backfill/FINDINGS.md`.
+
 ### 3.2 Provenance is row-level, but the fields drift at different speeds
+
+> **Update 2026-09-17 — addressed in schema 0.3.0.** The four drift-sensitive
+> fields now carry their own `*_checked` dates, and the build emits a worklist
+> ranked by age × drift-rate × whether the funder sits in the volatile federal
+> band, with never-verified fields ranked apart from merely old ones.
 
 Each row carries one `source_url`, one `confidence`, one `checked_date` for all
 33 fields. But `stated_purpose` is near-static while `typical_award_size` and

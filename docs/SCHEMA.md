@@ -121,7 +121,25 @@ eligible for. For this corpus that is the point, not a nicety.
 
 - Corrections are commits against `data/mechanisms.csv` with a message naming the
   field and the source that prompted the change.
-- **[gap]** No `valid_from` / `valid_to` on rows yet — this is P1 step 1, and it
-  is the most consequential missing piece in the schema (see `ASSESSMENT.md` §3.1).
+- **Temporal validity (added 0.3.0).** `status` + `status_valid_to` record
+  whether a programme still exists and when it stopped. The vocabulary is about
+  *existence*, not about whether applications are open today:
+
+  | value | means | test |
+  |---|---|---|
+  | `active` | the programme exists | funder presents it as current, no termination notice; a closed cycle proves nothing |
+  | `paused` | the funder states it is suspended | explicit hold with no next cycle |
+  | `terminated` | the funder states it has ended | explicit wind-down, sunset or elimination |
+  | `unknown` | not assessed, or evidence inconclusive | the default; a dead link lands here, never in `terminated` |
+
+  Enforced at build: any non-`unknown` status requires `status_evidence`,
+  `status_source` and `status_checked`; `status_valid_to` is only legal on
+  `terminated` or `paused`. See D-009 and D-010.
+- **Field-level provenance (added 0.3.0).** `award_checked`,
+  `eligibility_checked`, `identity_checked` and `review_criteria_checked` split
+  the single row-level `checked_date` across the four fields that drift, so a
+  re-check can target one field rather than re-doing a whole row. A **blank**
+  stamp on a populated field means never verified, and the build's worklist ranks
+  those separately from merely old ones.
 - **[struck]** No review-conditions log. There is no human accept/dismiss loop in
   this corpus to calibrate; re-add if one appears (D-007).

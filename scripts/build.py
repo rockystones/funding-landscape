@@ -26,7 +26,21 @@ ROOT = Path(__file__).resolve().parent.parent
 VAULT = ROOT / "data" / "mechanisms.csv"
 OUT = ROOT / "dist" / "corpus.json"
 
-SCHEMA_VERSION = "0.2.0"
+SCHEMA_VERSION = "0.3.0"
+
+# How fast each field goes stale, and therefore how hard the worklist pushes to
+# re-check it. Drawn from the brief's own observations: identity gates are the
+# fastest-drifting field in the corpus post-SFFA, amounts drift each cycle, purpose
+# and review frameworks change rarely.
+DRIFT_WEIGHT = {
+    "identity_checked": 3.0,
+    "award_checked": 2.0,
+    "eligibility_checked": 1.5,
+    "review_criteria_checked": 1.5,
+}
+# Federal money moved unusually in 2025-26; those rows earn a re-check sooner.
+VOLATILE_CATEGORIES = {"federal_research", "defense_security", "mission_applied"}
+STALE_AFTER_DAYS = 90
 
 # ---------------------------------------------------------------- vocabularies
 # Frozen from docs/BRIEF.md Section 4. Bump SCHEMA_VERSION on any change here
@@ -85,7 +99,13 @@ VOCAB = {
     "application_cadence": {"rolling", "annual", "biennial", "irregular"},
     "coverage_type": {"enumerated", "guidance"},
     "confidence": {"high", "medium", "low"},
+    "status": {"active", "paused", "terminated", "unknown"},
 }
+
+# Every date column, so a malformed stamp is caught wherever it appears.
+DATE_FIELDS = ["checked_date", "status_checked", "status_valid_to",
+               "award_checked", "eligibility_checked", "identity_checked",
+               "review_criteria_checked"]
 
 REQUIRED = ["program_name", "funder", "funder_category", "source_url",
             "confidence", "checked_date"]
@@ -379,9 +399,31 @@ def validate(rows: list[dict]) -> tuple[list[str], list[str], dict]:
             errors.append(f"{tag}: dated deadline in application_cadence "
                           f"(belongs in the live layer, brief S8)")
 
-        cd = (r.get("checked_date") or "").strip()
-        if cd and not re.fullmatch(r"\d{4}-\d{2}-\d{2}", cd):
-            errors.append(f"{tag}: checked_date '{cd}' is not ISO yyyy-mm-dd")
+        for f in DATE_FIELDS:
+            v = (r.get(f) or "").strip()
+            if v and not re.fullmatch(r"\d{4}-\d{2}-\d{2}", v):
+                errors.append(f"{tag}: {f} '{v}' is not ISO yyyy-mm-dd")
+
+        # --- the durability gate -------------------------------------------
+        # A status is a claim about the world and is sourced like any other. The
+        # failure mode this guards against is a `terminated` row asserted from a
+        # dead link: an absent page is not evidence that a programme ended.
+        st = (r.get("status") or "").strip()
+        ev = (r.get("status_evidence") or "").strip()
+        src = (r.get("status_source") or "").strip()
+        sck = (r.get("status_checked") or "").strip()
+        if st and st != "unknown":
+            for f, v in (("status_evidence", ev), ("status_source", src),
+                         ("status_checked", sck)):
+                if not v:
+                    errors.append(f"{tag}: status='{st}' requires {f}")
+        elif st == "unknown" and (ev or src or sck):
+            errors.append(f"{tag}: status='unknown' but carries evidence "
+                          f"— record the status it supports")
+        if (r.get("status_valid_to") or "").strip() and st not in ("terminated", "paused"):
+            errors.append(f"{tag}: status_valid_to set but status='{st}'")
+        if st == "terminated" and not (r.get("status_valid_to") or "").strip():
+            warnings.append(f"{tag}: terminated without a status_valid_to date")
 
         if (r.get("identity_gate_type") or "").strip() == "restricted_to":
             idt = split_multi(r.get("identity_targeting") or "")
@@ -438,6 +480,73 @@ def validate(rows: list[dict]) -> tuple[list[str], list[str], dict]:
     return errors, warnings, stats
 
 
+# --------------------------------------------------------------- worklist
+def staleness_worklist(records: list[dict], today: dt.date) -> dict:
+    """Rank what to re-check, by consequence rather than by age alone.
+
+    A flat "older than 90 days" rule treats a foundation's stated purpose and an
+    NIH eligibility window as equally urgent. They are not: the score below is
+    age x how fast the field drifts x whether the funder sits in the part of the
+    landscape that moved in 2025-26.
+    """
+    items = []
+    never = []
+    # Which vault field each provenance stamp vouches for, so an empty stamp is
+    # only "never checked" when there is actually something to check.
+    VOUCHES_FOR = {
+        "award_checked": "typical_award_size",
+        "eligibility_checked": "eligibility_window",
+        "identity_checked": "identity_targeting",
+        "review_criteria_checked": "review_criteria_official",
+    }
+    for r in records:
+        volatile = r["funder_category"] in VOLATILE_CATEGORIES
+        for field, weight in DRIFT_WEIGHT.items():
+            stamp = (r.get(field) or "").strip()
+            if not stamp:
+                # A populated field with no stamp has never been verified, which
+                # is worse than one verified a long time ago -- rank it apart
+                # rather than letting it fall out of the worklist silently.
+                vouched = r.get(VOUCHES_FOR[field])
+                # Multi-select fields arrive as lists; "none" is a coded answer,
+                # not content that needs verifying.
+                if isinstance(vouched, list):
+                    has_content = bool([v for v in vouched if v != "none"])
+                else:
+                    has_content = bool((vouched or "").strip())
+                if has_content:
+                    never.append({"program_name": r["program_name"],
+                                  "funder": r["funder"], "field": field})
+                continue
+            try:
+                age = (today - dt.date.fromisoformat(stamp)).days
+            except ValueError:
+                continue
+            items.append({
+                "program_name": r["program_name"],
+                "funder": r["funder"],
+                "funder_category": r["funder_category"],
+                "field": field,
+                "age_days": age,
+                "score": round(age * weight * (1.5 if volatile else 1.0), 1),
+                "overdue": age > STALE_AFTER_DAYS,
+            })
+    items.sort(key=lambda i: -i["score"])
+
+    unknown_status = [r for r in records if r.get("status") == "unknown"]
+    return {
+        "generated": today.isoformat(),
+        "stale_after_days": STALE_AFTER_DAYS,
+        "never_checked_count": len(never),
+        "never_checked": never[:40],
+        "overdue_count": sum(1 for i in items if i["overdue"]),
+        "unknown_status_count": len(unknown_status),
+        "unknown_status_volatile": sum(
+            1 for r in unknown_status if r["funder_category"] in VOLATILE_CATEGORIES),
+        "top": items[:60],
+    }
+
+
 # ------------------------------------------------------------------- build
 def build(check_only: bool = False) -> int:
     if not VAULT.exists():
@@ -468,6 +577,10 @@ def build(check_only: bool = False) -> int:
 
     parse_counts = Counter(r["award_parse"] for r in records)
     stats["award_parse"] = dict(parse_counts)
+    stats["by_status"] = dict(Counter(r.get("status") or "unset" for r in records))
+    work = staleness_worklist(records, today)
+    stats["overdue_fields"] = work["overdue_count"]
+    stats["unknown_status"] = work["unknown_status_count"]
     stats["with_duration"] = sum(1 for r in records if r.get("duration"))
     stats["max_staleness_days"] = max(
         (r["staleness_days"] for r in records if r["staleness_days"] is not None),
@@ -478,6 +591,12 @@ def build(check_only: bool = False) -> int:
     print(f"award parse     " + ", ".join(f"{k}={v}" for k, v in sorted(parse_counts.items())))
     print(f"duration parsed {stats['with_duration']}/{stats['rows']}")
     print(f"staleness       up to {stats['max_staleness_days']} days")
+    print(f"status          " + ", ".join(f"{k}={v}" for k, v in
+                                          sorted(stats["by_status"].items())))
+    print(f"re-check debt   {work['unknown_status_count']} rows of unknown status "
+          f"({work['unknown_status_volatile']} in volatile categories), "
+          f"{work['overdue_count']} fields past {STALE_AFTER_DAYS}d, "
+          f"{work['never_checked_count']} never checked")
     print(f"errors          {len(errors)}")
     print(f"warnings        {len(warnings)}")
 
@@ -501,6 +620,7 @@ def build(check_only: bool = False) -> int:
         "stats": stats,
         "gate_errors": errors,
         "gate_warnings": warnings,
+        "worklist": work,
         "mechanisms": records,
     }
     with OUT.open("w", encoding="utf-8") as fh:
@@ -521,6 +641,8 @@ VIZ_FIELDS = [
     "selectivity", "confidence", "coverage_type", "source_url", "checked_date",
     "award_raw", "award_parse", "award_flags", "annual_min_usd",
     "annual_max_usd", "total_min_usd", "total_max_usd", "staleness_days",
+    "status", "status_valid_to", "status_evidence", "status_source",
+    "status_checked",
 ]
 
 

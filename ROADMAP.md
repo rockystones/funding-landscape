@@ -16,7 +16,7 @@ unparsed; holdout accuracy 14/16.
 
 ---
 
-## P1 — Durability layer  ← next
+## P1 — Durability layer  ◐ in progress (schema done, backfill started)
 
 The dataset cannot currently say a programme has ended, and 48% of it is federal.
 
@@ -34,6 +34,15 @@ drift-sensitive field is older than 90 days without being flagged · build emits
 a staleness worklist.
 **Failure mode:** `status` becomes a guess. A `terminated` claim needs a source
 the same way an amount does — an absent web page is not evidence of termination.
+
+**Done 2026-09-17:** steps 1, 2 and 4 complete. Schema 0.3.0 migrated (D-008),
+build gates refuse an unsourced status (D-010), worklist shipping in
+`dist/corpus.json`. Ford and NYSTEM re-admitted as `terminated`; Hertz added as a
+plain omission the brief's own anchor list had named. 16 rows carry a sourced
+status.
+**Remaining:** step 3 — **177 rows still `unknown`, 89 of them federal.** That is
+the bulk of the phase and it is per-row web verification. The worklist ranks it;
+work down `dist/corpus.json` → `worklist.top`.
 
 ---
 
