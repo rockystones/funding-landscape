@@ -1,0 +1,108 @@
+{
+  "session": "2026-09-17-status-backfill",
+  "checked": "2026-09-17",
+  "note": "Wave 5 — ARPA-E (resolved with a rendering browser) and defense_security. Two rows needed the browser because the sites are client-rendered or return 403 to a text fetch, and one needed the federal grants portal because the row cites a 2023 PDF. PECASE stays unknown: its cited source is a 2012 news release.",
+  "updates": [
+    {
+      "program_name": "ARPA-E OPEN",
+      "status": "active",
+      "status_evidence": "“ARPA-E issues OPEN NOFOs, approximately every three years”; the most recent cycle shown is Vision OPEN 2024. No termination notice.",
+      "status_source": "https://arpa-e.energy.gov/programs-and-initiatives/OPEN-program",
+      "notes_append": "Resolved 2026-09-17 with a rendering browser: arpa-e.energy.gov is client-rendered and returns no body to a plain text fetch."
+    },
+    {
+      "program_name": "IGNIITE (Inspiring Generations of New Innovators to Impact Technologies in Energy)",
+      "status": "active",
+      "status_evidence": "ARPA-E's own label on the programme page: “Status: Active”, “Release Date: Apr 23 2026”.",
+      "status_source": "https://arpa-e.energy.gov/programs-and-initiatives/view-all-programs/igniite-2026",
+      "notes_append": "Resolved 2026-09-17 with a rendering browser (see ARPA-E OPEN)."
+    },
+    {
+      "program_name": "Prostate Cancer Research Program (PCRP)",
+      "status": "active",
+      "status_evidence": "“The application submission deadline for FY26 has passed”; PCRP remains listed as a CDMRP research programme, with no suspension or defunding notice. Between cycles, not wound down.",
+      "status_source": "https://cdmrp.health.mil/funding/pcrp"
+    },
+    {
+      "program_name": "Breast Cancer Research Program (BCRP)",
+      "status": "active",
+      "status_evidence": "“Release Date September 3, 2026”, with submission deadlines in September and November 2026 across several award mechanisms.",
+      "status_source": "https://cdmrp.health.mil/funding/bcrp"
+    },
+    {
+      "program_name": "Peer Reviewed Medical Research Program (PRMRP)",
+      "status": "active",
+      "status_evidence": "“Release Date May 8, 2026” and application deadline “September 22, 2026 11:59 p.m. Eastern Time”.",
+      "status_source": "https://cdmrp.health.mil/funding/prmrp"
+    },
+    {
+      "program_name": "CDMRP Early Investigator Research Award & Career Development Award (career-stage mechanisms)",
+      "status": "active",
+      "status_evidence": "“CDMRP Announces $1.27 Billion, 34 Research Programs for Fiscal Year 2026”. The parent programmes are funded for FY26; individual Early Investigator and Career Development announcements are issued per programme per cycle.",
+      "status_source": "https://cdmrp.health.mil/funding/",
+      "notes_append": "Status verified at CDMRP level 2026-09-17: the specific EIRA/CDA announcements are cycle-dependent and were not all open on this date, which is a cadence fact rather than a status one."
+    },
+    {
+      "program_name": "Young Faculty Award (YFA)",
+      "status": "active",
+      "status_evidence": "“The research announcement seeking YFA applications for 2027 will be available on the grants.gov, and sam.gov websites in early fall 2026”.",
+      "status_source": "https://www.darpa.mil/news/2026/darpa-celebrates-20-years-young-faculty-awards"
+    },
+    {
+      "program_name": "YFA Director's Fellowship",
+      "status": "active",
+      "status_evidence": "“DARPA has selected seven performers from the 2024 YFA class to receive the YFA Director's Fellowship” (DARPA, 2026). No discontinuation notice.",
+      "status_source": "https://www.darpa.mil/news/2026/darpa-celebrates-20-years-young-faculty-awards"
+    },
+    {
+      "program_name": "Young Investigator Program (YIP)",
+      "status": "active",
+      "status_evidence": "“Please refer to the annual solicitation for details and deadlines on the application process”; ONR lists YIP award recipients through 2026. No suspension notice.",
+      "status_source": "https://www.onr.navy.mil/education-outreach/sponsored-research/yip"
+    },
+    {
+      "program_name": "Multidisciplinary University Research Initiative (MURI)",
+      "status": "active",
+      "status_evidence": "ONR presents MURI as a standing DoD university research initiative accepting proposals under its annual announcement; no suspension or termination notice.",
+      "status_source": "https://www.onr.navy.mil/education-outreach/sponsored-research/university-research-initiatives/muri",
+      "notes_append": "Status verified 2026-09-17. The most recent full-proposal date quoted on the page was 6 September 2024, so the page itself is not freshly dated; the programme shows no wind-down."
+    },
+    {
+      "program_name": "National Defense Science and Engineering Graduate (NDSEG) Fellowship",
+      "status": "active",
+      "status_evidence": "“Submission Date: January of each year; see application materials for exact date”. No cancellation or pause notice.",
+      "status_source": "https://www.onr.navy.mil/education-outreach/undergraduate-graduate/ndseg-graduate-fellowship",
+      "notes_append": "The 2026-09-17 wave-2 attempt failed with a DNS error, which was transient; retried successfully the same day. A failed fetch is never evidence (D-009)."
+    },
+    {
+      "program_name": "Vannevar Bush Faculty Fellowship (VBFF)",
+      "status": "active",
+      "status_evidence": "DoD presents VBFF as current: “the Department of Defense's most prestigious single-investigator award”, “a 5-year fellowship with up to $3 million in funding”. No termination notice.",
+      "status_source": "https://basicresearch.defense.gov/Programs/Vannevar-Bush-Faculty-Fellowship/",
+      "notes_append": "Resolved 2026-09-17 with a rendering browser: basicresearch.defense.gov returns HTTP 403 to a plain text fetch."
+    },
+    {
+      "program_name": "Young Investigator Research Program (YIP)",
+      "status": "active",
+      "status_evidence": "Air Force Fiscal Year 2027 Young Investigator Program is posted on the federal grants portal: white papers due 9 October 2026, full proposals due 4 December 2026, awards anticipated by 1 May 2027.",
+      "status_source": "https://simpler.grants.gov/opportunity/c342c01d-4f34-440f-8bb2-4bdd4d763df0",
+      "notes_append": "SOURCE DEFECT 2026-09-17: the row's source_url is a 2023 PDF on afresearchlab.com. Status was instead established from the live FY2027 opportunity on the federal grants portal; re-point source_url there. FY2026 terms quoted on the portal: up to $150,000 per year for three years ($450,000 total)."
+    },
+    {
+      "program_name": "Early Career Program (ECP) Award (formerly Young Investigator Program)",
+      "status": "active",
+      "status_evidence": "ARL Broad Agency Announcement W911NF-23-S-0001, “DEVCOM Army Research Laboratory Broad Agency Announcement for Foundational Research”, amended 8 January 2025, lists this award type as available. No suspension notice.",
+      "status_source": "https://arl.devcom.army.mil/collaborate-with-us/opportunity/arl-baa/"
+    },
+    {
+      "program_name": "Single Investigator (SI) Research Grants (ARO core program)",
+      "status": "active",
+      "status_evidence": "ARL Broad Agency Announcement W911NF-23-S-0001, “DEVCOM Army Research Laboratory Broad Agency Announcement for Foundational Research”, amended 8 January 2025, lists this award type as available. No suspension notice.",
+      "status_source": "https://arl.devcom.army.mil/collaborate-with-us/opportunity/arl-baa/"
+    },
+    {
+      "program_name": "Presidential Early Career Award for Scientists and Engineers (PECASE)",
+      "notes_append": "SOURCE DEFECT 2026-09-17: source_url is an ONR news release dated January 2012 whose most recent award year is 2011. A fourteen-year-old news item cannot establish current status, so status stays unknown. Re-point at a current PECASE source (OSTP or the nominating agency) and re-check."
+    }
+  ]
+}

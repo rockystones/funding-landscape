@@ -1,0 +1,81 @@
+{
+  "session": "2026-09-17-status-backfill",
+  "checked": "2026-09-17",
+  "note": "Wave 6 — mission_applied. Four federal sites (transportation.gov, ahrq.gov, neh.gov, seagrant.noaa.gov) refuse plain text fetches with HTTP 403; three were resolved with a rendering browser or the search index and one was not. Several rows here rest on pages last dated 2024-2025 rather than on a live deadline, and each says so.",
+  "updates": [
+    {
+      "program_name": "NEH Fellowships",
+      "status": "active",
+      "status_evidence": "“The deadline for this cycle has passed. Updated guidelines will be posted in advance of the next deadline”; the next cycle opens 15 January 2027 with a 14 April 2027 deadline. Between cycles, not wound down.",
+      "status_source": "https://www.neh.gov/grants/research/fellowships",
+      "eligibility_checked": "2026-09-17"
+    },
+    {
+      "program_name": "NEH Summer Stipends",
+      "status": "active",
+      "status_evidence": "NEH's Summer Stipends page remains published and states the programme provides $8,000 for two consecutive months of full-time work, with “Updated guidelines will be posted in advance of the next deadline”.",
+      "status_source": "https://www.neh.gov/grants/research/summer-stipends",
+      "award_checked": "2026-09-17",
+      "notes_append": "Award confirmed 2026-09-17 at $8,000 flat, so the earlier (est.) qualifier can be dropped on the next amount pass. PROVENANCE NOTE: neh.gov returns HTTP 403 to automated clients including a rendering browser, so this was read through the search index rather than fetched directly — weaker than a direct read."
+    },
+    {
+      "program_name": "Grants for Arts Projects (GAP)",
+      "status": "active",
+      "status_evidence": "Next application deadline “July 9, 2026 11:59 pm Eastern Time” for Part 1 via Grants.gov. No suspension notice.",
+      "status_source": "https://www.arts.gov/grants/grants-for-arts-projects"
+    },
+    {
+      "program_name": "Science to Achieve Results (STAR) Research Grants",
+      "status": "active",
+      "status_evidence": "“EPA funds extramural research through its Science to Achieve Results (STAR) program and the People, Prosperity, and the Planet (P3) Program”. No suspension or discontinuation notice.",
+      "status_source": "https://www.epa.gov/research-grants",
+      "notes_append": "Status verified at programme level 2026-09-17; the page names STAR as a current funding route but lists no specific open solicitation or deadline."
+    },
+    {
+      "program_name": "Graduate Research Fellowship (GRF)",
+      "status": "active",
+      "status_evidence": "NIJ describes the fellowship in the present tense as a current programme with no discontinuation notice; page publication date 1 October 2024.",
+      "status_source": "https://nij.ojp.gov/funding/fellowships/graduate-research-fellowship-program-overview",
+      "notes_append": "Status evidence 2026-09-17 is a page last dated 2024, which is weaker than a live deadline. Re-check when NIJ posts its next solicitation."
+    },
+    {
+      "program_name": "W.E.B. Du Bois Program of Research on Reducing Racial and Ethnic Disparities in the Justice System",
+      "status": "active",
+      "status_evidence": "“The W.E.B. Du Bois Fellowship for Research on Reducing Racial and Ethnic Disparities in the Justice System supports quantitative and qualitative research”; page updated 20 December 2024 with a 2024 award listed. No suspension or renaming notice.",
+      "status_source": "https://nij.ojp.gov/funding/fellowships/web-du-bois-program",
+      "identity_checked": "2026-09-17",
+      "notes_append": "Status evidence 2026-09-17 is a page last dated 2024. Given the subject matter this is a row to re-check sooner than the default."
+    },
+    {
+      "program_name": "University Transportation Centers (UTC) Program",
+      "status": "active",
+      "status_evidence": "“DOT invests in the future of transportation through its University Transportation Centers (UTC) Program, which awards and administers grants to consortia of colleges and universities”; described as “Congressionally-mandated” and in place since 1987.",
+      "status_source": "https://www.transportation.gov/utc",
+      "notes_append": "Resolved 2026-09-17 with a rendering browser; transportation.gov returns HTTP 403 to a plain text fetch."
+    },
+    {
+      "program_name": "National Leadership Grants (for Museums; parallel Libraries program noted)",
+      "status": "active",
+      "status_evidence": "“The FY 2027 Notice of Funding Opportunity is now available” with “Deadline: November 13, 2026”.",
+      "status_source": "https://www.imls.gov/find-funding/funding-opportunities/grant-programs/national-leadership-grants-for-museums",
+      "notes_append": "IMLS carries a standing caveat that all programmes are subject to the availability of funds and IMLS discretion."
+    },
+    {
+      "program_name": "DHS Science & Technology Directorate Centers of Excellence (COE)",
+      "status": "active",
+      "status_evidence": "Nine current Centers of Excellence listed with leadership; “Each DHS Center of Excellence (COE) is led by a U.S. college or university in partnership”; page last updated 7 March 2025. Completed centres are listed separately as Emeritus, a normal lifecycle rather than a closure.",
+      "status_source": "https://www.dhs.gov/science-and-technology/centers-excellence"
+    },
+    {
+      "program_name": "AHRQ Health Services Research Projects (R01)",
+      "status": "active",
+      "status_evidence": "AHRQ's Notice of Funding Opportunities page is live and describes its RFA and Program Announcement routes in the present tense: “All RFAs are published in the NIH Guide for Grants and Contracts”.",
+      "status_source": "https://www.ahrq.gov/funding/fund-opps/index.html",
+      "notes_append": "Resolved 2026-09-17 with a rendering browser; ahrq.gov returns HTTP 403 to a plain text fetch. Verified at agency level: the page confirms AHRQ is issuing opportunities but does not name a specific open R01 announcement. Consider re-pointing source_url at ahrq.gov/funding/fund-opps/index.html."
+    },
+    {
+      "program_name": "Sea Grant John A. Knauss Marine Policy Fellowship",
+      "notes_append": "UNRESOLVED 2026-09-17: seagrant.noaa.gov returned an empty body to both a text fetch (HTTP 403) and a rendering browser. Status stays unknown; needs a different NOAA Sea Grant source."
+    }
+  ]
+}
