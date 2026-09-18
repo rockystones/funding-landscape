@@ -3,6 +3,12 @@
 Phases carry exit criteria and a failure mode. Nothing advances until the gate
 passes. `python scripts/build.py --check` must pass at every phase commit.
 
+> **Scope note, 2026-09-18.** The project's goal has three parts: (1) what funding
+> exists and am I eligible, (2) how do I apply, (3) how do I make the application
+> better. **The research brief only ever scoped part 1.** P0–P4 below all serve
+> part 1. Parts 2 and 3 are addressed by P7–P10, which are new and largely
+> unresearched. `docs/SCOPE.md` maps what is covered to what is not, with counts.
+
 ---
 
 ## P0 — Repo and baseline  ✅ complete 2026-09-17
@@ -111,10 +117,10 @@ stays `unspecified`.
 
 ---
 
-## P5 — Live layer
+## P5 — Live layer  → superseded by P9
 
-`live_opportunities_us.csv` per brief §8, keyed to durable rows, separate file,
-re-pulled on demand and never merged.
+Folded into **P9**, which states the same thing plus the review arc and notes
+that 81 rows already carry a real date in `status_evidence` to seed it from.
 
 ---
 
@@ -122,6 +128,80 @@ re-pulled on demand and never merged.
 
 Canada first (brief §10 template; tri-agency + CRC + CFI + provincial). EU after,
 supranational pass first (ERC / MSCA / EIC), then a scoped national pass.
+
+---
+
+## P7 — Eligibility you can compute  ← highest value per unit of work
+
+The corpus already records prior-funding conflicts well, but as prose, so the
+question people actually ask cannot be answered mechanically.
+
+1. **Structure the conflicts.** Add `excludes_awards` and `preserves_eligibility`
+   as delimited lists. The content mostly exists: 15 rows already spell out the
+   R01/K interaction including carve-outs, and the ESI-preservation rule is
+   recorded as an enhancement rather than an exclusion.
+2. **Close Hole A.** 16 rows state a time-since-degree limit in
+   `eligibility_window` prose that never reached `years_since_degree_max`. Parse
+   them, and add an explicit `no_time_gate` marker so blank stops meaning both
+   "no gate" and "not captured".
+3. Extend the conflict fields beyond NIH: 60 rows still say `unspecified`.
+
+**Exit:** given a person's held awards, the build can list what they are locked
+out of and what preserves their eligibility · no row's time gate lives only in
+prose.
+**Failure mode:** inventing an exclusion. `unspecified` means the funder did not
+say, and must not become `no`.
+
+---
+
+## P8 — Submission requirements and resubmission
+
+Neither exists in the schema today; one row in 219 mentions page limits and one
+mentions resubmission.
+
+1. Fields for what you must produce: page limits, required documents, biosketch
+   or equivalent, LOI/pre-proposal stage (13 rows mention it, none structure it).
+2. Fields for resubmission: `resubmission_allowed`, `resubmission_policy`,
+   `resubmission_limit`. NIH's A1 single-resubmission rule is the anchor case.
+3. Research pass per major funder, starting with NIH, NSF and the foundations
+   that already have the most rows.
+
+**Exit:** every `confidence = high` row states its submission route *and* what a
+submission consists of · resubmission answered for all NIH and NSF rows.
+**Failure mode:** these are the fastest-drifting facts in the whole corpus after
+amounts. Stamp them with their own `*_checked` dates or do not record them.
+
+---
+
+## P9 — The calendar layer (the brief's §8, finally)
+
+Build `live_opportunities_us.csv` per brief §8: separate file, disposable,
+re-pulled on demand, keyed to durable rows, never merged.
+
+**Seed it from what already exists:** 81 of 219 rows carry a real calendar date
+inside `status_evidence`, captured as a by-product of the P1 backfill. Roughly
+40% of the hardest field is already in the vault as unstructured text.
+
+Add the review arc, which nothing currently records: submission → study section /
+panel → council → award, with the typical lag per funder (NIH is roughly nine
+months end to end; NSF targets six).
+
+**Exit:** a person can see, for any row, when to submit and when money would
+plausibly arrive · the live file never contaminates the durable one.
+**Failure mode:** dates rot fastest of anything here. If the live file cannot be
+re-pulled cheaply, it should not exist.
+
+---
+
+## P10 — The application guide (question 3)
+
+**Not a corpus problem.** Grant-writing craft, tailoring to a mechanism, worked
+examples and format rules do not belong in a spreadsheet. This is the companion
+document P3 already scoped, grown up: its spine is `review_criteria_official`,
+which is populated on 191/219 rows and is the corpus's real contribution to the
+question — what each funder says it is actually judging.
+
+Decide the artifact before researching it. Do not start by adding columns.
 
 ---
 
@@ -136,6 +216,9 @@ supranational pass first (ERC / MSCA / EIC), then a scoped national pass.
 - **Guidance rows are not comparable to enumerated ones.** 19 rows describe
   typical ranges rather than a specific programme. Any aggregate that mixes them
   with enumerated rows is measuring two different things.
+- **`prior_funding_exclusion` says `unspecified` on 60 rows and `no` on 22.**
+  Those are different claims and only one of them is checkable. Do not let a P7
+  backfill flatten them.
 - **Post-SFFA identity coding** is current as of 2026-07-18 only, except the 13
   identity-gated rows re-verified 2026-09-17. Re-verify before any use that
   depends on it, and see F-004 for four rows whose coding is under question.
