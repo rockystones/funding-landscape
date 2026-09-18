@@ -22,6 +22,42 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 VAULT = ROOT / "data" / "mechanisms.csv"
 
+# Values a new row gets when the research did not establish one. Every default is
+# either an honest blank or the schema's explicit "we did not find this" token --
+# none of them asserts anything. A payload may override them per file with a
+# `new_row_defaults` object; anything still missing after that is a hard error, so
+# a forgotten field fails loudly rather than silently becoming blank.
+NEW_ROW_DEFAULTS = {
+    "jurisdiction": "United States",
+    "coverage_type": "enumerated",
+    "design_notes": "",
+    "years_since_degree_max": "",
+    "eligibility_window": "",
+    "identity_targeting": "none",
+    "identity_gate_type": "n/a",
+    "topic_restricted": "FALSE",
+    "specific_topic": "",
+    "submission_path": "individual_direct",
+    "prior_funding_exclusion": "unspecified",
+    "institution_type_restriction": "none",
+    "eligibility_notes": "",
+    "selectivity": "unspecified",
+    "review_criteria_official": "",
+    "review_signals_informal": "",
+    "notes": "",
+    # Provenance starts empty: a blank *_checked means never verified, which the
+    # build's worklist ranks apart from merely old (see staleness_worklist).
+    "status": "unknown",
+    "status_valid_to": "",
+    "status_evidence": "",
+    "status_source": "",
+    "status_checked": "",
+    "award_checked": "",
+    "eligibility_checked": "",
+    "identity_checked": "",
+    "review_criteria_checked": "",
+}
+
 
 class Ambiguous(Exception):
     """More than one row matched. Never guess which one was meant."""
@@ -121,14 +157,29 @@ def main(path: Path, dry_run: bool) -> int:
         if clash:
             skipped += 1
             continue
-        missing = [f for f in fields if f not in spec]
+        row = dict(NEW_ROW_DEFAULTS)
+        row.update(payload.get("new_row_defaults", {}))
+        row.update(spec)
+        missing = [f for f in fields if f not in row]
         if missing:
             print(f"  FAIL    new row {spec['program_name'][:40]!r} missing {missing}",
                   file=sys.stderr)
             return 1
-        rows.append({f: spec[f] for f in fields})
+        unknown_keys = [k for k in row if k not in fields]
+        if unknown_keys:
+            print(f"  FAIL    new row {spec['program_name'][:40]!r} has unknown "
+                  f"column(s) {unknown_keys}", file=sys.stderr)
+            return 1
+        if row["status"] != "unknown" and not (row["status_evidence"] and row["status_source"]):
+            print(f"  REFUSE  new row {spec['program_name'][:40]!r}: status without evidence",
+                  file=sys.stderr)
+            return 1
+        if row["status"] != "unknown" and not row["status_checked"]:
+            row["status_checked"] = checked
+        rows.append({f: row[f] for f in fields})
         added += 1
-        print(f"  add     {spec['program_name'][:46]:48s} status={spec['status']}")
+        print(f"  add     {row['program_name'][:46]:48s} "
+              f"{row['funder_category']:20s} status={row['status']}")
 
     print(f"\n{changed} updated · {added} added · {skipped} already current "
           f"· {len(rows)} rows total")

@@ -138,6 +138,16 @@ Johnson** (the largest US health-policy philanthropy), **Ford**, **MacArthur**,
 This is not a rounding error. A humanities scholar filtering this sheet gets
 four rows and would reasonably conclude the dataset is not for them.
 
+> **Update 2026-09-18 — largely addressed.** P2 wave 1–2 added 21 rows across
+> Spencer, W.T. Grant, Russell Sage, Guggenheim, ACLS (with Mellon and Luce), the
+> Getty Research Institute and two more NEH programmes. **social_sciences 15 → 31,
+> humanities 4 → 14, arts 1 → 5.** The corpus is now 214 rows across 105 funders.
+> Arts remains below the roadmap's floor of 10 and is named as unfinished; Mellon,
+> RWJF, MacArthur, Keck, Kavli and Templeton are still absent. Two of the five
+> paused programmes in the corpus are now the Getty's, suspended for 2027–28 while
+> the Getty Center closes. Details in
+> `research/2026-09-18-p2-humanities/FINDINGS.md`.
+
 ### 3.5 Catalogue depth is thin outside the big federal agencies
 
 **63 of 92 funders (68%) have exactly one logged programme.** The brief's
