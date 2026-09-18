@@ -510,8 +510,48 @@ def build(check_only: bool = False) -> int:
     return 1 if errors else 0
 
 
+# Fields the explorer needs. Everything else stays in corpus.json: the page is
+# inlined into one artifact, so its payload is trimmed rather than complete.
+VIZ_FIELDS = [
+    "program_name", "funder", "funder_category", "career_stage", "domain",
+    "mechanism_type", "purpose", "research_stage", "citizenship_residency",
+    "institution_type_restriction", "submission_path", "identity_targeting",
+    "identity_gate_type", "topic_restricted", "specific_topic",
+    "typical_duration", "eligibility_window", "years_since_degree_max",
+    "selectivity", "confidence", "coverage_type", "source_url", "checked_date",
+    "award_raw", "award_parse", "award_flags", "annual_min_usd",
+    "annual_max_usd", "total_min_usd", "total_max_usd", "staleness_days",
+]
+
+
+def write_viz_payload() -> Path:
+    """Trim dist/corpus.json down to what the explorer renders."""
+    with OUT.open(encoding="utf-8") as fh:
+        full = json.load(fh)
+    slim = []
+    for r in full["mechanisms"]:
+        row = {k: r[k] for k in VIZ_FIELDS if k in r and r[k] not in ("", None, [])}
+        purpose = (r.get("stated_purpose") or "").strip()
+        if purpose:
+            row["stated_purpose"] = purpose[:260] + ("..." if len(purpose) > 260 else "")
+        slim.append(row)
+    dest = OUT.parent / "viz-data.json"
+    with dest.open("w", encoding="utf-8") as fh:
+        json.dump({"built": full["built"], "stats": full["stats"],
+                   "mechanisms": slim}, fh, ensure_ascii=False, separators=(",", ":"))
+    print(f"wrote           {dest.relative_to(ROOT)} "
+          f"({dest.stat().st_size // 1024} KB)")
+    return dest
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--check", action="store_true",
                     help="validate only; do not write dist/")
-    sys.exit(build(ap.parse_args().check))
+    ap.add_argument("--viz", action="store_true",
+                    help="also write the trimmed explorer payload")
+    args = ap.parse_args()
+    code = build(args.check)
+    if args.viz and not args.check:
+        write_viz_payload()
+    sys.exit(code)

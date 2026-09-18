@@ -1,5 +1,8 @@
-# Derived. Rebuild with: python scripts/build.py
+# Derived. Rebuild with: python scripts/build.py --viz && python scripts/make_viz.py
 dist/corpus.json
+dist/viz-data.json
+# Generated from viz/index.template.html + the payload. The template is the source.
+viz/index.html
 
 # The delivered v0.1 workbook is kept: it cannot be regenerated here
 # (no openpyxl in this environment). See DECISIONS.md D-004.

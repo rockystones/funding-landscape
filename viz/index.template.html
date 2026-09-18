@@ -1,0 +1,623 @@
+<title>US Funding Landscape</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap">
+<style>
+  :root {
+    --paper:#FBFAF6; --panel:#F4F2EC; --ink:#1B2027; --ink-soft:#5C6672;
+    --ink-faint:#8B94A0; --rule:#DFDAD0; --rule-soft:#EAE6DE;
+    --accent:#0E6A60; --accent-soft:#D7E8E4; --amber:#9C5518; --amber-soft:#F3E4D3;
+    --cat-federal:#2F6D8C; --cat-defense:#55606E; --cat-mission:#6E7F4E;
+    --cat-society:#8A6A3C; --cat-foundation:#8C4F6B; --cat-disease:#A8553E;
+    --cat-institutional:#4E6E64; --cat-industry:#5B5A8C;
+    --cat-international:#3E7E78; --cat-state:#7A6E92;
+    --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --serif:"IBM Plex Serif",Georgia,"Times New Roman",serif;
+    --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#11151A; --panel:#171C23; --ink:#E8EBEE; --ink-soft:#98A2AE;
+      --ink-faint:#6B7683; --rule:#262D36; --rule-soft:#1D232B;
+      --accent:#4FB3A5; --accent-soft:#16332F; --amber:#D08A4A; --amber-soft:#33241457;
+      --cat-federal:#5C9CBC; --cat-defense:#8A95A4; --cat-mission:#9CAF78;
+      --cat-society:#BE9862; --cat-foundation:#BE7E9A; --cat-disease:#D4846C;
+      --cat-institutional:#7BA095; --cat-industry:#8C8ABF;
+      --cat-international:#6FAFA8; --cat-state:#A99DC2;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#11151A; --panel:#171C23; --ink:#E8EBEE; --ink-soft:#98A2AE;
+    --ink-faint:#6B7683; --rule:#262D36; --rule-soft:#1D232B;
+    --accent:#4FB3A5; --accent-soft:#16332F; --amber:#D08A4A; --amber-soft:#33241457;
+    --cat-federal:#5C9CBC; --cat-defense:#8A95A4; --cat-mission:#9CAF78;
+    --cat-society:#BE9862; --cat-foundation:#BE7E9A; --cat-disease:#D4846C;
+    --cat-institutional:#7BA095; --cat-industry:#8C8ABF;
+    --cat-international:#6FAFA8; --cat-state:#A99DC2;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--paper); color:var(--ink); font-family:var(--sans);
+    font-size:15px; line-height:1.55; margin:0;
+    padding-block:32px 72px; padding-left:20px; padding-right:20px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1120px; margin:0 auto; display:flex; flex-direction:column; gap:40px}
+  h1,h2,h3{font-family:var(--serif); text-wrap:balance; margin:0}
+  .num{font-family:var(--mono); font-variant-numeric:tabular-nums}
+
+  /* ---------------------------------------------------------- masthead */
+  .masthead{display:flex; flex-direction:column; gap:14px;
+    border-bottom:2px solid var(--ink); padding-bottom:18px}
+  h1{font-size:clamp(28px,4.4vw,40px); font-weight:600; letter-spacing:-.015em}
+  .standfirst{font-size:16.5px; color:var(--ink-soft); max-width:62ch; margin:0}
+  .facts{display:flex; flex-wrap:wrap; gap:0; border-top:1px solid var(--rule);
+    padding-top:14px; margin-top:2px}
+  .fact{padding-right:26px; margin-right:26px; border-right:1px solid var(--rule)}
+  .fact:last-child{border-right:0; margin-right:0; padding-right:0}
+  .fact b{display:block; font-family:var(--mono); font-size:21px; font-weight:500;
+    letter-spacing:-.02em}
+  .fact span{display:block; font-size:11.5px; text-transform:uppercase;
+    letter-spacing:.09em; color:var(--ink-faint)}
+
+  .caveat{display:flex; gap:11px; align-items:flex-start; background:var(--amber-soft);
+    border-left:3px solid var(--amber); padding:11px 14px; font-size:13.5px;
+    color:var(--ink); border-radius:0 3px 3px 0}
+  .caveat b{color:var(--amber); font-weight:600}
+
+  /* ---------------------------------------------------------- controls */
+  .profile{background:var(--panel); border:1px solid var(--rule); padding:20px 22px;
+    display:flex; flex-direction:column; gap:16px}
+  .profile-head{display:flex; justify-content:space-between; align-items:baseline;
+    gap:16px; flex-wrap:wrap}
+  .profile h2{font-size:19px; font-weight:600}
+  .profile-note{font-size:13px; color:var(--ink-soft); max-width:48ch}
+  .controls{display:grid; grid-template-columns:repeat(auto-fit,minmax(215px,1fr));
+    gap:16px}
+  .ctl{display:flex; flex-direction:column; gap:6px}
+  .ctl label{font-size:11.5px; text-transform:uppercase; letter-spacing:.09em;
+    color:var(--ink-faint); font-weight:500}
+  .ctl select{font-family:var(--sans); font-size:14.5px; color:var(--ink);
+    background:var(--paper); border:1px solid var(--rule); padding:8px 10px;
+    border-radius:2px; width:100%}
+  .ctl select:focus-visible{outline:2px solid var(--accent); outline-offset:1px}
+  .reset{font-family:var(--sans); font-size:13px; color:var(--accent);
+    background:none; border:1px solid var(--accent); padding:6px 13px;
+    border-radius:2px; cursor:pointer; align-self:flex-start}
+  .reset:hover{background:var(--accent-soft)}
+  .reset:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+
+  .verdict{font-size:15px; border-top:1px solid var(--rule); padding-top:14px}
+  .verdict b{font-family:var(--mono); font-size:19px; font-weight:500; color:var(--accent)}
+  .verdict .muted{color:var(--ink-soft)}
+
+  /* ---------------------------------------------------------- section */
+  section{display:flex; flex-direction:column; gap:14px}
+  .sec-head{display:flex; flex-direction:column; gap:5px;
+    border-bottom:1px solid var(--rule); padding-bottom:9px}
+  .eyebrow{font-size:11.5px; text-transform:uppercase; letter-spacing:.11em;
+    color:var(--ink-faint); font-weight:500}
+  h2.sec{font-size:22px; font-weight:600; letter-spacing:-.01em}
+  .sec-sub{font-size:14px; color:var(--ink-soft); max-width:70ch}
+
+  /* ---------------------------------------------------------- matrix */
+  .matrix-scroll{overflow-x:auto; padding-bottom:4px}
+  table.matrix{border-collapse:collapse; font-size:13px; min-width:720px; width:100%}
+  table.matrix th{font-weight:500; color:var(--ink-soft); text-align:left;
+    padding:5px 7px; font-size:11.5px; letter-spacing:.04em; vertical-align:bottom}
+  table.matrix thead th{text-transform:uppercase; border-bottom:1px solid var(--rule)}
+  table.matrix tbody th{white-space:nowrap; border-right:1px solid var(--rule);
+    padding-right:11px}
+  table.matrix td{padding:2px}
+  .cell{position:relative; height:34px; display:flex; align-items:center;
+    justify-content:center; font-family:var(--mono); font-size:13px;
+    font-variant-numeric:tabular-nums; border:1px solid transparent; cursor:pointer;
+    transition:opacity .15s, border-color .15s}
+  .cell.empty{cursor:default; color:var(--ink-faint); opacity:.4}
+  .cell.dim{opacity:.22}
+  .cell.sel{border-color:var(--ink); border-width:2px}
+  .cell:focus-visible{outline:2px solid var(--accent); outline-offset:1px}
+  .cell .ghost{font-size:10.5px; color:var(--ink-faint); margin-left:3px}
+  tbody tr th .swatch{display:inline-block; width:9px; height:9px; margin-right:7px;
+    vertical-align:baseline}
+  .totals th, .totals td{border-top:1px solid var(--rule); padding-top:5px;
+    font-family:var(--mono); font-size:12px; color:var(--ink-soft); text-align:center}
+
+  /* ---------------------------------------------------------- value strip */
+  .chart-frame{border:1px solid var(--rule); background:var(--panel); padding:16px 14px 8px}
+  svg{display:block; width:100%; height:auto; max-width:100%; overflow:visible}
+  /* SVG presentation attributes do not resolve var(), so every colour in the
+     chart is set through a CSS rule instead of an attribute. */
+  #strip .grid{stroke:var(--rule-soft); stroke-width:1}
+  #strip .axis{stroke:var(--rule); stroke-width:1}
+  #strip .tick{font-family:var(--mono); font-size:13px; fill:var(--ink-faint)}
+  #strip .m{rx:1}
+  /* A heuristic parse is drawn hollow, so the weaker evidence is visible in
+     the mark itself rather than only in the tooltip. */
+  #strip .m.heur{fill:none!important; stroke:var(--ink-faint); stroke-width:1.5}
+  #strip .c-federal_research{fill:var(--cat-federal)}
+  #strip .c-defense_security{fill:var(--cat-defense)}
+  #strip .c-mission_applied{fill:var(--cat-mission)}
+  #strip .c-professional_society{fill:var(--cat-society)}
+  #strip .c-private_foundation{fill:var(--cat-foundation)}
+  #strip .c-disease_advocacy{fill:var(--cat-disease)}
+  #strip .c-institutional{fill:var(--cat-institutional)}
+  #strip .c-industry{fill:var(--cat-industry)}
+  #strip .c-international_mobility{fill:var(--cat-international)}
+  #strip .c-state_regional{fill:var(--cat-state)}
+  .excluded-note{font-size:13px; color:var(--ink-soft); padding:0 2px}
+
+  /* ---------------------------------------------------------- legend */
+  .legend{display:flex; flex-wrap:wrap; gap:8px 18px; font-size:12.5px;
+    color:var(--ink-soft)}
+  .legend span{display:flex; align-items:center; gap:6px}
+  .legend i{width:10px; height:10px; display:block}
+
+  /* ---------------------------------------------------------- results */
+  .results{display:flex; flex-direction:column; gap:0; border-top:1px solid var(--rule)}
+  .mech{border-bottom:1px solid var(--rule-soft); padding:14px 2px;
+    display:grid; grid-template-columns:1fr auto; gap:6px 20px; align-items:start}
+  .mech.out{opacity:.34}
+  .mech-main{display:flex; flex-direction:column; gap:5px; min-width:0}
+  .mech-name{font-family:var(--serif); font-size:16.5px; font-weight:600;
+    line-height:1.3; text-wrap:balance}
+  .mech-name a{color:inherit; text-decoration:none;
+    border-bottom:1px solid var(--rule)}
+  .mech-name a:hover{border-bottom-color:var(--accent); color:var(--accent)}
+  .mech-funder{font-size:13.5px; color:var(--ink-soft)}
+  .mech-purpose{font-size:13.5px; color:var(--ink-soft); max-width:74ch}
+  .tags{display:flex; flex-wrap:wrap; gap:5px; margin-top:2px}
+  .tag{font-size:11px; letter-spacing:.03em; padding:2px 7px; border-radius:2px;
+    border:1px solid var(--rule); color:var(--ink-soft); white-space:nowrap}
+  .tag.cat{color:var(--paper); border-color:transparent; font-weight:500}
+  .tag.guid{border-style:dashed; border-color:var(--amber); color:var(--amber)}
+  .tag.gate{border-color:var(--amber); color:var(--amber)}
+  .mech-money{text-align:right; display:flex; flex-direction:column; gap:3px;
+    min-width:150px}
+  .money-val{font-family:var(--mono); font-size:16px; font-weight:500;
+    font-variant-numeric:tabular-nums; letter-spacing:-.02em}
+  .money-basis{font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--ink-faint)}
+  .money-raw{font-size:11.5px; color:var(--ink-faint); line-height:1.4;
+    max-width:230px; margin-left:auto}
+  .money-none{font-family:var(--mono); font-size:13px; color:var(--ink-faint)}
+  .conf{font-size:11px; letter-spacing:.05em; text-transform:uppercase}
+  .conf.high{color:var(--accent)} .conf.medium{color:var(--ink-soft)}
+  .conf.low{color:var(--amber)}
+  .divider{padding:16px 2px 6px; font-size:12.5px; color:var(--ink-faint);
+    text-transform:uppercase; letter-spacing:.09em; border-bottom:1px solid var(--rule)}
+  .more{font-family:var(--sans); font-size:13.5px; color:var(--accent);
+    background:none; border:1px solid var(--accent); padding:9px 16px; cursor:pointer;
+    border-radius:2px; align-self:flex-start; margin-top:16px}
+  .more:hover{background:var(--accent-soft)}
+
+  footer{border-top:1px solid var(--rule); padding-top:16px; font-size:13px;
+    color:var(--ink-faint); display:flex; flex-direction:column; gap:7px}
+  footer code{font-family:var(--mono); font-size:12.5px}
+
+  @media (max-width:640px){
+    .mech{grid-template-columns:1fr}
+    .mech-money{text-align:left; min-width:0}
+    .money-raw{margin-left:0; max-width:none}
+    .fact{padding-right:18px; margin-right:18px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <h1>US Funding Landscape</h1>
+    <p class="standfirst">Standing research-funding mechanisms in the United States —
+      one row per durable programme, not per dated solicitation. Set a profile to see
+      what you could pursue, and what you are shut out of.</p>
+    <div class="facts">
+      <div class="fact"><b class="num">190</b><span>mechanisms</span></div>
+      <div class="fact"><b class="num">92</b><span>funders</span></div>
+      <div class="fact"><b class="num">10</b><span>categories</span></div>
+      <div class="fact"><b class="num" id="f-stale">61</b><span>days since check</span></div>
+    </div>
+    <div class="caveat">
+      <span>⚠</span>
+      <div><b>Snapshot of 2026-07-18.</b> Amounts, eligibility windows and review
+        criteria drift; identity gates drift fastest. The schema cannot yet record
+        that a programme has ended, and 48% of these rows are federal — verify on the
+        funder's own page before relying on any of it.</div>
+    </div>
+  </header>
+
+  <div class="profile">
+    <div class="profile-head">
+      <h2>Your profile</h2>
+      <p class="profile-note">Nothing is hidden as you filter. Mechanisms you are not
+        eligible for stay on the page, dimmed — the shape of what you are excluded
+        from is part of the picture.</p>
+    </div>
+    <div class="controls">
+      <div class="ctl"><label for="c-stage">Career stage</label>
+        <select id="c-stage"></select></div>
+      <div class="ctl"><label for="c-domain">Research domain</label>
+        <select id="c-domain"></select></div>
+      <div class="ctl"><label for="c-cit">Citizenship &amp; location</label>
+        <select id="c-cit"></select></div>
+      <div class="ctl"><label for="c-inst">Institution type</label>
+        <select id="c-inst"></select></div>
+    </div>
+    <button class="reset" id="c-reset" type="button">Clear profile</button>
+    <p class="verdict" id="verdict"></p>
+  </div>
+
+  <section>
+    <div class="sec-head">
+      <div class="eyebrow">Coverage — career stage × funder category</div>
+      <h2 class="sec">Where the money is, and where the map is thin</h2>
+      <p class="sec-sub">Each cell counts mechanisms. Cell fill tracks the count, so
+        empty cells are as informative as full ones: they are either a real absence in
+        US research funding or a gap in this dataset. Click any cell to filter the list
+        below.</p>
+    </div>
+    <div class="matrix-scroll"><table class="matrix" id="matrix"></table></div>
+    <div class="legend" id="legend"></div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div class="eyebrow">Award value — total, log scale</div>
+      <h2 class="sec">Each mark is one mechanism</h2>
+      <p class="sec-sub">Positioned by the upper end of its total award envelope,
+        parsed from the funder's own free-text description. The parser reads about
+        88% of strings correctly, so this is a distribution, not a quotation.</p>
+    </div>
+    <div class="chart-frame"><svg id="strip" role="img"
+      aria-label="Distribution of mechanisms by total award value on a logarithmic scale"></svg></div>
+    <p class="excluded-note" id="excluded"></p>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div class="eyebrow">Mechanisms</div>
+      <h2 class="sec" id="results-title">All 190 mechanisms</h2>
+      <p class="sec-sub">Sorted by total award value, largest first. Every amount is
+        shown next to the funder's own wording, because the parsed figure is derived
+        and the wording is the evidence.</p>
+    </div>
+    <div class="results" id="results"></div>
+    <button class="more" id="more" type="button" hidden>Show more</button>
+  </section>
+
+  <footer>
+    <div>Built from <code>data/mechanisms.csv</code> via <code>scripts/build.py</code>.
+      All 190 rows pass the acceptance gates in the research brief's Section 9:
+      0 errors, 0 warnings.</div>
+    <div>Award figures are <em>derived</em> from free text and graded
+      <code>clean</code> / <code>heuristic</code> / <code>unparsed</code>; unparsed
+      rows are excluded from the value view rather than counted as zero.
+      <code>selectivity</code> is unspecified on 81% of rows — that is honest, not missing.</div>
+  </footer>
+</div>
+
+<script id="corpus" type="application/json">/*__DATA__*/</script>
+<script>
+(function(){
+  "use strict";
+  const DATA = JSON.parse(document.getElementById("corpus").textContent);
+  const ROWS = DATA.mechanisms;
+
+  const STAGES = [
+    ["undergraduate","Undergrad"],["graduate_predoc","Grad / predoc"],
+    ["postdoc","Postdoc"],["transition","Transition"],
+    ["early_career_faculty","Early faculty"],["midcareer","Midcareer"],
+    ["senior_established","Senior"],["physician_scientist","Physician-sci"],
+    ["reentry","Re-entry"],["no_stage_restriction","Any stage"]];
+  const CATS = [
+    ["federal_research","Federal research","--cat-federal"],
+    ["defense_security","Defense & security","--cat-defense"],
+    ["mission_applied","Mission / applied","--cat-mission"],
+    ["professional_society","Professional society","--cat-society"],
+    ["private_foundation","Private foundation","--cat-foundation"],
+    ["disease_advocacy","Disease advocacy","--cat-disease"],
+    ["institutional","Institutional","--cat-institutional"],
+    ["industry","Industry","--cat-industry"],
+    ["international_mobility","International mobility","--cat-international"],
+    ["state_regional","State / regional","--cat-state"]];
+  const DOMAINS = [
+    ["biomedical_health","Biomedical & health"],["life_sciences","Life sciences"],
+    ["physical_sciences","Physical sciences"],["engineering","Engineering"],
+    ["computing_math","Computing & maths"],["social_sciences","Social sciences"],
+    ["humanities","Humanities"],["arts","Arts"]];
+  const CITS = [
+    ["any","No constraint stated"],
+    ["us_citizen","US citizen, national or permanent resident"],
+    ["noncitizen_us","Non-citizen at a US institution"],
+    ["outside_us","Based outside the US"]];
+  const INSTS = [
+    ["any","No constraint stated"],["r1","US research university (R1)"],
+    ["pui","Primarily undergraduate institution"],
+    ["msi","Minority-serving institution / HBCU"],
+    ["small_business","Small business"],["nonprofit","Non-profit or independent"],
+    ["non_us","Institution outside the US"]];
+
+  const catMeta = new Map(CATS.map(c => [c[0], {label:c[1], varName:c[2]}]));
+  const colorOf = c => `var(${(catMeta.get(c)||{varName:"--ink-soft"}).varName})`;
+
+  const state = {stage:"", domain:"", cit:"any", inst:"any", cell:null, limit:40};
+
+  // ------------------------------------------------------------ eligibility
+  function eligible(r){
+    if(state.stage){
+      const s = r.career_stage || [];
+      if(!s.includes(state.stage) && !s.includes("no_stage_restriction")) return false;
+    }
+    if(state.domain){
+      const d = r.domain || [];
+      if(!d.includes(state.domain) && !d.includes("domain_agnostic")) return false;
+    }
+    const cz = r.citizenship_residency, inst = r.institution_type_restriction;
+    if(state.cit === "noncitizen_us" && cz === "citizen_national_pr_required") return false;
+    if(state.cit === "outside_us"){
+      if(cz === "citizen_national_pr_required") return false;
+      if(cz === "host_country_institution_required") return false;
+      if(inst === "us_institution") return false;
+    }
+    if(state.inst !== "any"){
+      if(state.inst === "non_us" && inst === "us_institution") return false;
+      if(state.inst !== "r1" && inst === "r1_or_equiv") return false;
+      if(state.inst !== "pui" && inst === "pui_only") return false;
+      if(state.inst !== "small_business" && inst === "small_business") return false;
+      if(state.inst === "small_business" && inst === "us_institution") return false;
+    }
+    return true;
+  }
+  const inCell = r => !state.cell ||
+    (r.funder_category === state.cell.cat &&
+     (r.career_stage || []).includes(state.cell.stage));
+
+  const fmtUSD = v => v == null ? "—"
+    : v >= 1e6 ? "$" + (v/1e6).toFixed(v >= 1e7 ? 0 : 1) + "M"
+    : v >= 1e3 ? "$" + Math.round(v/1e3) + "K" : "$" + Math.round(v);
+
+  // ------------------------------------------------------------ controls
+  function fillSelect(id, opts, blank){
+    const el = document.getElementById(id);
+    if(blank) el.append(new Option(blank, ""));
+    opts.forEach(([v,l]) => el.append(new Option(l, v)));
+    return el;
+  }
+  const selStage = fillSelect("c-stage", STAGES, "Any stage");
+  const selDomain = fillSelect("c-domain", DOMAINS, "Any domain");
+  const selCit = fillSelect("c-cit", CITS);
+  const selInst = fillSelect("c-inst", INSTS);
+
+  selStage.onchange = e => { state.stage = e.target.value; state.limit = 40; render(); };
+  selDomain.onchange = e => { state.domain = e.target.value; state.limit = 40; render(); };
+  selCit.onchange = e => { state.cit = e.target.value; state.limit = 40; render(); };
+  selInst.onchange = e => { state.inst = e.target.value; state.limit = 40; render(); };
+  document.getElementById("c-reset").onclick = () => {
+    Object.assign(state, {stage:"", domain:"", cit:"any", inst:"any", cell:null, limit:40});
+    selStage.value = ""; selDomain.value = ""; selCit.value = "any"; selInst.value = "any";
+    render();
+  };
+  document.getElementById("more").onclick = () => { state.limit += 60; render(); };
+
+  // ------------------------------------------------------------ matrix
+  const matrixEl = document.getElementById("matrix");
+  function buildMatrix(){
+    const head = `<thead><tr><th></th>${
+      STAGES.map(([v,l]) => `<th scope="col" title="${v}">${l}</th>`).join("")
+    }<th scope="col">Total</th></tr></thead>`;
+    const body = CATS.map(([cv,cl,vn]) => `<tr><th scope="row">
+        <span class="swatch" style="background:var(${vn})"></span>${cl}</th>${
+      STAGES.map(([sv]) => `<td><div class="cell" role="button" tabindex="0"
+        data-cat="${cv}" data-stage="${sv}"></div></td>`).join("")
+    }<td><div class="cell" data-total="${cv}" style="cursor:default"></div></td></tr>`).join("");
+    matrixEl.innerHTML = head + "<tbody>" + body + "</tbody>";
+
+    matrixEl.querySelectorAll(".cell[data-cat]").forEach(el => {
+      const pick = () => {
+        const same = state.cell && state.cell.cat === el.dataset.cat &&
+                     state.cell.stage === el.dataset.stage;
+        state.cell = same ? null : {cat:el.dataset.cat, stage:el.dataset.stage};
+        state.limit = 40; render();
+      };
+      el.addEventListener("click", pick);
+      el.addEventListener("keydown", ev => {
+        if(ev.key === "Enter" || ev.key === " "){ ev.preventDefault(); pick(); }
+      });
+    });
+  }
+
+  function paintMatrix(){
+    let max = 1;
+    const counts = new Map();
+    CATS.forEach(([cv]) => STAGES.forEach(([sv]) => {
+      const all = ROWS.filter(r => r.funder_category === cv &&
+                                   (r.career_stage||[]).includes(sv));
+      const ok = all.filter(eligible);
+      counts.set(cv+"|"+sv, [ok.length, all.length]);
+      if(all.length > max) max = all.length;
+    }));
+
+    matrixEl.querySelectorAll(".cell[data-cat]").forEach(el => {
+      const [ok, all] = counts.get(el.dataset.cat + "|" + el.dataset.stage);
+      const sel = state.cell && state.cell.cat === el.dataset.cat &&
+                  state.cell.stage === el.dataset.stage;
+      el.classList.toggle("empty", all === 0);
+      el.classList.toggle("dim", all > 0 && ok === 0);
+      el.classList.toggle("sel", !!sel);
+      el.style.background = all === 0 ? "transparent"
+        : `color-mix(in srgb, ${colorOf(el.dataset.cat)} ${12 + 60*(ok/max)}%, transparent)`;
+      el.innerHTML = all === 0 ? "·"
+        : ok === all ? String(ok)
+        : `${ok}<span class="ghost">/${all}</span>`;
+      el.setAttribute("aria-label",
+        `${catMeta.get(el.dataset.cat).label}, ${el.dataset.stage}: ${ok} of ${all} eligible`);
+    });
+
+    matrixEl.querySelectorAll(".cell[data-total]").forEach(el => {
+      const cv = el.dataset.total;
+      const all = ROWS.filter(r => r.funder_category === cv);
+      const ok = all.filter(eligible).length;
+      el.style.background = "transparent";
+      el.style.color = "var(--ink-soft)";
+      el.innerHTML = ok === all.length ? `<b>${ok}</b>`
+        : `<b>${ok}</b><span class="ghost">/${all.length}</span>`;
+    });
+  }
+
+  document.getElementById("legend").innerHTML =
+    CATS.map(([,l,vn]) => `<span><i style="background:var(${vn})"></i>${l}</span>`).join("") +
+    `<span><i style="border:1px dashed var(--amber)"></i>dashed = guidance row, not a named programme</span>`
+    + `<span><i style="border:1.5px solid var(--ink-faint)"></i>hollow mark = heuristic parse of the award text</span>`;
+
+  // ------------------------------------------------------------ value strip
+  function paintStrip(){
+    const svg = document.getElementById("strip");
+    const priced = ROWS.filter(r => r.total_max_usd > 0);
+    const W = 1000, PAD_L = 8, PAD_R = 8, PAD_B = 34, PAD_T = 10;
+    const LO = 3, HI = 8;                       // $1K .. $100M
+    const x = v => PAD_L + (Math.log10(v) - LO)/(HI - LO) * (W - PAD_L - PAD_R);
+
+    const BIN = 0.1667, cols = new Map();       // sixth-decade bins
+    priced.forEach(r => {
+      const k = Math.floor((Math.log10(r.total_max_usd) - LO)/BIN);
+      if(!cols.has(k)) cols.set(k, []);
+      cols.get(k).push(r);
+    });
+
+    const S = 9, GAP = 2.5;
+    let tallest = 0;
+    cols.forEach(list => { if(list.length > tallest) tallest = list.length; });
+    const H = PAD_T + tallest*(S+GAP) + PAD_B;
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+
+    const base = H - PAD_B;
+    let marks = "";
+    // Bins decide only the vertical stack. Each mark keeps its true horizontal
+    // position, so a $10M award sits on the $10M gridline rather than at the
+    // centre of the bin that happens to contain it.
+    cols.forEach(list => {
+      list.sort((a,b) => a.total_max_usd - b.total_max_usd).forEach((r, i) => {
+        const cx = x(r.total_max_usd);
+        const y = base - (i+1)*(S+GAP);
+        const on = eligible(r) && inCell(r);
+        const heur = r.award_parse === "heuristic";
+        marks += `<rect class="m c-${r.funder_category}${heur ? " heur" : ""}" `
+          + `x="${(cx - S/2).toFixed(1)}" y="${y.toFixed(1)}" `
+          + `width="${S}" height="${S}" opacity="${on ? .92 : .16}"><title>${
+            esc(r.program_name)} — ${fmtUSD(r.total_max_usd)} total${
+            heur ? " (heuristic parse)" : ""}</title></rect>`;
+      });
+    });
+
+    let axis = `<line class="axis" x1="${PAD_L}" y1="${base+1}"
+      x2="${W-PAD_R}" y2="${base+1}"/>`;
+    [[1e3,"$1K"],[1e4,"$10K"],[1e5,"$100K"],[1e6,"$1M"],[1e7,"$10M"],[1e8,"$100M"]]
+      .forEach(([v,l]) => {
+        const px = x(v);
+        axis += `<line class="grid" x1="${px.toFixed(1)}" y1="${PAD_T}"
+            x2="${px.toFixed(1)}" y2="${base}"/>
+          <text class="tick" x="${px.toFixed(1)}" y="${base+21}"
+            text-anchor="middle">${l}</text>`;
+      });
+    svg.innerHTML = axis + marks;
+
+    const shown = priced.filter(r => eligible(r) && inCell(r)).length;
+    const unpriced = ROWS.filter(r => !(r.total_max_usd > 0))
+                         .filter(r => eligible(r) && inCell(r)).length;
+    document.getElementById("excluded").innerHTML =
+      `<span class="num">${shown}</span> mechanisms plotted. `
+      + `<span class="num">${unpriced}</span> more match your profile but have no `
+      + `parseable total — excluded from this view, not counted as zero.`;
+  }
+
+  const esc = s => String(s).replace(/[&<>"]/g,
+    c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+  // ------------------------------------------------------------ results
+  function paintResults(){
+    const scored = ROWS.map(r => ({r, ok: eligible(r) && inCell(r)}));
+    scored.sort((a,b) =>
+      (b.ok - a.ok) || ((b.r.total_max_usd||0) - (a.r.total_max_usd||0)));
+
+    const okCount = scored.filter(s => s.ok).length;
+    const visible = scored.slice(0, state.limit);
+    let html = "", dividerDone = false;
+
+    visible.forEach(({r, ok}) => {
+      if(!ok && !dividerDone){
+        dividerDone = true;
+        html += `<div class="divider">Not eligible under this profile — shown, not hidden</div>`;
+      }
+      const cat = catMeta.get(r.funder_category) || {label:r.funder_category};
+      const money = r.total_max_usd
+        ? `<div class="money-val">${fmtUSD(r.total_min_usd)}${
+             r.total_max_usd !== r.total_min_usd ? "–" + fmtUSD(r.total_max_usd) : ""}</div>
+           <div class="money-basis">total${
+             r.annual_max_usd ? " · " + fmtUSD(r.annual_max_usd) + "/yr" : ""}</div>`
+        : `<div class="money-none">no stated amount</div>`;
+      const gates = [];
+      if(r.citizenship_residency === "citizen_national_pr_required") gates.push("citizenship gate");
+      if(r.identity_gate_type === "restricted_to") gates.push("identity-restricted");
+      if(r.submission_path === "institutional_nomination_limited") gates.push("limited submission");
+      if(r.topic_restricted && r.specific_topic) gates.push(r.specific_topic.slice(0,42));
+
+      html += `<article class="mech${ok ? "" : " out"}">
+        <div class="mech-main">
+          <div class="mech-name">${r.source_url
+            ? `<a href="${esc(r.source_url)}" target="_blank" rel="noopener">${esc(r.program_name)}</a>`
+            : esc(r.program_name)}</div>
+          <div class="mech-funder">${esc(r.funder)}</div>
+          ${r.stated_purpose ? `<div class="mech-purpose">${esc(r.stated_purpose)}</div>` : ""}
+          <div class="tags">
+            <span class="tag cat" style="background:${colorOf(r.funder_category)}">${cat.label}</span>
+            ${r.coverage_type === "guidance" ? `<span class="tag guid">guidance, not a named programme</span>` : ""}
+            ${(r.mechanism_type ? `<span class="tag">${r.mechanism_type.replace(/_/g," ")}</span>` : "")}
+            ${r.typical_duration ? `<span class="tag">${esc(r.typical_duration.slice(0,28))}</span>` : ""}
+            ${gates.map(g => `<span class="tag gate">${esc(g)}</span>`).join("")}
+          </div>
+        </div>
+        <div class="mech-money">
+          ${money}
+          <div class="conf ${r.confidence}">${r.confidence} confidence</div>
+          ${r.award_raw ? `<div class="money-raw">${esc(r.award_raw.slice(0,130))}</div>` : ""}
+        </div>
+      </article>`;
+    });
+
+    document.getElementById("results").innerHTML = html;
+    document.getElementById("results-title").textContent =
+      okCount === ROWS.length ? `All ${ROWS.length} mechanisms`
+        : `${okCount} of ${ROWS.length} mechanisms match your profile`;
+    const more = document.getElementById("more");
+    more.hidden = state.limit >= ROWS.length;
+    more.textContent = `Show more — ${ROWS.length - state.limit} remaining`;
+  }
+
+  function paintVerdict(){
+    const ok = ROWS.filter(r => eligible(r)).length;
+    const pct = Math.round(100*ok/ROWS.length);
+    const bits = [];
+    if(state.stage) bits.push((STAGES.find(s => s[0] === state.stage)||[])[1]);
+    if(state.domain) bits.push((DOMAINS.find(d => d[0] === state.domain)||[])[1]);
+    if(state.cit !== "any") bits.push((CITS.find(c => c[0] === state.cit)||[])[1]);
+    if(state.inst !== "any") bits.push((INSTS.find(i => i[0] === state.inst)||[])[1]);
+    const cellNote = state.cell
+      ? ` <span class="muted">Filtered to one cell: ${
+          catMeta.get(state.cell.cat).label} × ${
+          (STAGES.find(s => s[0] === state.cell.stage)||[])[1]}. Click it again to clear.</span>`
+      : "";
+    document.getElementById("verdict").innerHTML = bits.length === 0
+      ? `<b>${ROWS.length}</b> mechanisms, no profile set — the whole landscape.${cellNote}`
+      : `<b>${ok}</b> of ${ROWS.length} mechanisms (${pct}%) are open to you as `
+        + `<span class="muted">${bits.join(" · ")}</span>.${cellNote}`;
+  }
+
+  function render(){ paintMatrix(); paintStrip(); paintResults(); paintVerdict(); }
+
+  const stale = DATA.stats && DATA.stats.max_staleness_days;
+  if(stale) document.getElementById("f-stale").textContent = stale;
+
+  buildMatrix();
+  render();
+})();
+</script>

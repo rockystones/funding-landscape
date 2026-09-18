@@ -18,6 +18,7 @@ citizenship and institution, which mechanisms can I actually pursue?*
 | `docs/DATASET-NOTES.md` | Method and caveats from the v0.1 research run. |
 | `scripts/build.py` | Validate → derive → emit `dist/corpus.json`. |
 | `dist/` | Derived artifacts. Never hand-edited. |
+| `viz/index.template.html` | Source of the explorer; `scripts/make_viz.py` inlines the payload. |
 | `ASSESSMENT.md` | Independent review of v0.1: what holds, what does not. |
 | `ROADMAP.md` | Phases with exit criteria. |
 | `DECISIONS.md` | Append-only decision log. |
@@ -27,7 +28,11 @@ citizenship and institution, which mechanisms can I actually pursue?*
 ```bash
 python scripts/build.py           # validate, derive, write dist/corpus.json
 python scripts/build.py --check   # validate only; non-zero exit on gate failure
+python scripts/build.py --viz     # also write the trimmed explorer payload
+python scripts/make_viz.py        # inline it -> viz/index.html (self-contained)
 ```
+
+**Explorer:** https://claude.ai/artifact/Qq9sngHh7tdhQUnERzMMvD
 
 Standard library only — no pandas, no openpyxl.
 

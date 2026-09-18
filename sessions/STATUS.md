@@ -12,7 +12,9 @@
   Graded 121 clean / 18 heuristic / 51 unparsed; holdout accuracy 14/16 (seed
   4471) before a final fix. Known-open failure class recorded in ROADMAP.
 - `ASSESSMENT.md` written: six substantive findings, prioritised next steps.
-- Coverage explorer published as an Artifact.
+- Coverage explorer published as an Artifact: https://claude.ai/artifact/Qq9sngHh7tdhQUnERzMMvD
+  Built from `viz/index.template.html` + the trimmed payload, inlined into one
+  self-contained file by `scripts/make_viz.py`.
 
 ## Gated on the user
 
