@@ -18,6 +18,13 @@ uses a CID font that the stdlib extractor cannot decode (the ACS one does).
 | `Fellowships 2026 program announcement 040126.pdf` | NEH Fellowships Program Announcement, deadline 2026-04-22 | same |
 | `Fellowships.pdf` | NEH Fellowships programme page (print) | same — carries the $60,000 / $5,000-per-month figure and the list of published sample narratives |
 | `NEH.AI_.Policy-10.23.24.pdf` | NEH, Policy on the Use of Artificial Intelligence for NEH Grant Proposals | same |
+| `AHA_Research_Funding_Application_Instructions_AC.pdf` | AHA 2027 Research Funding Application Instructions (rev. 2026-09-14), 57pp | Covers all five AHA rows at once: ProposalCentral, membership gate, format enforcement, referee rules. |
+| `2026-American-Heart-Association-Postdoctoral-Fellowship.pdf` | AHA Postdoctoral Fellowship announcement, 2026 cycle | Carries the full calendar arc and the five-page research-plan limit. |
+| `Harry-Shwachman-CF-Clinical-Investigator-Award-Policies-and-Guidelines.pdf` | CFF Harry Shwachman award RFA, December 2025, 18pp | CFF key dates, formatting, resubmission. |
+| `Pilot-and-Feasibility-Awards-Policies-and-Guidelines.pdf` | CFF Pilot & Feasibility award RFA, Spring 2026, 15pp | Same, plus the explicit "Letter of Intent: Not applicable to this RFA". |
+| `FY27-CCR-LOI-Announcement_FINALv2.pdf` | Komen Career Catalyst Research 2026-2027 LOI announcement, 13pp | The limited-submission cascade: institution opt-in, LOI, then application. A byte-identical duplicate (`FY27-CCR-LOI.pdf`) was deleted. |
+| `ALS Association Grants Policy Statement_April 2026.pdf` | ALS Association Grants Policy Statement, April 2026, 26pp | POST-AWARD administration only (carryover, rebudgeting, PI change) — no application-stage content. Recorded so nobody mines it again expecting one. |
+| `FFSB-Policies.pdf` | Policies of the J. William Fulbright Foreign Scholarship Board, 201pp | Not yet mined; governs the two Fulbright rows. |
 | `opportunity-*-attachments.zip` (10) | Grants.gov attachment bundles for NIH NOFOs | **Nine are meta-refresh stubs, not documents** — they redirect to `grants.nih.gov/grants/guide/pa-files/<NOFO>.html`, which turns out to be directly fetchable, so these are not needed. Only `PA-27-037` carries a real 182KB announcement. |
 
 ## What they gave the corpus

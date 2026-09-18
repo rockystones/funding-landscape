@@ -205,6 +205,24 @@ Decide the artifact before researching it. Do not start by adding columns.
 
 ---
 
+## Carried from the 2026-09-18 playbook run — not yet in the vault
+
+- **NIH caps applications at six per PI per calendar year** (NOT-OD-25-132, from the
+  2025-09-25 receipt date; T codes and R13 exempt). A hard eligibility constraint
+  touching every NIH row and absent from the corpus. In
+  `research/2026-09-18-playbook/raw/systems.json`.
+- **NIH no longer posts NOFOs in the NIH Guide** — Grants.gov became the single
+  source in FY2026 (NOT-OD-25-143), which is why several `source_url` values point
+  at pages that are now navigation shells.
+- **SciENcv-generated Common Forms become a hard error on 2026-05-08** — every
+  mentor and co-investigator needs SciENcv plus a linked ORCID before the deadline,
+  not on it.
+- **F99/K00 Predoctoral-to-Postdoctoral Transition Award (PA-27-037)** is not a row.
+  Surfaced by a downloaded attachment bundle; it serves exactly the predoc→postdoc
+  transition this corpus is meant to cover.
+- **771 corrections and 323 refutations** from the verify tier await adjudication.
+  A corrected claim is still a claim; some verifiers will be wrong.
+
 ## Open items — do not silently resolve
 
 - **`biomedical_health` vs `life_sciences` overlap.** Only 6 rows are sole

@@ -1,0 +1,80 @@
+{
+  "session": "2026-09-18-p8-submission",
+  "checked": "2026-09-18",
+  "note": "P8 wave 2 — from seven funder PDFs supplied by the user (AHA x2, CFF x2, Komen, ALS, Fulbright board policies). Adds the first AHA and CFF submission requirements, Komen's limited-submission cascade, and two more resubmission policies. The ALS document turned out to be post-award administration and is recorded as such rather than mined for something it does not contain.",
+  "updates": [
+    {
+      "program_name": "Postdoctoral Fellowship",
+      "funder": "American Heart Association",
+      "submission_requirements": "Submitted through ProposalCentral, which opens EIGHT WEEKS before the deadline. ALL submissions require the signature of a designated institutional representative. HIDDEN GATE: applicants must be AHA Professional Members AT THE TIME OF SUBMISSION, and membership processing takes 3-5 days — AHA's own warning is “do not wait until the application deadline to renew or join”. Mentors on training/mentored awards must also hold active membership. FORMAT IS ENFORCED MECHANICALLY: “Applications may be administratively withdrawn by the Association if the proposal does not comply with format requirements” (type size, density, margins), the stated rationale being that no applicant should gain an advantage by packing in more content. REFEREE RULE that is easy to violate: “A mentor, co-mentor, department head, collaborating investigator or consultant contributing to the proposal may not serve as a referee”; the minimum and maximum number of referees is set per programme. Source: AHA 2027 Research Funding Application Instructions (rev. 2026-09-14). POSTDOC-SPECIFIC: the research plan is limited to FIVE PAGES, and “A fellow must have primary responsibility for the writing and the preparation of the application”. The trainee and mentor are expected to produce the proposal collaboratively.",
+      "submission_checked": "2026-09-18",
+      "applicant_of_record": "institution_for_individual",
+      "applicant_of_record_note": "Every AHA submission requires the signature of a designated institutional representative, so the institution is the applicant of record even though the fellow writes and owns the science.",
+      "notes_append": "Submission requirements added 2026-09-18 (P8) from AHA's 2026 Postdoctoral Fellowship announcement and the 2027 Research Funding Application Instructions, supplied by the user. CALENDAR SHAPE (2026 cycle, as an example of the pattern): RFP posted 2025-04-04, ProposalCentral opened 2025-07-01, proposals due 2025-09-04 at 3pm Central, award notification December 2025, award start 2026-01-01 — roughly 3 months deadline to notification and 4 months to start."
+    },
+    {
+      "program_name": "Predoctoral Fellowship",
+      "funder": "American Heart Association",
+      "submission_requirements": "Submitted through ProposalCentral, which opens EIGHT WEEKS before the deadline. ALL submissions require the signature of a designated institutional representative. HIDDEN GATE: applicants must be AHA Professional Members AT THE TIME OF SUBMISSION, and membership processing takes 3-5 days — AHA's own warning is “do not wait until the application deadline to renew or join”. Mentors on training/mentored awards must also hold active membership. FORMAT IS ENFORCED MECHANICALLY: “Applications may be administratively withdrawn by the Association if the proposal does not comply with format requirements” (type size, density, margins), the stated rationale being that no applicant should gain an advantage by packing in more content. REFEREE RULE that is easy to violate: “A mentor, co-mentor, department head, collaborating investigator or consultant contributing to the proposal may not serve as a referee”; the minimum and maximum number of referees is set per programme. Source: AHA 2027 Research Funding Application Instructions (rev. 2026-09-14).",
+      "submission_checked": "2026-09-18",
+      "applicant_of_record": "institution_for_individual",
+      "applicant_of_record_note": "Every AHA submission requires the signature of a designated institutional representative.",
+      "notes_append": "Submission requirements added 2026-09-18 (P8) from AHA's 2027 Research Funding Application Instructions."
+    },
+    {
+      "program_name": "Career Development Award",
+      "funder": "American Heart Association",
+      "submission_requirements": "Submitted through ProposalCentral, which opens EIGHT WEEKS before the deadline. ALL submissions require the signature of a designated institutional representative. HIDDEN GATE: applicants must be AHA Professional Members AT THE TIME OF SUBMISSION, and membership processing takes 3-5 days — AHA's own warning is “do not wait until the application deadline to renew or join”. Mentors on training/mentored awards must also hold active membership. FORMAT IS ENFORCED MECHANICALLY: “Applications may be administratively withdrawn by the Association if the proposal does not comply with format requirements” (type size, density, margins), the stated rationale being that no applicant should gain an advantage by packing in more content. REFEREE RULE that is easy to violate: “A mentor, co-mentor, department head, collaborating investigator or consultant contributing to the proposal may not serve as a referee”; the minimum and maximum number of referees is set per programme. Source: AHA 2027 Research Funding Application Instructions (rev. 2026-09-14).",
+      "submission_checked": "2026-09-18",
+      "applicant_of_record": "institution_for_individual",
+      "applicant_of_record_note": "Every AHA submission requires the signature of a designated institutional representative.",
+      "notes_append": "Submission requirements added 2026-09-18 (P8) from AHA's 2027 Research Funding Application Instructions."
+    },
+    {
+      "program_name": "Established Investigator Award",
+      "submission_requirements": "Submitted through ProposalCentral, which opens EIGHT WEEKS before the deadline. ALL submissions require the signature of a designated institutional representative. HIDDEN GATE: applicants must be AHA Professional Members AT THE TIME OF SUBMISSION, and membership processing takes 3-5 days — AHA's own warning is “do not wait until the application deadline to renew or join”. Mentors on training/mentored awards must also hold active membership. FORMAT IS ENFORCED MECHANICALLY: “Applications may be administratively withdrawn by the Association if the proposal does not comply with format requirements” (type size, density, margins), the stated rationale being that no applicant should gain an advantage by packing in more content. REFEREE RULE that is easy to violate: “A mentor, co-mentor, department head, collaborating investigator or consultant contributing to the proposal may not serve as a referee”; the minimum and maximum number of referees is set per programme. Source: AHA 2027 Research Funding Application Instructions (rev. 2026-09-14).",
+      "submission_checked": "2026-09-18",
+      "applicant_of_record": "institution_for_individual",
+      "applicant_of_record_note": "Every AHA submission requires the signature of a designated institutional representative.",
+      "notes_append": "Submission requirements added 2026-09-18 (P8)."
+    },
+    {
+      "program_name": "Transformational Project Award",
+      "submission_requirements": "Submitted through ProposalCentral, which opens EIGHT WEEKS before the deadline. ALL submissions require the signature of a designated institutional representative. HIDDEN GATE: applicants must be AHA Professional Members AT THE TIME OF SUBMISSION, and membership processing takes 3-5 days — AHA's own warning is “do not wait until the application deadline to renew or join”. Mentors on training/mentored awards must also hold active membership. FORMAT IS ENFORCED MECHANICALLY: “Applications may be administratively withdrawn by the Association if the proposal does not comply with format requirements” (type size, density, margins), the stated rationale being that no applicant should gain an advantage by packing in more content. REFEREE RULE that is easy to violate: “A mentor, co-mentor, department head, collaborating investigator or consultant contributing to the proposal may not serve as a referee”; the minimum and maximum number of referees is set per programme. Source: AHA 2027 Research Funding Application Instructions (rev. 2026-09-14).",
+      "submission_checked": "2026-09-18",
+      "applicant_of_record": "institution_for_individual",
+      "applicant_of_record_note": "Every AHA submission requires the signature of a designated institutional representative.",
+      "notes_append": "Submission requirements added 2026-09-18 (P8)."
+    },
+    {
+      "program_name": "Pilot and Feasibility Award",
+      "funder": "Cystic Fibrosis",
+      "submission_requirements": "Submitted online at awards.cff.org, which compiles the uploaded documents into a single PDF the applicant can preview before submitting. Formatting: Times New Roman 12 or Arial 11, margins no less than half an inch. No Letter of Intent — the RFA states “Letter of Intent Guidelines: Not applicable to this RFA”. Applicants holding certain existing CFF awards ending more than six months after the deadline, and applicants from for-profit entities, must contact the Program Officer BEFORE applying or the application may not be considered. Source: CF Foundation Pilot & Feasibility Award Policies and Guidelines, Spring 2026.",
+      "resubmission_allowed": "limited",
+      "resubmission_policy": "Limited. “Applications not funded in two review cycles will not be accepted for further consideration by the CF Foundation”, with exceptions for pre-tenure tenure-track PIs by prior arrangement with the Program Officer. A resubmission must be flagged as such and must “clearly address reviewer critiques through a response to reviewers and revisions”.",
+      "submission_checked": "2026-09-18",
+      "notes_append": "Submission requirements and resubmission policy added 2026-09-18 (P8) from CFF's own RFA PDF, supplied by the user. CALENDAR (Spring 2026 cycle): published 2026-03-13, full application due 2026-05-12, committee review August 2026, notification September 2026, earliest project start 2026-11-01 — six months from deadline to money."
+    },
+    {
+      "program_name": "Harry Shwachman Clinical Investigator Award",
+      "submission_requirements": "Submitted online at awards.cff.org, which compiles the uploaded documents into a single PDF the applicant can preview before submitting. Formatting: Times New Roman 12 or Arial 11, margins no less than half an inch. No Letter of Intent — the RFA states “Letter of Intent Guidelines: Not applicable to this RFA”. Applicants holding certain existing CFF awards ending more than six months after the deadline, and applicants from for-profit entities, must contact the Program Officer BEFORE applying or the application may not be considered. Source: CFF Harry Shwachman CF Clinical Investigator Award Policies and Guidelines, December 2025.",
+      "resubmission_allowed": "limited",
+      "resubmission_policy": "Applicants must address reviewer critiques in order to resubmit in a future cycle. CFF also withdraws some applications without discussion at the review meeting and notifies the applicant when that happens.",
+      "submission_checked": "2026-09-18",
+      "notes_append": "Submission requirements and resubmission policy added 2026-09-18 (P8) from CFF's own RFA PDF. CALENDAR (2026 cycle): published 2025-12-04, application due 2026-02-25, committee review May 2026, notification late May 2026, earliest project start 2026-07-01. Stated reasons for low priority scores include insufficient documentation and an inadequate statement of hypothesis, design or analysis."
+    },
+    {
+      "program_name": "Career Catalyst Research (CCR) Grant",
+      "submission_path": "institutional_nomination_limited",
+      "applicant_of_record": "institution_for_individual",
+      "applicant_of_record_note": "A LIMITED SUBMISSION: the institution must opt in, then nominate at most TWO candidates, and must disclose its internal selection process in a Letter of Institutional Support signed by an authorised institutional representative. An individual cannot approach Komen directly.",
+      "submission_requirements": "THREE DEADLINES PRECEDE THE APPLICATION. For the 2026-2027 cycle: LOI announcement 2026-05-28; INSTITUTION OPT-IN DEADLINE 2026-06-10; Letter of Intent due 2026-07-29 at 1pm ET; LOI decision 2026-08-17; full application due 2026-10-05 at 1pm ET; award notification on or around 2027-04-15. Each institution may put forward up to two nominees and must email missiongrantsadmin@komen.org to opt in. An applicant may submit only ONE Letter of Intent. Institutions must describe how they solicited, reviewed and selected nominees, including the selection committee's composition and conflict-of-interest measures. Source: Komen Career Catalyst Research Grants 2026-2027 LOI Announcement and Instructions.",
+      "submission_checked": "2026-09-18",
+      "notes_append": "Submission requirements and the limited-submission structure added 2026-09-18 (P8) from Komen's own LOI announcement PDF, supplied by the user. submission_path corrected from individual_direct. The institution opt-in deadline falls nearly FOUR MONTHS before the application: someone who discovers this grant in September has already missed the cycle."
+    },
+    {
+      "program_name": "Milton Safenowitz Postdoctoral Fellowship Program",
+      "notes_append": "PROVENANCE 2026-09-18: the ALS Association Grants Policy Statement (revised April 2026) was supplied by the user and read. It is a POST-AWARD administration document — pre-award cost authority, carryover limits, rebudgeting between categories, change of PI, change of grantee institution — and carries no application-stage requirements, so nothing was added to submission_requirements. Useful later for terms-of-award questions, not for how to apply."
+    }
+  ]
+}
