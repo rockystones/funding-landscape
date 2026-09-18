@@ -1,0 +1,113 @@
+{
+  "session": "2026-09-17-status-backfill",
+  "checked": "2026-09-17",
+  "note": "Wave 4 — the rest of federal_research: NSF, DOE Office of Science, USDA-NIFA and SBIR. Two rows left unknown for source defects rather than termination (GOALI cites an archived 2010 solicitation; the NIH re-entry row cites an expired notice). That makes four source defects found so far in the corpus.",
+  "updates": [
+    {
+      "program_name": "Faculty Early Career Development Program (CAREER)",
+      "status": "active",
+      "status_evidence": "“July 28 2027 - Deadline date”, “Fourth Wednesday in July, Annually Thereafter”; current solicitation NSF 22-586. No supersession notice.",
+      "status_source": "https://www.nsf.gov/funding/opportunities/career-faculty-early-career-development-program"
+    },
+    {
+      "program_name": "CyberCorps Scholarship for Service (SFS) / CyberAICorps (CyberAI SFS)",
+      "status": "active",
+      "status_evidence": "“Active funding opportunity - This document is the current version”; Scholarship Track deadline 21 July 2026. NSF 26-503 replaces NSF 23-574.",
+      "status_source": "https://www.nsf.gov/funding/opportunities/cyberai-sfs-cyberaicorps-scholarship-service/nsf26-503/solicitation"
+    },
+    {
+      "program_name": "Mathematical Sciences Postdoctoral Research Fellowships (MSPRF)",
+      "status": "active",
+      "status_evidence": "“Active funding opportunity - This document is the current version” (NSF 23-603). Deadlines recur on the third Wednesday in October annually.",
+      "status_source": "https://www.nsf.gov/funding/opportunities/msprf-mathematical-sciences-postdoctoral-research-fellowships/nsf23-603/solicitation"
+    },
+    {
+      "program_name": "NSF Astronomy and Astrophysics Postdoctoral Fellowships (AAPF)",
+      "status": "active",
+      "status_evidence": "Due dates listed for 2026: “August 15 - October 15, Annually Thereafter”. No supersession or archive notice.",
+      "status_source": "https://www.nsf.gov/funding/opportunities/aapf-nsf-astronomy-astrophysics-postdoctoral-fellowships"
+    },
+    {
+      "program_name": "EArly-concept Grants for Exploratory Research (EAGER)",
+      "status": "active",
+      "status_evidence": "Still listed as a selectable proposal type in the PAPPG (Chapter II.F.3) as “EArly-concept Grants for Exploratory Research (EAGER)”.",
+      "status_source": "https://www.nsf.gov/policies/pappg/24-1/ch-2-proposal-preparation",
+      "notes_append": "Status source is PAPPG 24-1; NSF has since issued supplemental policy notices NSF 26-200 and NSF 26-202 (applying to awards from 8 Dec 2025 and 22 Jan 2026). The mechanism persists, but the cited PAPPG edition is no longer the whole picture."
+    },
+    {
+      "program_name": "Grants for Rapid Response Research (RAPID)",
+      "status": "active",
+      "status_evidence": "Still listed as a selectable proposal type in the PAPPG (Chapter II.F.2) as “Rapid Response Research (RAPID)”.",
+      "status_source": "https://www.nsf.gov/policies/pappg/24-1/ch-2-proposal-preparation",
+      "notes_append": "Status source is PAPPG 24-1; NSF has since issued supplemental policy notices NSF 26-200 and NSF 26-202. The mechanism persists, but the cited PAPPG edition is no longer the whole picture."
+    },
+    {
+      "program_name": "Research Experiences for Undergraduates (REU) — Sites",
+      "status": "active",
+      "status_evidence": "“Proposals for REU Sites must follow the guidance in the NSF REU program solicitation.” Page last updated 20 July 2026; no suspension notice.",
+      "status_source": "https://www.nsf.gov/funding/initiatives/reu/faculty"
+    },
+    {
+      "program_name": "Research Experiences for Undergraduates (REU) — Supplements",
+      "status": "active",
+      "status_evidence": "“Requests for REU Supplements must follow the guidance in the NSF REU program solicitation. There is no deadline for supplement requests”. Page last updated 20 July 2026.",
+      "status_source": "https://www.nsf.gov/funding/initiatives/reu/faculty"
+    },
+    {
+      "program_name": "Non-Academic Research Internships for Graduate Students (INTERN) and Graduate Research Internship Program (GRIP) supplements",
+      "status": "active",
+      "status_evidence": "“Since 2017, the U.S. National Science Foundation INTERN program has provided graduate students with experiential learning opportunities through research internships in non-academic settings.” Multiple INTERN Dear Colleague Letters listed as active funding opportunities.",
+      "status_source": "https://www.nsf.gov/tip/intern"
+    },
+    {
+      "program_name": "Early Career Research Program (ECRP)",
+      "status": "active",
+      "status_evidence": "“Pre-applications are mandatory and are due on March 24, 2026, at 5:00 p.m. ET.” No suspension notice.",
+      "status_source": "https://science.osti.gov/early-career"
+    },
+    {
+      "program_name": "Office of Science Graduate Student Research (SCGSR) Program",
+      "status": "active",
+      "status_evidence": "“Applications are due November 4, 2026, at 5:00PM ET.” No suspension notice.",
+      "status_source": "https://science.osti.gov/wdts/scgsr"
+    },
+    {
+      "program_name": "Energy Frontier Research Centers (EFRC)",
+      "status": "active",
+      "status_evidence": "10 new centres joined 34 continuing ones to give “44 active Energy Frontier Research Centers”; the 2024 opportunity was the 7th class. No suspension notice.",
+      "status_source": "https://science.osti.gov/bes/efrc"
+    },
+    {
+      "program_name": "AFRI Foundational and Applied Science Program",
+      "status": "active",
+      "status_evidence": "Current NOFO and technical-assistance webinars listed; page last updated 9 April 2026. No suspension notice.",
+      "status_source": "https://www.nifa.usda.gov/grants/programs/afri-foundational-applied-science-program"
+    },
+    {
+      "program_name": "AFRI Education & Workforce Development — Postdoctoral Fellowships (A7201)",
+      "status": "active",
+      "status_evidence": "“New in 2026: Education and Workforce Development Workshop Grants”; a current AFRI EWD NOFO is referenced. Page last updated 22 January 2026.",
+      "status_source": "https://www.nifa.usda.gov/grants/programs/afri-education-workforce-development"
+    },
+    {
+      "program_name": "AFRI Education & Workforce Development — Predoctoral Fellowships (A7101)",
+      "status": "active",
+      "status_evidence": "“New in 2026: Education and Workforce Development Workshop Grants”; a current AFRI EWD NOFO is referenced. Page last updated 22 January 2026.",
+      "status_source": "https://www.nifa.usda.gov/grants/programs/afri-education-workforce-development"
+    },
+    {
+      "program_name": "SBIR/STTR - Small Business Innovation Research / Small Business Technology Transfer (academic industry-partner path)",
+      "status": "active",
+      "status_evidence": "“Applications for SBIR/STTR awards are submitted in response to agency solicitations.” No lapse, sunset or reauthorisation notice on the programme's own site.",
+      "status_source": "https://www.sbir.gov/faq/eligibility-requirements"
+    },
+    {
+      "program_name": "NSF GOALI - Grant Opportunities for Academic Liaison with Industry",
+      "notes_append": "SOURCE DEFECT 2026-09-17: source_url is NSF 10-580, which NSF marks “Status: Archived” with “This document has been archived. See NSF 12-513 for the latest version.” That pointer suggests GOALI continues, but an archived document cannot establish current status, so status stays unknown. Re-point at NSF 12-513 (or its successor) and re-check."
+    },
+    {
+      "program_name": "Research Supplements to Promote Re-entry, Re-integration into, and Re-training in Health-Related (Biomedical and Behavioral) Research Careers - Re-entry component",
+      "notes_append": "SOURCE DEFECT 2026-09-17: source_url is NOT-OD-23-170, which now reads “This notice has expired” (expiry moved to 9 September 2025) and directs readers to “Check the NIH Guide for active opportunities and notices”. An expired notice says the announcement lapsed, not that the programme ended, so status stays unknown. Re-point at the current re-entry supplement notice and re-check."
+    }
+  ]
+}

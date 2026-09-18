@@ -1,0 +1,192 @@
+{
+  "session": "2026-09-17-status-backfill",
+  "checked": "2026-09-17",
+  "note": "Wave 3 — federal. Twenty NIH rows verified against NIH's own activity-code index in one authoritative read rather than twenty separate page fetches. Four rows deliberately left unknown: two ARPA-E pages that do not render to a text fetch, one row citing an archived NASA solicitation, and the UG3/UH3 row whose codes are absent from the index.",
+  "updates": [
+    {
+      "program_name": "Fogarty Emerging Global Leader Award (K43)",
+      "status": "active",
+      "status_evidence": "Activity code K43 (“Emerging Global Leader Award”) is listed in NIH's activity-code index as of 2026-09-17, with no retirement or archive notice.",
+      "status_source": "https://grants.nih.gov/funding/activity-codes"
+    },
+    {
+      "program_name": "NCI Outstanding Investigator Award (R35 OIA)",
+      "status": "active",
+      "status_evidence": "Activity code R35 (“Outstanding Investigator Award”) is listed in NIH's activity-code index as of 2026-09-17, with no retirement or archive notice.",
+      "status_source": "https://grants.nih.gov/funding/activity-codes"
+    },
+    {
+      "program_name": "NIH Center & Program Project Grants (P01 / P30 / P50)",
+      "status": "active",
+      "status_evidence": "Activity code P01/P30/P50 (“Research Program Projects and Centers”) is listed in NIH's activity-code index as of 2026-09-17, with no retirement or archive notice.",
+      "status_source": "https://grants.nih.gov/funding/activity-codes"
+    },
+    {
+      "program_name": "NIH Clinical Trial / Research Planning Grant (R34)",
+      "status": "active",
+      "status_evidence": "Activity code R34 (“Planning Grant”) is listed in NIH's activity-code index as of 2026-09-17, with no retirement or archive notice.",
+      "status_source": "https://grants.nih.gov/funding/activity-codes"
+    },
+    {
+      "program_name": "NIH Exploratory/Developmental Research Grant (Parent R21)",
+      "status": "active",
+      "status_evidence": "Activity code R21 (“Exploratory/Developmental Research Grant”) is listed in NIH's activity-code index as of 2026-09-17, with no retirement or archive notice.",
+      "status_source": "https://grants.nih.gov/funding/activity-codes"
+    },
+    {
+      "program_name": "NIH Institutional Research Training Grant (Ruth L. Kirschstein NRSA T32)",
+      "status": "active",
+      "status_evidence": "Activity code T32 (“Institutional National Research Service Award”) is listed in NIH's activity-code index as of 2026-09-17, with no retirement or archive notice.",
+      "status_source": "https://grants.nih.gov/funding/activity-codes"
+    },
+    {
+      "program_name": "NIH Mentored Clinical Scientist Research Career Development Award (Parent K08)",
+      "status": "active",
+      "status_evidence": "Activity code K08 (“Mentored Clinical Scientist Research Career Development Award”) is listed in NIH's activity-code index as of 2026-09-17, with no retirement or archive notice.",
+      "status_source": "https://grants.nih.gov/funding/activity-codes"
+    },
+    {
+      "program_name": "NIH Mentored Patient-Oriented Research Career Development Award (Parent K23)",
+      "status": "active",
+      "status_evidence": "Activity code K23 (“Mentored Patient-Oriented Research Career Development Award”) is listed in NIH's activity-code index as of 2026-09-17, with no retirement or archive notice.",
+      "status_source": "https://grants.nih.gov/funding/activity-codes"
+    },
+    {
+      "program_name": "NIH Mentored Quantitative Research Career Development Award (Parent K25)",
+      "status": "active",
+      "status_evidence": "Activity code K25 (“Mentored Quantitative Research Career Development Award”) is listed in NIH's activity-code index as of 2026-09-17, with no retirement or archive notice.",
+      "status_source": "https://grants.nih.gov/funding/activity-codes"
+    },
+    {
+      "program_name": "NIH Mentored Research Scientist Development Award (Parent K01)",
+      "status": "active",
+      "status_evidence": "Activity code K01 (“Mentored Research Scientist Development Award”) is listed in NIH's activity-code index as of 2026-09-17, with no retirement or archive notice.",
+      "status_source": "https://grants.nih.gov/funding/activity-codes"
+    },
+    {
+      "program_name": "NIH Midcareer Investigator Award in Patient-Oriented Research (Parent K24)",
+      "status": "active",
+      "status_evidence": "Activity code K24 (“Midcareer Investigator Award in Patient-Oriented Research”) is listed in NIH's activity-code index as of 2026-09-17, with no retirement or archive notice.",
+      "status_source": "https://grants.nih.gov/funding/activity-codes"
+    },
+    {
+      "program_name": "NIH R01 for Early Stage / New Investigators (ESI/NI-flagged R01)",
+      "status": "active",
+      "status_evidence": "Activity code R01 (“Research Project”) is listed in NIH's activity-code index as of 2026-09-17, with no retirement or archive notice.",
+      "status_source": "https://grants.nih.gov/funding/activity-codes"
+    },
+    {
+      "program_name": "NIH Research Project Cooperative Agreement (U01)",
+      "status": "active",
+      "status_evidence": "Activity code U01 (“Research Project--Cooperative Agreements”) is listed in NIH's activity-code index as of 2026-09-17, with no retirement or archive notice.",
+      "status_source": "https://grants.nih.gov/funding/activity-codes"
+    },
+    {
+      "program_name": "NIH Resource-Related Research Projects / Resource Grants (R24 and U24)",
+      "status": "active",
+      "status_evidence": "Activity code R24/U24 (“Resource-Related Research Projects”) is listed in NIH's activity-code index as of 2026-09-17, with no retirement or archive notice.",
+      "status_source": "https://grants.nih.gov/funding/activity-codes"
+    },
+    {
+      "program_name": "NIH SBIR/STTR Small Business Programs (R43/R44 SBIR; R41/R42 STTR)",
+      "status": "active",
+      "status_evidence": "Activity code R41/R42/R43/R44 (“SBIR and STTR grant codes”) is listed in NIH's activity-code index as of 2026-09-17, with no retirement or archive notice.",
+      "status_source": "https://grants.nih.gov/funding/activity-codes"
+    },
+    {
+      "program_name": "NIH Small Research Grant (Parent R03)",
+      "status": "active",
+      "status_evidence": "Activity code R03 (“Small Research Grant”) is listed in NIH's activity-code index as of 2026-09-17, with no retirement or archive notice.",
+      "status_source": "https://grants.nih.gov/funding/activity-codes"
+    },
+    {
+      "program_name": "Ruth L. Kirschstein NRSA Individual Postdoctoral Fellowship (Parent F32)",
+      "status": "active",
+      "status_evidence": "Activity code F32 (“Postdoctoral Individual National Research Service Award”) is listed in NIH's activity-code index as of 2026-09-17, with no retirement or archive notice.",
+      "status_source": "https://grants.nih.gov/funding/activity-codes"
+    },
+    {
+      "program_name": "Ruth L. Kirschstein NRSA Individual Predoctoral Fellowship (Parent F31)",
+      "status": "active",
+      "status_evidence": "Activity code F31 (“Predoctoral Individual National Research Service Award”) is listed in NIH's activity-code index as of 2026-09-17, with no retirement or archive notice.",
+      "status_source": "https://grants.nih.gov/funding/activity-codes"
+    },
+    {
+      "program_name": "Ruth L. Kirschstein NRSA Individual Predoctoral MD/PhD (Dual-Degree) Fellowship (F30)",
+      "status": "active",
+      "status_evidence": "Activity code F30 (“Individual Predoctoral NRSA for M.D./Ph.D. Fellowships”) is listed in NIH's activity-code index as of 2026-09-17, with no retirement or archive notice.",
+      "status_source": "https://grants.nih.gov/funding/activity-codes"
+    },
+    {
+      "program_name": "Ruth L. Kirschstein NRSA Senior Fellowship (F33)",
+      "status": "active",
+      "status_evidence": "Activity code F33 (“National Research Service Awards for Senior Fellows”) is listed in NIH's activity-code index as of 2026-09-17, with no retirement or archive notice.",
+      "status_source": "https://grants.nih.gov/funding/activity-codes"
+    },
+    {
+      "program_name": "NIH Director's New Innovator Award (DP2)",
+      "status": "active",
+      "status_evidence": "Activity code DP2 is listed in NIH's activity-code index; the programme page reads “No open funding announcements. Check the funding opportunities page for past announcements and information about future announcements.” Between cycles, no termination notice.",
+      "status_source": "https://commonfund.nih.gov/newinnovator"
+    },
+    {
+      "program_name": "NIH Director's Early Independence Award (DP5)",
+      "status": "active",
+      "status_evidence": "Activity code DP5 is listed in NIH's activity-code index; the programme page reads “No open funding announcements … information about future announcements.” Between cycles, no termination notice.",
+      "status_source": "https://commonfund.nih.gov/earlyindependence"
+    },
+    {
+      "program_name": "Summer Undergraduate Research Fellowship (SURF)",
+      "status": "active",
+      "status_evidence": "“vacancy announcement expected to open USAjobs mid-October 2026” with “applications due at the end of January 2027”.",
+      "status_source": "https://www.nist.gov/surf"
+    },
+    {
+      "program_name": "Professional Research Experience Program (PREP)",
+      "status": "active",
+      "status_evidence": "Page updated 2 September 2026 with live application links for the Boulder and Gaithersburg participating universities; no suspension notice.",
+      "status_source": "https://www.nist.gov/iaao/academic-affairs-office/professional-research-experience-program"
+    },
+    {
+      "program_name": "NASA Postdoctoral Program (NPP) — Postdoctoral Fellowship",
+      "status": "active",
+      "status_evidence": "“November 2026 cycle is open. View current opportunities.”",
+      "status_source": "https://npp.orau.org/applicants/eligibility.html"
+    },
+    {
+      "program_name": "NASA Postdoctoral Program (NPP) — Senior Fellowship",
+      "status": "active",
+      "status_evidence": "“November 2026 cycle is open. View current opportunities.”",
+      "status_source": "https://npp.orau.org/applicants/eligibility.html"
+    },
+    {
+      "program_name": "Early Career Faculty (ECF)",
+      "match": "startswith",
+      "status": "active",
+      "status_evidence": "“Early Career Faculty (ECF)” is listed among the current Funded STRG Activities; no suspension notice.",
+      "status_source": "https://www.nasa.gov/about-strg/"
+    },
+    {
+      "program_name": "NIST/NRC Postdoctoral Research Associateship Program",
+      "status": "paused",
+      "status_evidence": "NIST: “we are waiting for more guidance before notifying selected applicants”, with applicants told to “regularly check this website for the latest information and updates”. Not accepting new applications pending internal guidance, and no reopening date is given — only the historical 1 February / 1 August deadlines.",
+      "status_source": "https://www.nist.gov/iaao/academic-affairs-office/nist-nrc-postdoctoral-research-associateships-program"
+    },
+    {
+      "program_name": "NIH Phased Milestone-Driven Awards (UG3/UH3 and UH2/UH3)",
+      "notes_append": "UNRESOLVED 2026-09-17: activity codes UG3, UH2 and UH3 are absent from NIH's activity-code index on two independent reads, while every other code in this corpus is listed. Absence is not evidence of retirement (D-009), so status stays unknown; needs a direct check against a current UG3/UH3 funding opportunity."
+    },
+    {
+      "program_name": "FINESST — Future Investigators in NASA Earth and Space Science and Technology",
+      "notes_append": "SOURCE DEFECT 2026-09-17: source_url points at ROSES-2022 Amendment 70, whose proposals were due 7 February 2023; page last updated 7 August 2023. A historical document cannot establish current status either way. Re-point at the current ROSES cycle's F.5 element and re-check."
+    },
+    {
+      "program_name": "ARPA-E OPEN",
+      "notes_append": "UNRESOLVED 2026-09-17: arpa-e.energy.gov returns no readable content to a text fetch (client-rendered). Status stays unknown; needs a browser-rendered check or an alternative ARPA-E source."
+    },
+    {
+      "program_name": "IGNIITE (Inspiring Generations of New Innovators to Impact Technologies in Energy)",
+      "notes_append": "UNRESOLVED 2026-09-17: arpa-e.energy.gov returns no readable content to a text fetch (client-rendered). Status stays unknown."
+    }
+  ]
+}
