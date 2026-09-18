@@ -239,17 +239,19 @@
       <div class="fact"><b class="num" id="f-rows">193</b><span>mechanisms</span></div>
       <div class="fact"><b class="num" id="f-funders">95</b><span>funders</span></div>
       <div class="fact"><b class="num">10</b><span>categories</span></div>
-      <div class="fact"><b class="num" id="f-verified">16</b><span>status verified</span></div>
+      <div class="fact"><b class="num" id="f-verified">177</b><span>status verified</span></div>
       <div class="fact"><b class="num" id="f-stale">61</b><span>days since check</span></div>
     </div>
     <div class="caveat">
       <span>⚠</span>
-      <div><b>Snapshot of 2026-07-18, status backfill in progress.</b> Only
-        <span class="num" id="c-verified">16</span> mechanisms have had their status
-        checked against the funder's page. The other
-        <span class="num" id="c-unknown">177</span> are marked <em>status unknown</em>
-        — that is an unanswered question, not a clean bill of health. Amounts and
-        eligibility windows drift; identity gates drift fastest.</div>
+      <div><b>Programme details from 2026-07-18; every status re-checked 2026-09-18.</b>
+        All <span class="num" id="c-verified">177</span> named programmes were checked
+        against the funder's own page — <span class="num" id="c-paused">3</span> are
+        paused and <span class="num" id="c-ended">2</span> have ended. The remaining
+        <span class="num" id="c-unknown">16</span> rows describe <em>classes</em> of
+        funding rather than named programmes, so "has it ended" does not apply to them.
+        Amounts and eligibility windows still date from July and drift; identity gates
+        drift fastest.</div>
     </div>
   </header>
 
@@ -370,9 +372,13 @@
 
   const state = {stage:"", domain:"", cit:"any", inst:"any", cell:null,
                  status:"", limit:40};
+  // The last label depends on the data: once every unverified row is a guidance
+  // row, "status unknown" would overstate the doubt.
+  const allUnknownAreGuidance = ROWS.every(
+    r => (r.status || "unknown") !== "unknown" || r.coverage_type === "guidance");
   const STATUSES = [
-    ["active","Verified active"], ["paused","Paused"],
-    ["terminated","Ended"], ["unknown","Status unknown"]];
+    ["active","Verified active"], ["paused","Paused"], ["terminated","Ended"],
+    ["unknown", allUnknownAreGuidance ? "Guidance — n/a" : "Status unknown"]];
 
   // ------------------------------------------------------------ eligibility
   function eligible(r){
@@ -608,7 +614,8 @@
       const st = r.status || "unknown";
       const stLabel = st === "terminated"
         ? `ended${r.status_valid_to ? " " + r.status_valid_to.slice(0,4) : ""}`
-        : st === "paused" ? "paused" : st === "active" ? "active" : "status unknown";
+        : st === "paused" ? "paused" : st === "active" ? "active"
+        : r.coverage_type === "guidance" ? "guidance — status n/a" : "status unknown";
       html += `<article class="mech${ok ? "" : " out"}${ended ? " ended" : ""}">
         <div class="mech-main">
           <div class="mech-name">${r.source_url
@@ -708,6 +715,10 @@
   document.getElementById("f-verified").textContent = verified;
   document.getElementById("c-verified").textContent = verified;
   document.getElementById("c-unknown").textContent = unknown;
+  document.getElementById("c-paused").textContent =
+    ROWS.filter(r => r.status === "paused").length;
+  document.getElementById("c-ended").textContent =
+    ROWS.filter(r => r.status === "terminated").length;
 
   buildMatrix();
   render();
