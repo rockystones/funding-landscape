@@ -1,0 +1,13 @@
+# Derived. Rebuild with: python scripts/build.py
+dist/corpus.json
+
+# The delivered v0.1 workbook is kept: it cannot be regenerated here
+# (no openpyxl in this environment). See DECISIONS.md D-004.
+!dist/funding_landscape_united_states_v0.1.xlsx
+
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+Thumbs.db
