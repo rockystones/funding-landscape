@@ -26,7 +26,7 @@ ROOT = Path(__file__).resolve().parent.parent
 VAULT = ROOT / "data" / "mechanisms.csv"
 OUT = ROOT / "dist" / "corpus.json"
 
-SCHEMA_VERSION = "0.4.0"
+SCHEMA_VERSION = "0.5.0"
 
 # How fast each field goes stale, and therefore how hard the worklist pushes to
 # re-check it. Drawn from the brief's own observations: identity gates are the
@@ -101,6 +101,10 @@ VOCAB = {
     "confidence": {"high", "medium", "low"},
     "status": {"active", "paused", "terminated", "unknown"},
     "resubmission_allowed": {"yes", "no", "limited", "unspecified"},
+    "applicant_of_record": {
+        "individual", "institution_for_individual",
+        "institution_then_appointed", "institution_only", "unspecified",
+    },
 }
 
 # Every date column, so a malformed stamp is caught wherever it appears.
@@ -432,6 +436,10 @@ def validate(rows: list[dict]) -> tuple[list[str], list[str], dict]:
                 errors.append(f"{tag}: identity_gate_type=restricted_to but "
                               f"identity_targeting is none/blank")
 
+        aor = (r.get("applicant_of_record") or "").strip()
+        if aor and aor != "unspecified" and not (r.get("applicant_of_record_note") or "").strip():
+            errors.append(f"{tag}: applicant_of_record='{aor}' without a note explaining it")
+
         ra = (r.get("resubmission_allowed") or "").strip()
         if ra and ra != "unspecified" and not (r.get("submission_checked") or "").strip():
             errors.append(f"{tag}: resubmission_allowed='{ra}' without a submission_checked date")
@@ -580,6 +588,10 @@ def build(check_only: bool = False) -> int:
         for f in MULTI:
             rec[f] = split_multi(r.get(f, ""))
         rec["topic_restricted"] = (r.get("topic_restricted") or "").strip().lower() == "true"
+        aor = (r.get("applicant_of_record") or "").strip()
+        if aor and aor != "unspecified" and not (r.get("applicant_of_record_note") or "").strip():
+            errors.append(f"{tag}: applicant_of_record='{aor}' without a note explaining it")
+
         ra = (r.get("resubmission_allowed") or "").strip()
         if ra and ra != "unspecified" and not (r.get("submission_checked") or "").strip():
             errors.append(f"{tag}: resubmission_allowed='{ra}' without a submission_checked date")
@@ -664,7 +676,8 @@ VIZ_FIELDS = [
     "annual_max_usd", "total_min_usd", "total_max_usd", "staleness_days",
     "status", "status_valid_to", "status_evidence", "status_source",
     "status_checked", "submission_requirements", "resubmission_allowed",
-    "resubmission_policy", "submission_checked",
+    "resubmission_policy", "submission_checked", "applicant_of_record",
+    "applicant_of_record_note",
 ]
 
 

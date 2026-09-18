@@ -131,3 +131,21 @@ the *facts* belong in the vault with the document named in `notes` anyway. They
 are not put in `data/`, which invariant 1 reserves for the vault. *Rules out*
 treating a hand-saved PDF as a committed artifact, and *rules out* citing one
 without naming it in the row.
+
+
+**D-017 — Schema 0.5.0: `applicant_of_record` separates three routes `submission_path` conflated.** (2026-09-18)
+178 of 219 rows sat in `individual_direct`, which was doing almost no work and in
+one case was simply wrong: T32 was marked `individual_direct` while its own
+eligibility notes said "Institutional award; program director assembles faculty,
+trainees, curriculum". A student filtering for things they could apply to would
+have been told to apply to NIH for a T32, which is impossible. New vocabulary:
+`individual` (the person registers and submits — NEH requires a Grants.gov
+"individual applicant" profile), `institution_for_individual` (the person is the
+named PD/PI but the institution submits and holds it — every NIH F and K award;
+grants.gov lists no Individuals category for them), `institution_then_appointed`
+(the institution is funded first and appoints trainees afterwards — T32, REU
+Sites, CyberCorps SFS, CIRM Bridges, NIST PREP), `institution_only`,
+`unspecified`. Build-enforced: a non-`unspecified` value requires a note
+explaining it. *Rules out* reading `submission_path` as an answer to "can I apply
+for this myself", and *rules out* leaving a trainee to discover the two-step on
+their own.

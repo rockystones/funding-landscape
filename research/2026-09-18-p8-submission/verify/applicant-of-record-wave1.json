@@ -1,0 +1,146 @@
+{
+  "session": "2026-09-18-p8-submission",
+  "checked": "2026-09-18",
+  "note": "Schema 0.5.0 wave 1 — who is the applicant of record, prompted by the user's observation that institutional training funding reaches trainees only after the institution has been funded. Fixes a real defect: T32 was coded `individual_direct` while its own eligibility notes said the opposite. Also lands the four NEH rows from NEH's own NOFO, which says `Eligible Applicants: Individuals` — the exact contrast with NIH, whose grants.gov listings carry no Individuals category at all.",
+  "updates": [
+    {
+      "program_name": "NIH Mentored Research Scientist Development Award (Parent K01)",
+      "applicant_of_record": "institution_for_individual",
+      "applicant_of_record_note": "NIH extramural awards are made to organisations, not to people. Grants.gov lists the eligible applicants for these NOFOs as institutions of higher education, non-profits, government and business entities only — there is no Individuals category, and “Non-domestic (non-U.S.) Entities (Foreign Organizations) are not eligible to apply”. The fellow or scholar is the named PD/PI and writes the science; the institution registers, submits and holds the award. Practical consequence for an applicant: you need an eRA Commons account and your sponsored-programs office, and your INTERNAL deadline falls days to weeks before NIH's.",
+      "notes_append": "applicant_of_record set 2026-09-18 (schema 0.5.0): the institution is the applicant of record even though the award is career-specific."
+    },
+    {
+      "program_name": "NIH Mentored Clinical Scientist Research Career Development Award (Parent K08)",
+      "applicant_of_record": "institution_for_individual",
+      "applicant_of_record_note": "NIH extramural awards are made to organisations, not to people. Grants.gov lists the eligible applicants for these NOFOs as institutions of higher education, non-profits, government and business entities only — there is no Individuals category, and “Non-domestic (non-U.S.) Entities (Foreign Organizations) are not eligible to apply”. The fellow or scholar is the named PD/PI and writes the science; the institution registers, submits and holds the award. Practical consequence for an applicant: you need an eRA Commons account and your sponsored-programs office, and your INTERNAL deadline falls days to weeks before NIH's.",
+      "notes_append": "applicant_of_record set 2026-09-18 (schema 0.5.0): the institution is the applicant of record even though the award is career-specific."
+    },
+    {
+      "program_name": "NIH Pathway to Independence Award (K99/R00)",
+      "applicant_of_record": "institution_for_individual",
+      "applicant_of_record_note": "NIH extramural awards are made to organisations, not to people. Grants.gov lists the eligible applicants for these NOFOs as institutions of higher education, non-profits, government and business entities only — there is no Individuals category, and “Non-domestic (non-U.S.) Entities (Foreign Organizations) are not eligible to apply”. The fellow or scholar is the named PD/PI and writes the science; the institution registers, submits and holds the award. Practical consequence for an applicant: you need an eRA Commons account and your sponsored-programs office, and your INTERNAL deadline falls days to weeks before NIH's.",
+      "notes_append": "applicant_of_record set 2026-09-18 (schema 0.5.0): the institution is the applicant of record even though the award is career-specific."
+    },
+    {
+      "program_name": "Ruth L. Kirschstein NRSA Individual Postdoctoral Fellowship (Parent F32)",
+      "applicant_of_record": "institution_for_individual",
+      "applicant_of_record_note": "NIH extramural awards are made to organisations, not to people. Grants.gov lists the eligible applicants for these NOFOs as institutions of higher education, non-profits, government and business entities only — there is no Individuals category, and “Non-domestic (non-U.S.) Entities (Foreign Organizations) are not eligible to apply”. The fellow or scholar is the named PD/PI and writes the science; the institution registers, submits and holds the award. Practical consequence for an applicant: you need an eRA Commons account and your sponsored-programs office, and your INTERNAL deadline falls days to weeks before NIH's.",
+      "notes_append": "applicant_of_record set 2026-09-18 (schema 0.5.0): the institution is the applicant of record even though the award is career-specific."
+    },
+    {
+      "program_name": "NIH Mentored Patient-Oriented Research Career Development Award (Parent K23)",
+      "applicant_of_record": "institution_for_individual",
+      "applicant_of_record_note": "NIH extramural awards are made to organisations, not to people. Grants.gov lists the eligible applicants for these NOFOs as institutions of higher education, non-profits, government and business entities only — there is no Individuals category, and “Non-domestic (non-U.S.) Entities (Foreign Organizations) are not eligible to apply”. The fellow or scholar is the named PD/PI and writes the science; the institution registers, submits and holds the award. Practical consequence for an applicant: you need an eRA Commons account and your sponsored-programs office, and your INTERNAL deadline falls days to weeks before NIH's. Verified directly on grants.gov for PA-24-176 (K01), PA-24-182 (K08), PA-24-194 (K99/R00) and PA-25-423 (F32) on 2026-09-18; applied to the sibling F and K parent announcements, which share NIH's single extramural structure.",
+      "notes_append": "applicant_of_record set 2026-09-18 (schema 0.5.0): the institution is the applicant of record even though the award is career-specific."
+    },
+    {
+      "program_name": "NIH Mentored Quantitative Research Career Development Award (Parent K25)",
+      "applicant_of_record": "institution_for_individual",
+      "applicant_of_record_note": "NIH extramural awards are made to organisations, not to people. Grants.gov lists the eligible applicants for these NOFOs as institutions of higher education, non-profits, government and business entities only — there is no Individuals category, and “Non-domestic (non-U.S.) Entities (Foreign Organizations) are not eligible to apply”. The fellow or scholar is the named PD/PI and writes the science; the institution registers, submits and holds the award. Practical consequence for an applicant: you need an eRA Commons account and your sponsored-programs office, and your INTERNAL deadline falls days to weeks before NIH's. Verified directly on grants.gov for PA-24-176 (K01), PA-24-182 (K08), PA-24-194 (K99/R00) and PA-25-423 (F32) on 2026-09-18; applied to the sibling F and K parent announcements, which share NIH's single extramural structure.",
+      "notes_append": "applicant_of_record set 2026-09-18 (schema 0.5.0): the institution is the applicant of record even though the award is career-specific."
+    },
+    {
+      "program_name": "NIH Midcareer Investigator Award in Patient-Oriented Research (Parent K24)",
+      "applicant_of_record": "institution_for_individual",
+      "applicant_of_record_note": "NIH extramural awards are made to organisations, not to people. Grants.gov lists the eligible applicants for these NOFOs as institutions of higher education, non-profits, government and business entities only — there is no Individuals category, and “Non-domestic (non-U.S.) Entities (Foreign Organizations) are not eligible to apply”. The fellow or scholar is the named PD/PI and writes the science; the institution registers, submits and holds the award. Practical consequence for an applicant: you need an eRA Commons account and your sponsored-programs office, and your INTERNAL deadline falls days to weeks before NIH's. Verified directly on grants.gov for PA-24-176 (K01), PA-24-182 (K08), PA-24-194 (K99/R00) and PA-25-423 (F32) on 2026-09-18; applied to the sibling F and K parent announcements, which share NIH's single extramural structure.",
+      "notes_append": "applicant_of_record set 2026-09-18 (schema 0.5.0): the institution is the applicant of record even though the award is career-specific."
+    },
+    {
+      "program_name": "Fogarty Emerging Global Leader Award (K43)",
+      "applicant_of_record": "institution_for_individual",
+      "applicant_of_record_note": "NIH extramural awards are made to organisations, not to people. Grants.gov lists the eligible applicants for these NOFOs as institutions of higher education, non-profits, government and business entities only — there is no Individuals category, and “Non-domestic (non-U.S.) Entities (Foreign Organizations) are not eligible to apply”. The fellow or scholar is the named PD/PI and writes the science; the institution registers, submits and holds the award. Practical consequence for an applicant: you need an eRA Commons account and your sponsored-programs office, and your INTERNAL deadline falls days to weeks before NIH's. Verified directly on grants.gov for PA-24-176 (K01), PA-24-182 (K08), PA-24-194 (K99/R00) and PA-25-423 (F32) on 2026-09-18; applied to the sibling F and K parent announcements, which share NIH's single extramural structure.",
+      "notes_append": "applicant_of_record set 2026-09-18 (schema 0.5.0): the institution is the applicant of record even though the award is career-specific."
+    },
+    {
+      "program_name": "Ruth L. Kirschstein NRSA Individual Predoctoral Fellowship (Parent F31)",
+      "applicant_of_record": "institution_for_individual",
+      "applicant_of_record_note": "NIH extramural awards are made to organisations, not to people. Grants.gov lists the eligible applicants for these NOFOs as institutions of higher education, non-profits, government and business entities only — there is no Individuals category, and “Non-domestic (non-U.S.) Entities (Foreign Organizations) are not eligible to apply”. The fellow or scholar is the named PD/PI and writes the science; the institution registers, submits and holds the award. Practical consequence for an applicant: you need an eRA Commons account and your sponsored-programs office, and your INTERNAL deadline falls days to weeks before NIH's. Verified directly on grants.gov for PA-24-176 (K01), PA-24-182 (K08), PA-24-194 (K99/R00) and PA-25-423 (F32) on 2026-09-18; applied to the sibling F and K parent announcements, which share NIH's single extramural structure.",
+      "notes_append": "applicant_of_record set 2026-09-18 (schema 0.5.0): the institution is the applicant of record even though the award is career-specific."
+    },
+    {
+      "program_name": "Ruth L. Kirschstein NRSA Individual Predoctoral MD/PhD (Dual-Degree) Fellowship (F30)",
+      "applicant_of_record": "institution_for_individual",
+      "applicant_of_record_note": "NIH extramural awards are made to organisations, not to people. Grants.gov lists the eligible applicants for these NOFOs as institutions of higher education, non-profits, government and business entities only — there is no Individuals category, and “Non-domestic (non-U.S.) Entities (Foreign Organizations) are not eligible to apply”. The fellow or scholar is the named PD/PI and writes the science; the institution registers, submits and holds the award. Practical consequence for an applicant: you need an eRA Commons account and your sponsored-programs office, and your INTERNAL deadline falls days to weeks before NIH's. Verified directly on grants.gov for PA-24-176 (K01), PA-24-182 (K08), PA-24-194 (K99/R00) and PA-25-423 (F32) on 2026-09-18; applied to the sibling F and K parent announcements, which share NIH's single extramural structure.",
+      "notes_append": "applicant_of_record set 2026-09-18 (schema 0.5.0): the institution is the applicant of record even though the award is career-specific."
+    },
+    {
+      "program_name": "Ruth L. Kirschstein NRSA Senior Fellowship (F33)",
+      "applicant_of_record": "institution_for_individual",
+      "applicant_of_record_note": "NIH extramural awards are made to organisations, not to people. Grants.gov lists the eligible applicants for these NOFOs as institutions of higher education, non-profits, government and business entities only — there is no Individuals category, and “Non-domestic (non-U.S.) Entities (Foreign Organizations) are not eligible to apply”. The fellow or scholar is the named PD/PI and writes the science; the institution registers, submits and holds the award. Practical consequence for an applicant: you need an eRA Commons account and your sponsored-programs office, and your INTERNAL deadline falls days to weeks before NIH's. Verified directly on grants.gov for PA-24-176 (K01), PA-24-182 (K08), PA-24-194 (K99/R00) and PA-25-423 (F32) on 2026-09-18; applied to the sibling F and K parent announcements, which share NIH's single extramural structure.",
+      "notes_append": "applicant_of_record set 2026-09-18 (schema 0.5.0): the institution is the applicant of record even though the award is career-specific."
+    },
+    {
+      "program_name": "NIH Institutional Research Training Grant (Ruth L. Kirschstein NRSA T32)",
+      "applicant_of_record": "institution_then_appointed",
+      "submission_path": "other",
+      "applicant_of_record_note": "The institution applies; a programme director assembles the faculty, curriculum and trainee slots. A trainee NEVER applies to NIH for a T32 — they are appointed to a slot by the institution that holds the grant. For someone at the bench the action is not 'apply' but 'find out whether my department holds a T32, and ask the programme director how appointments are made and when slots turn over'.",
+      "notes_append": "CORRECTION 2026-09-18: submission_path was `individual_direct`, which contradicted this row's own eligibility_notes ('Institutional award; program director assembles faculty, trainees, curriculum') and would have told a student they could apply to NIH. Changed to `other`, with the real structure recorded in applicant_of_record (schema 0.5.0)."
+    },
+    {
+      "program_name": "Research Experiences for Undergraduates (REU) — Sites",
+      "applicant_of_record": "institution_then_appointed",
+      "submission_path": "other",
+      "applicant_of_record_note": "A faculty PI applies to NSF to run an REU Site. Undergraduates then apply to the funded Site, not to NSF. The student-facing action is to find Sites in their field and apply to each one's own process and deadline.",
+      "notes_append": "submission_path corrected from individual_direct 2026-09-18 (schema 0.5.0)."
+    },
+    {
+      "program_name": "CyberCorps Scholarship for Service (SFS) / CyberAICorps (CyberAI SFS)",
+      "applicant_of_record": "institution_then_appointed",
+      "applicant_of_record_note": "Institutions apply to NSF and administer the scholarships; enrolled students then apply to their own institution's funded SFS programme and accept a binding federal service commitment. A student cannot approach NSF directly.",
+      "notes_append": "applicant_of_record set 2026-09-18 (schema 0.5.0)."
+    },
+    {
+      "program_name": "CIRM Research Training / Scholars Program (Bridges, COMPASS, SPARK, CIRM Scholars)",
+      "applicant_of_record": "institution_then_appointed",
+      "applicant_of_record_note": "CIRM funds California host institutions to run the programmes; trainees enrol through a CIRM-funded programme at one of those institutions rather than applying to CIRM.",
+      "notes_append": "applicant_of_record set 2026-09-18 (schema 0.5.0)."
+    },
+    {
+      "program_name": "Professional Research Experience Program (PREP)",
+      "applicant_of_record": "institution_then_appointed",
+      "applicant_of_record_note": "NIST funds partner/associate institutions; individuals apply to advertised vacancies through those partner institutions, not to NIST.",
+      "notes_append": "applicant_of_record set 2026-09-18 (schema 0.5.0)."
+    },
+    {
+      "program_name": "NEH Fellowships",
+      "applicant_of_record": "individual",
+      "applicant_of_record_note": "NEH's combined Notice of Funding Opportunity for Awards to Individuals states “Eligible Applicants: Individuals”, and the programme page instructs applicants to register a Grants.gov account and “add an ‘individual applicant’ profile”. This is one of the few federal routes where the person, not an institution, is the applicant of record — no sponsored-programs office is involved.",
+      "submission_requirements": "Required components: project narrative, work plan, bibliography and résumé — page limits and writing prompts are in each programme's own Program Announcement. NO BUDGET IS REQUIRED. Two letters of reference must be solicited by the applicant and submitted online by the date in the Program Announcement; names, emails and affiliations go on the NEH Supplemental Information for Individuals Form. NEH will not review incomplete, nonresponsive or ineligible applications, applications missing required documents, or “applications that exceed mandatory page limits or deviate from formatting instructions” — a hard, mechanical rejection. Funds are outright: not contingent on other sources. Award announcements come approximately 9-12 months after the deadline. NEH also publishes a Policy on the Use of Artificial Intelligence for NEH Grant Proposals, which applicants should read before drafting. Source: NEH, Notice of Funding Opportunity — Awards to Individuals (combined), published 2 March 2026, updated 1 April 2026; NEH reviews applications under this notice through 31 December 2028. Federal Assistance Listing 45.160.",
+      "resubmission_allowed": "yes",
+      "resubmission_policy": "NEH states: “You may revise and resubmit previously rejected applications”.",
+      "submission_checked": "2026-09-18",
+      "eligibility_checked": "2026-09-18",
+      "notes_append": "Submission requirements, resubmission policy and applicant_of_record added 2026-09-18 from NEH's own NOFO. PROVENANCE: read from NEH's own NOFO and programme-announcement PDFs, supplied by the user. neh.gov refuses both a plain fetch and a rendering browser (F-014), so these four rows previously rested on the search index.",
+      "typical_award_size": "$60,000 ($5,000 per month for full-time work; prorated for part-time)",
+      "typical_duration": "Six to twelve months",
+      "award_checked": "2026-09-18",
+      "review_criteria_official": ""
+    },
+    {
+      "program_name": "NEH Public Scholars",
+      "applicant_of_record": "individual",
+      "applicant_of_record_note": "NEH's combined Notice of Funding Opportunity for Awards to Individuals states “Eligible Applicants: Individuals”, and the programme page instructs applicants to register a Grants.gov account and “add an ‘individual applicant’ profile”. This is one of the few federal routes where the person, not an institution, is the applicant of record — no sponsored-programs office is involved.",
+      "submission_requirements": "Required components: project narrative, work plan, bibliography and résumé — page limits and writing prompts are in each programme's own Program Announcement. NO BUDGET IS REQUIRED. Two letters of reference must be solicited by the applicant and submitted online by the date in the Program Announcement; names, emails and affiliations go on the NEH Supplemental Information for Individuals Form. NEH will not review incomplete, nonresponsive or ineligible applications, applications missing required documents, or “applications that exceed mandatory page limits or deviate from formatting instructions” — a hard, mechanical rejection. Funds are outright: not contingent on other sources. Award announcements come approximately 9-12 months after the deadline. NEH also publishes a Policy on the Use of Artificial Intelligence for NEH Grant Proposals, which applicants should read before drafting. Source: NEH, Notice of Funding Opportunity — Awards to Individuals (combined), published 2 March 2026, updated 1 April 2026; NEH reviews applications under this notice through 31 December 2028. Federal Assistance Listing 45.160.",
+      "resubmission_allowed": "yes",
+      "resubmission_policy": "NEH states: “You may revise and resubmit previously rejected applications”.",
+      "submission_checked": "2026-09-18",
+      "eligibility_checked": "2026-09-18",
+      "notes_append": "Submission requirements, resubmission policy and applicant_of_record added 2026-09-18 from NEH's own NOFO. PROVENANCE: read from NEH's own NOFO and programme-announcement PDFs, supplied by the user. neh.gov refuses both a plain fetch and a rendering browser (F-014), so these four rows previously rested on the search index.",
+      "typical_award_size": "Based on $5,000 per month for full-time work; see the programme announcement for the maximum",
+      "award_checked": "2026-09-18"
+    },
+    {
+      "program_name": "NEH Awards for Faculty at Historically Black Colleges and Universities",
+      "applicant_of_record": "individual",
+      "applicant_of_record_note": "NEH's combined Notice of Funding Opportunity for Awards to Individuals states “Eligible Applicants: Individuals”, and the programme page instructs applicants to register a Grants.gov account and “add an ‘individual applicant’ profile”. This is one of the few federal routes where the person, not an institution, is the applicant of record — no sponsored-programs office is involved.",
+      "submission_requirements": "Required components: project narrative, work plan, bibliography and résumé — page limits and writing prompts are in each programme's own Program Announcement. NO BUDGET IS REQUIRED. Two letters of reference must be solicited by the applicant and submitted online by the date in the Program Announcement; names, emails and affiliations go on the NEH Supplemental Information for Individuals Form. NEH will not review incomplete, nonresponsive or ineligible applications, applications missing required documents, or “applications that exceed mandatory page limits or deviate from formatting instructions” — a hard, mechanical rejection. Funds are outright: not contingent on other sources. Award announcements come approximately 9-12 months after the deadline. NEH also publishes a Policy on the Use of Artificial Intelligence for NEH Grant Proposals, which applicants should read before drafting. Source: NEH, Notice of Funding Opportunity — Awards to Individuals (combined), published 2 March 2026, updated 1 April 2026; NEH reviews applications under this notice through 31 December 2028. Federal Assistance Listing 45.160.",
+      "resubmission_allowed": "yes",
+      "resubmission_policy": "NEH states: “You may revise and resubmit previously rejected applications”.",
+      "submission_checked": "2026-09-18",
+      "eligibility_checked": "2026-09-18",
+      "notes_append": "Submission requirements, resubmission policy and applicant_of_record added 2026-09-18 from NEH's own NOFO. PROVENANCE: read from NEH's own NOFO and programme-announcement PDFs, supplied by the user. neh.gov refuses both a plain fetch and a rendering browser (F-014), so these four rows previously rested on the search index.",
+      "typical_award_size": "Based on $5,000 per month for full-time work; see the programme announcement for the maximum",
+      "award_checked": "2026-09-18"
+    }
+  ]
+}

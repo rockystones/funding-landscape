@@ -14,6 +14,11 @@ uses a CID font that the stdlib extractor cannot decode (the ACS one does).
 |---|---|---|
 | `acs-prf-application-components-fall-2026.pdf` | ACS PRF, "Grant Application Components", Fall 2026 | `acs.org` refuses both a plain fetch and a rendering browser (F-014). This is the corpus's first direct ACS source; the three PRF rows previously rested on the search index. |
 | `nifa-afri-project-and-grant-types-faq-2026-01.pdf` | USDA NIFA, "AFRI Project and Grant Types FAQ", January 2026 | Reached via a download prompt during a fetch. Federal guidance, public domain. |
+| `Individual NOFO combined_040126.pdf` | NEH, Notice of Funding Opportunity — Awards to Individuals (combined), pub. 2026-03-02, upd. 2026-04-01 | `neh.gov` refuses both a plain fetch and a rendering browser. Covers four NEH programmes at once. |
+| `Fellowships 2026 program announcement 040126.pdf` | NEH Fellowships Program Announcement, deadline 2026-04-22 | same |
+| `Fellowships.pdf` | NEH Fellowships programme page (print) | same — carries the $60,000 / $5,000-per-month figure and the list of published sample narratives |
+| `NEH.AI_.Policy-10.23.24.pdf` | NEH, Policy on the Use of Artificial Intelligence for NEH Grant Proposals | same |
+| `opportunity-*-attachments.zip` (10) | Grants.gov attachment bundles for NIH NOFOs | **Nine are meta-refresh stubs, not documents** — they redirect to `grants.nih.gov/grants/guide/pa-files/<NOFO>.html`, which turns out to be directly fetchable, so these are not needed. Only `PA-27-037` carries a real 182KB announcement. |
 
 ## What they gave the corpus
 
@@ -36,3 +41,23 @@ pre- and post-doctoral fellowships, which is a real denominator for a row whose
 It also named AFRI grant types the corpus does not carry — New Investigator
 (Standard and Seed) and the Strengthening family (Seed, Sabbatical, Equipment,
 Standard, CAP, Workshop). Logged as P2 step 2 candidates.
+
+
+## Method note, 2026-09-18 — what does NOT need fetching by hand
+
+Two routes were found to be open, which removes most of the reason to download
+anything manually:
+
+- **`grants.nih.gov/grants/guide/pa-files/<NOFO>.html`** returns the complete NIH
+  announcement to a plain fetch. Tested on PA-24-194 (K99/R00): resubmission rule,
+  standard due dates, required mentor and reference letters, and the
+  applicant-organisation-versus-PD/PI structure all came back in one request. The
+  nine stub ZIPs above exist only because Grants.gov wraps that same URL in a
+  redirect.
+- **`simpler.grants.gov`** serves both single opportunities
+  (`/opportunity/<uuid>`) and **search** (`/search?query=…`) with results in the
+  HTML, giving NOFO number, agency, post/close/archive dates and the eligible-
+  applicant list. This is the route to the calendar layer for every federal row.
+
+What still needs a human: `neh.gov`, `acs.org`, and anything behind a login or a
+cookie wall a rendering browser cannot clear.
